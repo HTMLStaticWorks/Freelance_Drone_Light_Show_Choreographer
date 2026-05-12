@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Details | AeroLumina</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="relative text-white antialiased bg-[#020205]">
+
+    <header id="header" class="fixed w-full top-0 z-50 transition-all duration-300 glass-panel py-4">
+        <!-- Reusable header minimal version for brevity -->
+        <div class="container mx-auto px-6 lg:px-12 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold tracking-wider flex items-center gap-2">
+                <i class='bx bx-hive text-[#00f0ff]'></i> Aero<span class="text-gradient">Lumina</span>
+            </a>
+            <nav class="hidden md:flex gap-8 items-center text-sm uppercase tracking-wide font-medium">
+                <a href="index.html" class="hover:text-[#00f0ff]">Home</a>
+                <a href="blog.html" class="text-[#00f0ff]">Journal</a>
+                <a href="contact.html" class="hover:text-[#00f0ff]">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 1. Hero Article Banner -->
+    <section class="pt-24 pb-12 relative border-b border-white/5">
+        <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1579820010410-c10411aaaa88?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80')] bg-cover bg-center opacity-20 mask-image:linear-gradient(to_bottom,black,transparent) -z-10"></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent to-[#020205] -z-10"></div>
+        
+        <div class="container mx-auto px-6 text-center max-w-4xl reveal">
+            <div class="inline-block px-3 py-1 bg-[#00f0ff]/20 text-[#00f0ff] rounded text-sm font-bold mb-6">Technology</div>
+            <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight">The Evolution of RTK GPS in Swarm Robotics</h1>
+            <div class="flex items-center justify-center gap-6 text-sm text-gray-400">
+                <span class="flex items-center gap-2"><div class="w-8 h-8 rounded-full bg-gray-700"></div> David Chen</span>
+                <span class="flex items-center gap-1"><i class='bx bx-calendar'></i> Oct 12, 2026</span>
+                <span class="flex items-center gap-1"><i class='bx bx-time'></i> 5 min read</span>
+            </div>
+        </div>
+    </section>
+
+    <main class="py-12">
+        <div class="container mx-auto px-6 grid grid-cols-1 lg:grid-cols-4 gap-12">
+            
+            <!-- Main Content Area -->
+            <div class="lg:col-span-3">
+                <!-- 2. Full Blog Content -->
+                <article class="prose prose-invert prose-lg max-w-none text-gray-300 reveal mb-16">
+                    <p class="lead text-xl text-white font-medium mb-8">In the early days of drone light shows, standard GPS provided positioning accuracy within a few meters. Today, Real-Time Kinematic (RTK) GPS has reduced that margin of error to mere centimeters.</p>
+                    
+                    <h2 class="text-2xl font-bold text-white mt-8 mb-4">Why Accuracy Matters</h2>
+                    <p class="mb-6">When you are flying 1,000 drones in close proximity, a gust of wind or a momentary GPS glitch could lead to a cascading collision. By utilizing a ground-based RTK base station that communicates corrections to the fleet in real-time, we maintain an absolute lock on each drone's position.</p>
+                    
+                    <div class="my-10 rounded-2xl overflow-hidden glass-panel border border-white/10 p-2">
+                        <img src="https://images.unsplash.com/photo-1534447677768-be436bb09401?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="RTK Base Station" class="w-full h-auto rounded-xl grayscale hover:grayscale-0 transition duration-500">
+                        <p class="text-center text-sm text-gray-500 mt-3">Our proprietary mobile RTK base station deployed at a launch site.</p>
+                    </div>
+
+                    <h2 class="text-2xl font-bold text-white mt-8 mb-4">Unlocking Complex Geometries</h2>
+                    <p class="mb-6">This pinpoint accuracy isn't just about safety; it's about art. RTK allows us to decrease the spacing between drones. Instead of a 3-meter safety bubble, we can safely operate with a 1.5-meter bubble. This denser spacing allows for much higher resolution "pixels" in the sky, making complex 3D logos and readable text possible.</p>
+                    
+                    <blockquote class="border-l-4 border-[#00f0ff] pl-6 my-8 text-xl italic text-white/90">
+                        "RTK didn't just make drone shows safer; it fundamentally upgraded the resolution of the sky."
+                    </blockquote>
+                    
+                    <p>As we look to the future, the integration of visual odometry alongside RTK will allow for indoor swarms and flights in GPS-denied environments like deep urban canyons.</p>
+                </article>
+
+                <!-- 4. Comments Section -->
+                <section class="border-t border-white/10 pt-12 reveal">
+                    <h3 class="text-2xl font-bold mb-8">Discussion (2)</h3>
+                    
+                    <div class="space-y-8 mb-12">
+                        <!-- Comment 1 -->
+                        <div class="flex gap-4">
+                            <div class="w-12 h-12 rounded-full bg-gray-800 shrink-0 flex items-center justify-center text-[#8a2be2] font-bold">JD</div>
+                            <div>
+                                <div class="flex items-baseline gap-3 mb-1">
+                                    <h4 class="font-bold">John Doe</h4>
+                                    <span class="text-xs text-gray-500">Oct 13, 2026</span>
+                                </div>
+                                <p class="text-gray-400 text-sm">Fascinating read. How does RTK handle severe solar storms or ionospheric interference?</p>
+                                <button class="text-xs text-[#00f0ff] mt-2 font-bold uppercase tracking-wider">Reply</button>
+                            </div>
+                        </div>
+                        <!-- Comment 2 -->
+                        <div class="flex gap-4 ml-12">
+                            <div class="w-12 h-12 rounded-full bg-gray-700 shrink-0 flex items-center justify-center text-[#00f0ff] font-bold">DC</div>
+                            <div>
+                                <div class="flex items-baseline gap-3 mb-1">
+                                    <h4 class="font-bold">David Chen <span class="bg-[#00f0ff]/20 text-[#00f0ff] text-[10px] px-2 py-0.5 rounded ml-2">Author</span></h4>
+                                    <span class="text-xs text-gray-500">Oct 14, 2026</span>
+                                </div>
+                                <p class="text-gray-400 text-sm">Great question John. We monitor space weather forecasts continuously. If the Kp index is too high, we rely on secondary IMU/optical flow systems to maintain relative positioning and safely land the fleet.</p>
+                                <button class="text-xs text-[#00f0ff] mt-2 font-bold uppercase tracking-wider">Reply</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Leave Comment Form -->
+                    <div class="glass-panel p-6 rounded-2xl border border-white/5">
+                        <h4 class="font-bold mb-4">Leave a Reply</h4>
+                        <form class="space-y-4">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <input type="text" placeholder="Name" class="w-full bg-black/50 border border-white/10 rounded px-4 py-3 text-sm focus:outline-none focus:border-[#00f0ff]">
+                                <input type="email" placeholder="Email" class="w-full bg-black/50 border border-white/10 rounded px-4 py-3 text-sm focus:outline-none focus:border-[#00f0ff]">
+                            </div>
+                            <textarea placeholder="Your comment..." rows="4" class="w-full bg-black/50 border border-white/10 rounded px-4 py-3 text-sm focus:outline-none focus:border-[#00f0ff] resize-none"></textarea>
+                            <button type="submit" class="btn-primary text-sm">Post Comment</button>
+                        </form>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Sidebar -->
+            <div class="lg:col-span-1 space-y-8 reveal">
+                <!-- 3. Related Articles Sidebar -->
+                <div class="glass-panel p-6 rounded-2xl border border-white/5 sticky top-24">
+                    <h4 class="font-bold mb-6 text-lg border-b border-white/10 pb-2">Related Reads</h4>
+                    <div class="space-y-6">
+                        <a href="#" class="block group">
+                            <h5 class="text-sm font-bold text-gray-300 group-hover:text-[#00f0ff] transition mb-1">Color Theory in the Night Sky</h5>
+                            <p class="text-xs text-gray-500">Oct 05, 2026</p>
+                        </a>
+                        <a href="#" class="block group">
+                            <h5 class="text-sm font-bold text-gray-300 group-hover:text-[#8a2be2] transition mb-1">Behind the Scenes: The SuperBowl Halftime Show</h5>
+                            <p class="text-xs text-gray-500">Sep 28, 2026</p>
+                        </a>
+                        <a href="#" class="block group">
+                            <h5 class="text-sm font-bold text-gray-300 group-hover:text-[#ff00ff] transition mb-1">Battery Tech: Pushing Past the 15-Minute Mark</h5>
+                            <p class="text-xs text-gray-500">Sep 10, 2026</p>
+                        </a>
+                    </div>
+                    
+                    <div class="mt-8 pt-6 border-t border-white/10">
+                         <h4 class="font-bold mb-4 text-sm uppercase tracking-wider text-gray-500">Tags</h4>
+                         <div class="flex flex-wrap gap-2">
+                             <span class="bg-white/5 hover:bg-white/10 transition px-3 py-1 rounded text-xs cursor-pointer">Engineering</span>
+                             <span class="bg-white/5 hover:bg-white/10 transition px-3 py-1 rounded text-xs cursor-pointer">GPS</span>
+                             <span class="bg-white/5 hover:bg-white/10 transition px-3 py-1 rounded text-xs cursor-pointer">Safety</span>
+                         </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/animations.js"></script>
+</body>
+</html>

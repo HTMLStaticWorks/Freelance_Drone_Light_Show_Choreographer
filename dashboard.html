@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | AeroLumina</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- Chart.js for Analytics -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="text-white antialiased bg-[#020205] flex h-screen overflow-hidden">
+
+    <!-- Sidebar Menu -->
+    <aside class="w-64 glass-panel border-r border-white/5 flex flex-col justify-between h-full relative z-20">
+        <div>
+            <div class="h-20 flex items-center px-8 border-b border-white/5">
+                <a href="index.html" class="text-xl font-bold tracking-wider flex items-center gap-2">
+                    <i class='bx bx-hive text-[#00f0ff]'></i> Aero<span class="text-gradient">Lumina</span>
+                </a>
+            </div>
+            <nav class="p-4 space-y-2 mt-4 text-sm font-medium text-gray-400">
+                <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-lg bg-white/5 text-[#00f0ff]"><i class='bx bx-grid-alt text-lg'></i> Overview</a>
+                <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/5 hover:text-white transition"><i class='bx bx-briefcase text-lg'></i> Projects</a>
+                <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/5 hover:text-white transition">
+                    <i class='bx bx-envelope text-lg'></i> Messages
+                    <span class="ml-auto bg-[#8a2be2] text-white text-[10px] px-2 py-0.5 rounded-full">3</span>
+                </a>
+                <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/5 hover:text-white transition"><i class='bx bx-user text-lg'></i> Users</a>
+                <div class="pt-4 mt-4 border-t border-white/5">
+                    <span class="px-4 text-xs font-bold uppercase tracking-wider text-gray-600 mb-2 block">Files & Assets</span>
+                    <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/5 hover:text-white transition"><i class='bx bx-map-alt text-lg'></i> Venue Constraints</a>
+                    <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/5 hover:text-white transition"><i class='bx bx-play-circle text-lg'></i> Sequence Approvals</a>
+                    <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/5 hover:text-white transition"><i class='bx bx-download text-lg'></i> Show Files</a>
+                </div>
+            </nav>
+        </div>
+        <div class="p-4 border-t border-white/5">
+            <div class="flex items-center gap-3 px-4 py-3">
+                <div class="w-8 h-8 rounded-full bg-gray-700 flex items-center justify-center text-xs font-bold text-[#00f0ff]">AD</div>
+                <div>
+                    <p class="text-sm font-bold text-white">Admin User</p>
+                    <a href="auth.html" class="text-xs text-gray-500 hover:text-[#ff00ff] transition">Logout</a>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="flex-1 overflow-y-auto relative h-full">
+        <!-- Minimal header for main area -->
+        <header class="h-20 flex items-center justify-between px-8 border-b border-white/5 sticky top-0 bg-[#020205]/80 backdrop-blur-md z-10">
+            <h2 class="text-xl font-bold">Dashboard Overview</h2>
+            <div class="flex items-center gap-4">
+                <button class="w-10 h-10 rounded-full glass-panel flex items-center justify-center hover:text-[#00f0ff] transition relative">
+                    <i class='bx bx-bell text-xl'></i>
+                    <span class="absolute top-2 right-2 w-2 h-2 bg-[#ff00ff] rounded-full"></span>
+                </button>
+            </div>
+        </header>
+
+        <div class="p-8">
+            
+            <!-- Analytics Overview (Top Cards) -->
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+                <div class="glass-card p-6 rounded-2xl border border-white/5">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="w-10 h-10 rounded-lg bg-[#00f0ff]/10 flex items-center justify-center text-[#00f0ff]"><i class='bx bx-rocket text-xl'></i></div>
+                        <span class="text-xs font-bold text-green-400 bg-green-400/10 px-2 py-1 rounded">+12%</span>
+                    </div>
+                    <p class="text-gray-400 text-sm mb-1">Active Projects</p>
+                    <h3 class="text-3xl font-bold">24</h3>
+                </div>
+                <div class="glass-card p-6 rounded-2xl border border-white/5">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="w-10 h-10 rounded-lg bg-[#8a2be2]/10 flex items-center justify-center text-[#8a2be2]"><i class='bx bx-hive text-xl'></i></div>
+                        <span class="text-xs font-bold text-gray-400 bg-gray-400/10 px-2 py-1 rounded">Fleet</span>
+                    </div>
+                    <p class="text-gray-400 text-sm mb-1">Drones Available</p>
+                    <h3 class="text-3xl font-bold">4,850</h3>
+                </div>
+                <div class="glass-card p-6 rounded-2xl border border-white/5">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="w-10 h-10 rounded-lg bg-[#ff00ff]/10 flex items-center justify-center text-[#ff00ff]"><i class='bx bx-dollar text-xl'></i></div>
+                        <span class="text-xs font-bold text-green-400 bg-green-400/10 px-2 py-1 rounded">+5%</span>
+                    </div>
+                    <p class="text-gray-400 text-sm mb-1">Monthly Revenue</p>
+                    <h3 class="text-3xl font-bold">$1.2M</h3>
+                </div>
+                <div class="glass-card p-6 rounded-2xl border border-white/5">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="w-10 h-10 rounded-lg bg-yellow-500/10 flex items-center justify-center text-yellow-500"><i class='bx bx-file text-xl'></i></div>
+                        <span class="text-xs font-bold text-red-400 bg-red-400/10 px-2 py-1 rounded">Action Needed</span>
+                    </div>
+                    <p class="text-gray-400 text-sm mb-1">Pending Approvals</p>
+                    <h3 class="text-3xl font-bold">7</h3>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                
+                <!-- Analytics Chart -->
+                <div class="lg:col-span-2 glass-card p-6 rounded-2xl border border-white/5">
+                    <div class="flex justify-between items-center mb-6">
+                        <h3 class="font-bold">Show Requests (YTD)</h3>
+                        <select class="bg-black/50 border border-white/10 rounded px-2 py-1 text-xs text-gray-400 outline-none">
+                            <option>This Year</option>
+                            <option>Last Year</option>
+                        </select>
+                    </div>
+                    <div class="h-64 w-full">
+                        <canvas id="revenueChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Recent Messages & Notifications -->
+                <div class="glass-card p-6 rounded-2xl border border-white/5">
+                    <h3 class="font-bold mb-6">Recent Messages</h3>
+                    <div class="space-y-4">
+                        <div class="flex gap-3 border-b border-white/5 pb-4">
+                            <div class="w-8 h-8 rounded-full bg-gray-800 shrink-0 mt-1 flex items-center justify-center text-xs text-[#00f0ff]">EL</div>
+                            <div>
+                                <h4 class="text-sm font-bold text-white">Event Logistics Inc.</h4>
+                                <p class="text-xs text-gray-400 line-clamp-1 mb-1">We need to upload the updated CAD files for the stadium...</p>
+                                <span class="text-[10px] text-gray-500">2 mins ago</span>
+                            </div>
+                        </div>
+                        <div class="flex gap-3 border-b border-white/5 pb-4">
+                            <div class="w-8 h-8 rounded-full bg-gray-800 shrink-0 mt-1 flex items-center justify-center text-xs text-[#8a2be2]">NC</div>
+                            <div>
+                                <h4 class="text-sm font-bold text-white">Neon City Festival</h4>
+                                <p class="text-xs text-gray-400 line-clamp-1 mb-1">The sequence approval looks great, ready to sign off.</p>
+                                <span class="text-[10px] text-gray-500">1 hour ago</span>
+                            </div>
+                        </div>
+                        <div class="flex gap-3">
+                            <div class="w-8 h-8 rounded-full bg-gray-800 shrink-0 mt-1 flex items-center justify-center text-xs text-gray-400"><i class='bx bx-bell'></i></div>
+                            <div>
+                                <h4 class="text-sm font-bold text-white">System Alert</h4>
+                                <p class="text-xs text-gray-400 line-clamp-1 mb-1">FAA Waiver #8892 approved for Miami Show.</p>
+                                <span class="text-[10px] text-gray-500">Yesterday</span>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="w-full mt-4 text-xs text-[#00f0ff] font-bold">View All Notifications</button>
+                </div>
+
+                <!-- Orders / Projects Management -->
+                <div class="lg:col-span-3 glass-card p-6 rounded-2xl border border-white/5 mt-4">
+                    <div class="flex justify-between items-center mb-6">
+                        <h3 class="font-bold">Active Projects Pipeline</h3>
+                        <button class="bg-[#00f0ff]/10 text-[#00f0ff] px-3 py-1 rounded text-xs font-bold hover:bg-[#00f0ff]/20 transition"><i class='bx bx-plus'></i> New Project</button>
+                    </div>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left text-sm">
+                            <thead>
+                                <tr class="text-gray-500 border-b border-white/5">
+                                    <th class="pb-3 font-medium">Project Name</th>
+                                    <th class="pb-3 font-medium">Client</th>
+                                    <th class="pb-3 font-medium">Drones</th>
+                                    <th class="pb-3 font-medium">Event Date</th>
+                                    <th class="pb-3 font-medium">Status</th>
+                                    <th class="pb-3 font-medium text-right">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="border-b border-white/5 hover:bg-white/[0.02] transition">
+                                    <td class="py-4 font-bold text-white">Miami NYE Spectacular</td>
+                                    <td class="py-4 text-gray-400">City of Miami</td>
+                                    <td class="py-4 text-gray-300">1,000</td>
+                                    <td class="py-4 text-gray-400">Dec 31, 2026</td>
+                                    <td class="py-4"><span class="bg-yellow-500/20 text-yellow-500 px-2 py-1 rounded-full text-xs font-bold">Sequence Review</span></td>
+                                    <td class="py-4 text-right"><button class="text-gray-400 hover:text-white"><i class='bx bx-dots-vertical-rounded'></i></button></td>
+                                </tr>
+                                <tr class="border-b border-white/5 hover:bg-white/[0.02] transition">
+                                    <td class="py-4 font-bold text-white">TechCorp Annual Gala</td>
+                                    <td class="py-4 text-gray-400">TechCorp Inc.</td>
+                                    <td class="py-4 text-gray-300">500</td>
+                                    <td class="py-4 text-gray-400">Nov 15, 2026</td>
+                                    <td class="py-4"><span class="bg-blue-500/20 text-blue-400 px-2 py-1 rounded-full text-xs font-bold">FAA Processing</span></td>
+                                    <td class="py-4 text-right"><button class="text-gray-400 hover:text-white"><i class='bx bx-dots-vertical-rounded'></i></button></td>
+                                </tr>
+                                <tr class="border-b border-white/5 hover:bg-white/[0.02] transition">
+                                    <td class="py-4 font-bold text-white">NeonFest Mainstage</td>
+                                    <td class="py-4 text-gray-400">Event Logistics</td>
+                                    <td class="py-4 text-gray-300">2,500</td>
+                                    <td class="py-4 text-gray-400">Oct 28, 2026</td>
+                                    <td class="py-4"><span class="bg-green-500/20 text-green-400 px-2 py-1 rounded-full text-xs font-bold">Ready to Fly</span></td>
+                                    <td class="py-4 text-right"><button class="text-gray-400 hover:text-white"><i class='bx bx-dots-vertical-rounded'></i></button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Simple Chart Initialization
+        document.addEventListener('DOMContentLoaded', function() {
+            const ctx = document.getElementById('revenueChart').getContext('2d');
+            const gradient = ctx.createLinearGradient(0, 0, 0, 300);
+            gradient.addColorStop(0, 'rgba(0, 240, 255, 0.5)');
+            gradient.addColorStop(1, 'rgba(0, 240, 255, 0.0)');
+
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct'],
+                    datasets: [{
+                        label: 'Shows Booked',
+                        data: [2, 3, 5, 4, 8, 12, 10, 15, 14, 18],
+                        borderColor: '#00f0ff',
+                        backgroundColor: gradient,
+                        borderWidth: 2,
+                        fill: true,
+                        tension: 0.4,
+                        pointBackgroundColor: '#020205',
+                        pointBorderColor: '#00f0ff',
+                        pointBorderWidth: 2,
+                        pointRadius: 4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            grid: { color: 'rgba(255, 255, 255, 0.05)', drawBorder: false },
+                            ticks: { color: 'rgba(255, 255, 255, 0.5)' }
+                        },
+                        x: {
+                            grid: { display: false, drawBorder: false },
+                            ticks: { color: 'rgba(255, 255, 255, 0.5)' }
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

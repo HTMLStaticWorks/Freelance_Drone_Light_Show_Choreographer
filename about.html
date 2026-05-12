@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | AeroLumina Drone Shows</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="relative text-white antialiased">
+    
+    <!-- Using a simpler static canvas overlay for inner pages to save performance -->
+    <div class="fixed inset-0 bg-[#020205] -z-20"></div>
+    <div class="fixed inset-0 bg-[url('https://images.unsplash.com/photo-1534447677768-be436bb09401?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80')] bg-cover bg-center opacity-10 -z-10 mix-blend-overlay"></div>
+
+    <!-- Header Navigation -->
+    <header id="header" class="fixed w-full top-0 z-50 transition-all duration-300 bg-transparent py-4">
+        <div class="container mx-auto px-6 lg:px-12 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold tracking-wider flex items-center gap-2">
+                <i class='bx bx-hive text-[#00f0ff]'></i> Aero<span class="text-gradient">Lumina</span>
+            </a>
+            
+            <nav class="hidden md:flex gap-8 items-center text-sm uppercase tracking-wide font-medium">
+                <a href="index.html" class="hover:text-[#00f0ff] transition-colors">Home</a>
+                <a href="about.html" class="text-[#00f0ff] transition-colors">About</a>
+                <a href="services.html" class="hover:text-[#00f0ff] transition-colors">Services</a>
+                <a href="pricing.html" class="hover:text-[#00f0ff] transition-colors">Pricing</a>
+                <a href="contact.html" class="hover:text-[#00f0ff] transition-colors">Contact</a>
+            </nav>
+
+            <button id="mobile-menu-btn" class="md:hidden text-3xl">
+                <i class='bx bx-menu'></i>
+            </button>
+        </div>
+        
+        <div id="mobile-menu" class="hidden absolute top-full left-0 w-full glass-panel py-4 flex flex-col items-center gap-4 border-t border-white/10">
+            <a href="index.html">Home</a>
+            <a href="about.html" class="text-[#00f0ff]">About</a>
+            <a href="services.html">Services</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </header>
+
+    <main class="pt-32">
+        <!-- 1. Company Story -->
+        <section class="py-16 md:py-24 relative z-10">
+            <div class="container mx-auto px-6">
+                <div class="text-center max-w-3xl mx-auto reveal mb-16">
+                    <h1 class="text-5xl md:text-7xl font-bold mb-6">Our <span class="text-gradient">Story</span></h1>
+                    <p class="text-gray-400 text-lg">From aerospace engineers to sky artists, we founded AeroLumina to merge technological precision with emotional storytelling.</p>
+                </div>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div class="glass-card rounded-3xl overflow-hidden aspect-video reveal">
+                        <img src="https://images.unsplash.com/photo-1581092335397-9583eb92d232?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Engineers working on drones" class="w-full h-full object-cover opacity-80 mix-blend-luminosity hover:mix-blend-normal transition-all duration-500">
+                    </div>
+                    <div class="reveal">
+                        <h3 class="text-3xl font-bold mb-6 text-[#00f0ff]">Pioneering Aerial Robotics</h3>
+                        <p class="text-gray-300 mb-4 leading-relaxed">AeroLumina was established in 2021 by a collective of former aerospace engineers and 3D animators. We recognized a gap in the entertainment industry: the sky was an underutilized canvas.</p>
+                        <p class="text-gray-300 leading-relaxed">What started with a fleet of 50 customized drones has now expanded to a proprietary arsenal of over 5,000 aircraft, capable of executing complex geometries, brand logos, and dynamic storytelling sequences synchronized to music and pyrotechnics.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. Mission & Vision -->
+        <section class="py-24 bg-black/50 border-y border-white/5 relative z-10">
+            <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div class="glass-card p-12 rounded-3xl relative overflow-hidden group reveal">
+                    <div class="absolute -right-10 -top-10 w-40 h-40 bg-[#00f0ff]/20 blur-3xl rounded-full group-hover:bg-[#00f0ff]/40 transition duration-500"></div>
+                    <i class='bx bx-target-lock text-6xl text-[#00f0ff] mb-6 block'></i>
+                    <h2 class="text-3xl font-bold mb-4">Our Mission</h2>
+                    <p class="text-gray-400">To revolutionize live entertainment by providing accessible, sustainable, and awe-inspiring drone choreography that elevates how humanity celebrates.</p>
+                </div>
+                
+                <div class="glass-card p-12 rounded-3xl relative overflow-hidden group reveal" style="transition-delay: 100ms;">
+                    <div class="absolute -right-10 -top-10 w-40 h-40 bg-[#8a2be2]/20 blur-3xl rounded-full group-hover:bg-[#8a2be2]/40 transition duration-500"></div>
+                    <i class='bx bx-globe text-6xl text-[#8a2be2] mb-6 block'></i>
+                    <h2 class="text-3xl font-bold mb-4">Our Vision</h2>
+                    <p class="text-gray-400">To become the global standard for nighttime aerial displays, eventually replacing traditional pyrotechnics with zero-emission, infinitely reusable smart drone swarms.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Team Members -->
+        <section class="py-24 relative z-10">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16 reveal">
+                    <h2 class="text-4xl md:text-5xl font-bold mb-4">The <span class="text-gradient">Architects</span></h2>
+                    <p class="text-gray-400">Meet the minds orchestrating the sky.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Team 1 -->
+                    <div class="glass-card rounded-2xl overflow-hidden reveal group">
+                        <div class="aspect-square relative overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="CEO" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-500 group-hover:scale-105">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+                            <div class="absolute bottom-4 left-4 right-4 flex justify-between items-end">
+                                <div>
+                                    <h4 class="font-bold text-xl">David Chen</h4>
+                                    <p class="text-[#00f0ff] text-sm">Founder & CEO</p>
+                                </div>
+                                <div class="flex gap-2">
+                                    <a href="#" class="text-white hover:text-[#00f0ff]"><i class='bx bxl-linkedin-square text-2xl'></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Team 2 -->
+                    <div class="glass-card rounded-2xl overflow-hidden reveal group" style="transition-delay: 100ms;">
+                        <div class="aspect-square relative overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Lead Choreographer" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-500 group-hover:scale-105">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+                            <div class="absolute bottom-4 left-4 right-4 flex justify-between items-end">
+                                <div>
+                                    <h4 class="font-bold text-xl">Sarah Vance</h4>
+                                    <p class="text-[#8a2be2] text-sm">Lead Choreographer</p>
+                                </div>
+                                <div class="flex gap-2">
+                                    <a href="#" class="text-white hover:text-[#8a2be2]"><i class='bx bxl-linkedin-square text-2xl'></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Team 3 -->
+                    <div class="glass-card rounded-2xl overflow-hidden reveal group" style="transition-delay: 200ms;">
+                        <div class="aspect-square relative overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Head of Logistics" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-500 group-hover:scale-105">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+                            <div class="absolute bottom-4 left-4 right-4 flex justify-between items-end">
+                                <div>
+                                    <h4 class="font-bold text-xl">Marcus Cole</h4>
+                                    <p class="text-[#ff00ff] text-sm">Head of Fleet Ops</p>
+                                </div>
+                                <div class="flex gap-2">
+                                    <a href="#" class="text-white hover:text-[#ff00ff]"><i class='bx bxl-linkedin-square text-2xl'></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Client Testimonials -->
+        <section class="py-24 bg-[#0a0a0d] relative z-10 border-t border-white/5">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16 reveal">
+                    <h2 class="text-4xl md:text-5xl font-bold mb-4">Trusted By <span class="text-gradient">Innovators</span></h2>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 reveal">
+                    <div class="glass-card p-8 rounded-2xl">
+                        <div class="flex items-center gap-2 mb-4 text-[#00f0ff]">
+                            <i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i>
+                        </div>
+                        <p class="text-gray-300 italic mb-6">"The AeroLumina team operates with military precision but artistic souls. Their drone display for our product launch went viral globally."</p>
+                        <h4 class="font-bold">- Jessica T., CMO at NextGen Tech</h4>
+                    </div>
+                    <div class="glass-card p-8 rounded-2xl">
+                        <div class="flex items-center gap-2 mb-4 text-[#8a2be2]">
+                            <i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i>
+                        </div>
+                        <p class="text-gray-300 italic mb-6">"As an event producer, finding a partner who handles all FAA regulations seamlessly while delivering mind-blowing visuals is rare."</p>
+                        <h4 class="font-bold">- Robert H., Event Producer</h4>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-[#020205] border-t border-white/5 pt-16 pb-8 relative z-10">
+        <!-- Reusable footer content omitted for brevity in code snippet, but identical layout to home -->
+        <div class="container mx-auto px-6 text-center text-xs text-gray-600">
+             <p>&copy; 2026 AeroLumina. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/animations.js"></script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coming Soon | AeroLumina</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="relative text-white antialiased bg-[#020205] h-screen overflow-hidden flex flex-col">
+
+    <div id="canvas-container"></div>
+    <div class="absolute inset-0 bg-gradient-to-t from-[#020205] via-[#020205]/50 to-transparent pointer-events-none z-0"></div>
+
+    <header class="p-8 relative z-10 text-center md:text-left">
+        <a href="index.html" class="text-3xl font-bold tracking-wider inline-flex items-center gap-2">
+            <i class='bx bx-hive text-[#00f0ff]'></i> Aero<span class="text-gradient">Lumina</span>
+        </a>
+    </header>
+
+    <main class="flex-1 flex flex-col items-center justify-center p-6 relative z-10 text-center">
+        <div class="inline-block px-4 py-1 border border-[#00f0ff] text-[#00f0ff] rounded-full text-xs font-bold uppercase tracking-widest mb-6 glass-panel">
+            V 2.0 Fleet Deployment
+        </div>
+        
+        <h1 class="text-5xl md:text-8xl font-bold mb-6 tracking-tight">The Sky is <span class="text-gradient">Upgrading</span></h1>
+        <p class="text-gray-400 text-lg mb-12 max-w-xl mx-auto">We are re-engineering our choreography engine and expanding our fleet. The next generation of aerial entertainment launches in:</p>
+        
+        <!-- Countdown Timer -->
+        <div class="flex justify-center gap-4 md:gap-8 mb-16">
+            <div class="glass-card w-20 h-24 md:w-32 md:h-32 flex flex-col items-center justify-center rounded-2xl border border-white/10 shadow-[0_0_20px_rgba(0,240,255,0.1)]">
+                <span class="text-3xl md:text-6xl font-bold text-white">45</span>
+                <span class="text-xs md:text-sm text-gray-500 uppercase tracking-widest mt-1">Days</span>
+            </div>
+            <div class="glass-card w-20 h-24 md:w-32 md:h-32 flex flex-col items-center justify-center rounded-2xl border border-white/10 shadow-[0_0_20px_rgba(0,240,255,0.1)]">
+                <span class="text-3xl md:text-6xl font-bold text-white">12</span>
+                <span class="text-xs md:text-sm text-gray-500 uppercase tracking-widest mt-1">Hours</span>
+            </div>
+            <div class="glass-card w-20 h-24 md:w-32 md:h-32 flex flex-col items-center justify-center rounded-2xl border border-white/10 shadow-[0_0_20px_rgba(0,240,255,0.1)]">
+                <span class="text-3xl md:text-6xl font-bold text-white">30</span>
+                <span class="text-xs md:text-sm text-gray-500 uppercase tracking-widest mt-1">Mins</span>
+            </div>
+            <div class="glass-card w-20 h-24 md:w-32 md:h-32 flex flex-col items-center justify-center rounded-2xl border border-white/10 shadow-[0_0_20px_rgba(0,240,255,0.1)]">
+                <span class="text-3xl md:text-6xl font-bold text-[#00f0ff] animate-pulse">00</span>
+                <span class="text-xs md:text-sm text-gray-500 uppercase tracking-widest mt-1">Secs</span>
+            </div>
+        </div>
+
+        <!-- Email Subscription -->
+        <div class="max-w-md mx-auto w-full">
+            <p class="text-sm text-gray-400 mb-4">Be the first to know when we launch.</p>
+            <form class="flex w-full relative group">
+                <input type="email" placeholder="Enter your email address" class="w-full bg-black/50 glass-panel border border-white/20 rounded-full px-6 py-4 text-sm focus:outline-none focus:border-[#00f0ff] transition pr-32">
+                <button type="submit" class="absolute right-1 top-1 bottom-1 bg-gradient-to-r from-[#00f0ff] to-[#8a2be2] text-white px-6 rounded-full font-bold hover:shadow-[0_0_15px_rgba(0,240,255,0.5)] transition">Notify Me</button>
+            </form>
+        </div>
+    </main>
+
+    <footer class="p-8 relative z-10 text-center text-xs text-gray-600 flex flex-col md:flex-row justify-between items-center gap-4">
+        <p>&copy; 2026 AeroLumina. All rights reserved.</p>
+        <div class="flex gap-4 text-lg">
+            <a href="#" class="hover:text-[#00f0ff] transition"><i class='bx bxl-instagram'></i></a>
+            <a href="#" class="hover:text-[#00f0ff] transition"><i class='bx bxl-twitter'></i></a>
+            <a href="#" class="hover:text-[#00f0ff] transition"><i class='bx bxl-youtube'></i></a>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="assets/js/three-bg.js"></script>
+</body>
+</html>

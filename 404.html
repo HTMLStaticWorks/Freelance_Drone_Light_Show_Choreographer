@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 | AeroLumina</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        .glitch-text {
+            animation: glitch 1s linear infinite;
+        }
+        @keyframes glitch {
+            2%, 64% { transform: translate(2px, 0) skew(0deg); }
+            4%, 60% { transform: translate(-2px, 0) skew(0deg); }
+            62% { transform: translate(0, 0) skew(5deg); }
+        }
+    </style>
+</head>
+<body class="relative text-white antialiased bg-[#020205] h-screen overflow-hidden flex flex-col items-center justify-center text-center">
+
+    <div id="canvas-container" class="opacity-50"></div>
+
+    <div class="relative z-10 p-6">
+        <h1 class="text-8xl md:text-[150px] font-bold text-transparent bg-clip-text bg-gradient-to-b from-white to-gray-800 mb-4 glitch-text" style="line-height: 1;">404</h1>
+        <div class="inline-block px-4 py-1 border border-[#ff00ff] text-[#ff00ff] rounded-full text-xs font-bold uppercase tracking-widest mb-6 bg-[#ff00ff]/10">
+            Signal Lost
+        </div>
+        <h2 class="text-3xl md:text-5xl font-bold mb-6">Formation <span class="text-[#8a2be2]">Incomplete</span></h2>
+        <p class="text-gray-400 mb-10 max-w-md mx-auto">The drone you are looking for has strayed from the flight path. Let's get you back to the main formation.</p>
+        
+        <a href="index.html" class="btn-primary inline-flex items-center gap-2">
+            <i class='bx bx-home-alt'></i> Return to Base
+        </a>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="assets/js/three-bg.js"></script>
+</body>
+</html>
