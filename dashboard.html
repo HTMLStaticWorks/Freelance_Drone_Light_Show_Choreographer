@@ -37,6 +37,9 @@
                     <a href="#" data-tab="approvals" class="tab-link flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/5 hover:text-white transition"><i class='bx bx-play-circle text-lg'></i> Sequence Approvals</a>
                     <a href="#" data-tab="files" class="tab-link flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/5 hover:text-white transition"><i class='bx bx-download text-lg'></i> Show Files</a>
                 </div>
+                <a href="auth.html" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/5 hover:text-[#ff00ff] transition text-gray-400 mt-4 border-t border-white/5 pt-4">
+                    <i class='bx bx-log-out text-lg'></i> Logout
+                </a>
             </nav>
         </div>
         <div class="p-4 border-t border-white/5">
@@ -44,7 +47,7 @@
                 <div class="w-8 h-8 rounded-full bg-gray-700 flex items-center justify-center text-xs font-bold text-[#00f0ff]">AD</div>
                 <div>
                     <p class="text-sm font-bold text-white">Admin User</p>
-                    <a href="auth.html" class="text-xs text-gray-500 hover:text-[#ff00ff] transition">Logout</a>
+                    <p class="text-[10px] text-gray-500">Super Admin</p>
                 </div>
             </div>
         </div>
@@ -72,6 +75,9 @@
                     <i class='bx bx-bell text-xl'></i>
                     <span class="absolute top-2 right-2 w-2 h-2 bg-[#ff00ff] rounded-full"></span>
                 </button>
+                <a href="#" class="w-10 h-10 rounded-full border border-white/10 overflow-hidden hover:border-[#00f0ff] transition flex-shrink-0">
+                    <div class="w-full h-full bg-gray-700 flex items-center justify-center text-xs font-bold text-[#00f0ff]">AD</div>
+                </a>
             </div>
         </header>
 
@@ -484,5 +490,15 @@
             });
         });
     </script>
+
+    <!-- Scroll to Top -->
+    <button id="scroll-top" title="Scroll to Top">
+        <i class="bx bx-up-arrow-alt"></i>
+    </button>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/animations.js"></script>
 </body>
 </html>

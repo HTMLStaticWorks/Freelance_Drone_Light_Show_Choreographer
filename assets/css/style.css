@@ -197,6 +197,15 @@ html.light-mode .bg-black {
     background-color: #ffffff !important;
 }
 
+html.light-mode .bg-\[\#020205\]\/80,
+html.light-mode .bg-\[\#050508\]\/80,
+html.light-mode .bg-black\/80,
+html.light-mode .bg-black\/60,
+html.light-mode header.sticky {
+    background-color: rgba(255, 255, 255, 0.8) !important;
+    color: #111 !important;
+}
+
 html.light-mode .bg-gray-900,
 html.light-mode .bg-gray-800,
 html.light-mode .bg-gray-700 {
@@ -230,6 +239,99 @@ html.light-mode textarea::placeholder {
 html.light-mode .text-white/50,
 html.light-mode .text-white/20 {
     color: rgba(0, 0, 0, 0.5) !important;
+}
+
+/* Fix Card Visibility in Light Mode */
+html.light-mode .glass-card .bg-gradient-to-t.from-black {
+    background-image: linear-gradient(to top, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.2), transparent) !important;
+}
+
+html.light-mode .glass-card img {
+    opacity: 0.5 !important;
+}
+
+html.light-mode .glass-card:hover img {
+    opacity: 0.7 !important;
+}
+
+html.light-mode .glass-card:not(.dark-locked) .text-white {
+    color: #111 !important;
+}
+
+html.light-mode .glass-card .text-gray-500,
+html.light-mode .glass-card .text-gray-400 {
+    color: #333 !important;
+}
+
+html.light-mode .text-gray-500,
+html.light-mode .text-gray-400 {
+    color: #333 !important;
+}
+
+/* Hardcoded Hex Contrast Fixes */
+html.light-mode .text-\[\#00f0ff\] {
+    color: #006699 !important;
+}
+html.light-mode .text-\[\#8a2be2\] {
+    color: #5b1fac !important;
+}
+html.light-mode .text-\[\#ff00ff\] {
+    color: #b000b0 !important;
+}
+
+/* Ensure Gallery & Dark Overlay Text stay white in Light Mode */
+.swiper-slide .z-20 h3,
+.swiper-slide .z-20 span,
+.bg-gradient-to-t.from-black h2,
+.bg-gradient-to-t.from-black p,
+.bg-gradient-to-t.from-black span,
+.bg-gradient-to-t.from-black a,
+.bg-black\/20 h2,
+.bg-black\/20 p,
+.bg-black\/20 span,
+.bg-black\/20 a,
+.bg-black\/40 h2,
+.bg-black\/40 p,
+.bg-black\/40 span,
+.bg-black\/40 a,
+.bg-black\/60 h2,
+.bg-black\/60 p,
+.bg-black\/60 span,
+.bg-black\/60 a,
+.absolute.inset-0.flex.flex-col h2,
+.absolute.inset-0.flex.flex-col p,
+.absolute.inset-0.flex.flex-col span,
+.absolute.inset-0.flex.flex-col a {
+    color: #ffffff !important;
+}
+
+html.light-mode .text-white/20 {
+    color: rgba(0, 0, 0, 0.5) !important;
+}
+
+/* Sidebar Visibility in Light Mode */
+html.light-mode .glass-panel {
+    background: rgba(255, 255, 255, 0.95) !important;
+    border-color: rgba(0, 0, 0, 0.1) !important;
+    color: #111 !important;
+}
+
+html.light-mode .glass-panel input {
+    background: rgba(0, 0, 0, 0.05) !important;
+    color: #111 !important;
+    border-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+html.light-mode .glass-panel input::placeholder {
+    color: #666 !important;
+}
+
+html.light-mode .glass-panel a {
+    color: #444 !important;
+}
+
+html.light-mode .glass-panel a:hover {
+    color: #000 !important;
 }
 
 /* Full Width Layout Overrides */
@@ -337,7 +439,7 @@ html.light-mode .text-white/20 {
     /* Fix hero section height and padding */
     section.min-h-screen {
         min-height: calc(100vh - 60px) !important;
-        padding-top: 6rem !important;
+        padding-top: 3rem !important;
     }
 }
 
@@ -347,4 +449,54 @@ html.light-mode .text-white/20 {
         padding-left: 3rem !important;
         padding-right: 3rem !important;
     }
+}
+
+/* Scroll to Top Button */
+#scroll-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 50%;
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    color: var(--accent-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 0;
+    visibility: hidden;
+    z-index: 99;
+}
+
+#scroll-top.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+#scroll-top:not(.visible) {
+    transform: translateY(20px);
+}
+
+#scroll-top:hover {
+    background: var(--accent-color);
+    color: #fff;
+    box-shadow: 0 0 20px var(--accent-glow);
+    transform: translateY(-5px);
+    border-color: transparent;
+}
+
+html.light-mode #scroll-top {
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+html.light-mode #scroll-top:hover {
+    background: var(--accent-color);
 }
