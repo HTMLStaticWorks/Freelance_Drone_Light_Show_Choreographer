@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact | AeroLumina</title>
+    <title>Contact | AeroGlow</title>
+    <link rel="icon" type="image/png" href="assets/images/favicon.png">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
@@ -13,16 +14,58 @@
 
     <header id="header" class="fixed w-full top-0 z-50 transition-all duration-300 glass-panel py-4">
         <!-- Reusable header minimal version -->
-        <div class="container mx-auto px-6 lg:px-12 flex justify-between items-center">
+        <div class="container mx-auto px-6 xl:px-12 flex justify-between items-center">
             <a href="index.html" class="text-2xl font-bold tracking-wider flex items-center gap-2">
-                <i class='bx bx-hive text-[#00f0ff]'></i> Aero<span class="text-gradient">Lumina</span>
+                <i class='bx bx-hive text-[#00f0ff]'></i> <span>Aero<span class="text-gradient">Glow</span></span>
             </a>
-            <nav class="hidden md:flex gap-8 items-center text-sm uppercase tracking-wide font-medium">
-                <a href="index.html" class="hover:text-[#00f0ff]">Home</a>
+            <nav class="hidden xl:flex gap-8 items-center text-sm uppercase tracking-wide font-medium">
+                <div class="relative group">
+                    <button class="flex items-center gap-1 hover:text-[#00f0ff] transition-colors uppercase">
+                        Home <i class='bx bx-chevron-down text-xs transition-transform group-hover:rotate-180'></i>
+                    </button>
+                    <div class="absolute left-0 top-full pt-4 w-32 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                        <div class="glass-panel py-2 rounded-lg border border-white/5 overflow-hidden text-white/70">
+                            <a href="index.html" class="block px-4 py-2 hover:bg-white/5 hover:text-[#00f0ff] normal-case transition-colors">Home 1</a>
+                            <a href="index-2.html" class="block px-4 py-2 hover:bg-white/5 hover:text-[#00f0ff] normal-case transition-colors">Home 2</a>
+                        </div>
+                    </div>
+                </div>
                 <a href="about.html" class="hover:text-[#00f0ff]">About</a>
                 <a href="services.html" class="hover:text-[#00f0ff]">Services</a>
+                <a href="blog.html" class="hover:text-[#00f0ff]">Blog</a>
                 <a href="contact.html" class="text-[#00f0ff]">Contact</a>
+                <a href="dashboard.html" class="hover:text-[#00f0ff]">Dashboard</a>
             </nav>
+            <!-- Actions -->
+            <div class="flex gap-4 items-center">
+                <button id="theme-toggle" class="p-2 rounded-full hover:bg-white/10 transition" aria-label="Toggle Theme">
+                    <i class='bx bx-moon text-xl'></i>
+                </button>
+                <button id="rtl-toggle" class="hover:text-[#00f0ff] text-sm uppercase font-medium transition">RTL</button>
+                <div class="hidden xl:flex gap-4 items-center">
+                    <a href="auth.html" class="px-5 py-2 rounded-full border border-white/10 hover:border-[#00f0ff] hover:text-[#00f0ff] transition text-sm uppercase font-medium">Login</a>
+                    <a href="contact.html" class="btn-primary text-sm">Book</a>
+                </div>
+
+                <!-- Mobile Menu Btn -->
+                <button id="mobile-menu-btn" class="xl:hidden text-3xl">
+                    <i class='bx bx-menu'></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden absolute top-full left-0 w-full glass-panel py-4 flex flex-col items-center gap-4 border-t border-white/10">
+            <a href="index.html">Home 1</a>
+            <a href="index-2.html">Home 2</a>
+            <a href="about.html" class="hover:text-[#00f0ff]">About</a>
+            <a href="services.html" class="hover:text-[#00f0ff]">Services</a>
+            <a href="blog.html" class="hover:text-[#00f0ff]">Blog</a>
+            <a href="dashboard.html" class="hover:text-[#00f0ff]">Dashboard</a>
+            <a href="contact.html" class="text-[#00f0ff]">Contact</a>
+            <hr class="w-2/3 border-white/10 my-2">
+            <a href="auth.html" class="px-8 py-2 rounded-full border border-white/10 text-sm uppercase font-medium">Login</a>
+            <a href="contact.html" class="btn-primary text-sm w-48 text-center">Book Now</a>
         </div>
     </header>
 
@@ -39,10 +82,10 @@
             
             <!-- 1. Contact Information -->
             <div class="space-y-8 reveal">
-                <div class="glass-card p-8 rounded-3xl border border-white/5">
-                    <h3 class="text-2xl font-bold mb-6">Headquarters</h3>
-                    <div class="space-y-6">
-                        <div class="flex items-start gap-4">
+                <div class="glass-card p-8 rounded-3xl border border-white/5 text-center">
+                    <h3 class="text-2xl font-bold mb-8">Headquarters</h3>
+                    <div class="space-y-8 flex flex-col items-center">
+                        <div class="flex flex-col items-center gap-4">
                             <div class="w-12 h-12 rounded-full glass-panel flex items-center justify-center shrink-0 text-[#00f0ff]">
                                 <i class='bx bx-map text-2xl'></i>
                             </div>
@@ -51,16 +94,16 @@
                                 <p class="text-gray-400 text-sm">12400 Aerospace Blvd<br>Los Angeles, CA 90001<br>United States</p>
                             </div>
                         </div>
-                        <div class="flex items-start gap-4">
+                        <div class="flex flex-col items-center gap-4">
                             <div class="w-12 h-12 rounded-full glass-panel flex items-center justify-center shrink-0 text-[#8a2be2]">
                                 <i class='bx bx-envelope text-2xl'></i>
                             </div>
                             <div>
                                 <h4 class="font-bold text-white mb-1">Email inquiries</h4>
-                                <p class="text-gray-400 text-sm">sales@aerolumina.com<br>press@aerolumina.com</p>
+                                <p class="text-gray-400 text-sm">sales@aeroglow.com<br>press@aeroglow.com</p>
                             </div>
                         </div>
-                        <div class="flex items-start gap-4">
+                        <div class="flex flex-col items-center gap-4">
                             <div class="w-12 h-12 rounded-full glass-panel flex items-center justify-center shrink-0 text-[#ff00ff]">
                                 <i class='bx bx-phone text-2xl'></i>
                             </div>
@@ -73,10 +116,10 @@
                 </div>
 
                 <!-- 4. Social/Contact CTA -->
-                <div class="glass-card p-8 rounded-3xl border border-white/5 bg-gradient-to-br from-[#00f0ff]/5 to-transparent">
+                <div class="glass-card p-8 rounded-3xl border border-white/5 bg-gradient-to-br from-[#00f0ff]/5 to-transparent text-center flex flex-col items-center">
                     <h3 class="text-xl font-bold mb-4">Follow the Fleet</h3>
-                    <p class="text-gray-400 text-sm mb-6">Stay updated with our latest formations and behind-the-scenes engineering via social media.</p>
-                    <div class="flex gap-4">
+                    <p class="text-gray-400 text-sm mb-6 max-w-sm mx-auto">Stay updated with our latest formations and behind-the-scenes engineering via social media.</p>
+                    <div class="flex justify-center gap-4">
                         <a href="#" class="w-12 h-12 rounded-full glass-panel flex items-center justify-center hover:bg-[#00f0ff] hover:text-black transition text-xl"><i class='bx bxl-instagram'></i></a>
                         <a href="#" class="w-12 h-12 rounded-full glass-panel flex items-center justify-center hover:bg-white hover:text-black transition text-xl"><i class='bx bxl-twitter'></i></a>
                         <a href="#" class="w-12 h-12 rounded-full glass-panel flex items-center justify-center hover:bg-[#ff0000] hover:text-white transition text-xl border-none"><i class='bx bxl-youtube'></i></a>
@@ -91,7 +134,7 @@
                     <div class="absolute -right-20 -top-20 w-64 h-64 bg-[#00f0ff]/10 blur-3xl rounded-full"></div>
                     <h3 class="text-2xl font-bold mb-6 relative z-10">Send a Request</h3>
                     <form class="space-y-6 relative z-10">
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="grid grid-cols-1 gap-6">
                             <div class="space-y-2">
                                 <label class="text-xs text-gray-400 uppercase tracking-wider">Full Name</label>
                                 <input type="text" class="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-[#00f0ff] transition" placeholder="John Doe">
@@ -101,7 +144,7 @@
                                 <input type="email" class="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-[#00f0ff] transition" placeholder="john@company.com">
                             </div>
                         </div>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="grid grid-cols-1 gap-6">
                             <div class="space-y-2">
                                 <label class="text-xs text-gray-400 uppercase tracking-wider">Event Type</label>
                                 <select class="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-[#00f0ff] transition appearance-none text-gray-300">
@@ -137,17 +180,71 @@
         <!-- 3. Google Map Section -->
         <div class="container mx-auto px-6 mt-24 reveal">
             <div class="glass-panel p-2 rounded-3xl h-[400px] relative overflow-hidden border border-white/5">
-                <!-- Using an iframe for google map placeholder styled dark -->
-                <div class="absolute inset-0 bg-[#050508] flex items-center justify-center flex-col z-10 pointer-events-none border border-dashed border-white/20 m-2 rounded-2xl">
-                    <i class='bx bx-map-alt text-6xl text-white/20 mb-4'></i>
-                    <p class="text-gray-500 text-sm">Interactive Map Container</p>
-                    <p class="text-gray-600 text-xs mt-2">(Map API Integration required)</p>
-                </div>
-                <!-- Grayscale map image placeholder -->
-                <div class="w-full h-full bg-[url('https://images.unsplash.com/photo-1524661135-423995f22d0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80')] bg-cover bg-center opacity-30 grayscale rounded-2xl"></div>
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.83583378252!2d144.9537363153166!3d-37.81362797975124!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f11fd81%3A0xf577d1a106728b8!2sMelbourne%20VIC%2C%20Australia!5e0!3m2!1sen!2sus!4v1625000000000!5m2!1sen!2sus" 
+                    class="w-full h-full rounded-2xl grayscale invert contrast-125 opacity-40 hover:opacity-100 transition-opacity duration-700" 
+                    allowfullscreen="" 
+                    loading="lazy">
+                </iframe>
             </div>
         </div>
     </main>
+
+    <!-- Footer -->
+    <footer class="bg-[#020205] border-t border-white/5 pt-16 pb-8 relative z-10">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+                <div class="col-span-1 md:col-span-1">
+                    <a href="index.html" class="text-2xl font-bold tracking-wider flex items-center gap-2 mb-4">
+                        <i class='bx bx-hive text-[#00f0ff]'></i> <span>Aero<span class="text-gradient">Glow</span></span>
+                    </a>
+                    <p class="text-gray-500 text-sm mb-6">Pioneering the future of aerial entertainment through precision engineering and artistic choreography.</p>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-10 h-10 rounded-full glass-panel flex items-center justify-center hover:text-[#00f0ff] hover:border-[#00f0ff] hover:scale-110 hover:shadow-[0_0_15px_rgba(0,240,255,0.5)] transition-all duration-300"><i class='bx bxl-twitter text-xl'></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full glass-panel flex items-center justify-center hover:text-[#00f0ff] hover:border-[#00f0ff] hover:scale-110 hover:shadow-[0_0_15px_rgba(0,240,255,0.5)] transition-all duration-300"><i class='bx bxl-instagram text-xl'></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full glass-panel flex items-center justify-center hover:text-[#00f0ff] hover:border-[#00f0ff] hover:scale-110 hover:shadow-[0_0_15px_rgba(0,240,255,0.5)] transition-all duration-300"><i class='bx bxl-youtube text-xl'></i></a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-white font-bold mb-4 uppercase tracking-wider text-sm">Services</h4>
+                    <ul class="space-y-2 text-gray-500 text-sm">
+                        <li><a href="service-details.html" class="hover:text-[#00f0ff] transition">Custom Choreography</a></li>
+                        <li><a href="service-details.html" class="hover:text-[#00f0ff] transition">Mega Swarms</a></li>
+                        <li><a href="service-details.html" class="hover:text-[#00f0ff] transition">Brand Activations</a></li>
+                        <li><a href="services.html" class="hover:text-[#00f0ff] transition">Event Logistics</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-white font-bold mb-4 uppercase tracking-wider text-sm">Company</h4>
+                    <ul class="space-y-2 text-gray-500 text-sm">
+                        <li><a href="index.html" class="hover:text-[#00f0ff] transition">Home</a></li>
+                        <li><a href="about.html" class="hover:text-[#00f0ff] transition">About Us</a></li>
+                        <li><a href="blog.html" class="hover:text-[#00f0ff] transition">Blog</a></li>
+                        <li><a href="contact.html" class="hover:text-[#00f0ff] transition">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-white font-bold mb-4 uppercase tracking-wider text-sm">Newsletter</h4>
+                    <p class="text-gray-500 text-sm mb-4">Subscribe for the latest drone show concepts.</p>
+                    <form class="flex">
+                        <input type="email" placeholder="Email Address" class="bg-white/5 border border-white/10 rounded-l-md px-4 py-2 w-full focus:outline-none focus:border-[#00f0ff] text-sm">
+                        <button type="submit" class="bg-[#00f0ff] text-black px-4 py-2 rounded-r-md font-bold hover:bg-white transition"><i class='bx bx-send'></i></button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-600 gap-4">
+                <p>&copy; 2026 AeroGlow. All rights reserved.</p>
+                <div class="flex gap-4">
+                    <a href="#" class="hover:text-white transition">Privacy Policy</a>
+                    <a href="#" class="hover:text-white transition">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>

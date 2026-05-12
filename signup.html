@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login | AeroGlow Dashboard</title>
+    <title>Request Access | AeroGlow</title>
     <link rel="icon" type="image/png" href="assets/images/favicon.png">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
@@ -19,53 +19,65 @@
         <button id="rtl-toggle" class="hover:text-[#00f0ff] text-sm uppercase font-medium transition">RTL</button>
     </div>
 
-    <!-- Background Three.js -->
     <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1534447677768-be436bb09401?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80')] bg-cover bg-center opacity-20 mask-image:linear-gradient(to_bottom,black,transparent) -z-10 mix-blend-screen"></div>
     <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-[#8a2be2]/10 via-transparent to-[#00f0ff]/10 -z-10"></div>
 
-    <div class="flex h-full w-full items-center justify-center p-6 relative z-10">
+    <div class="flex h-full w-full items-center justify-center p-6 relative z-10 overflow-y-auto">
         
-        <div class="w-full max-w-md">
+        <div class="w-full max-w-md my-auto">
             
             <!-- Logo -->
             <div class="text-center mb-8">
                 <a href="index.html" class="text-3xl font-bold tracking-wider inline-flex items-center gap-2">
                     <i class='bx bx-hive text-[#00f0ff]'></i> <span>Aero<span class="text-gradient">Glow</span></span>
                 </a>
-                <p class="text-gray-400 text-sm mt-2">Client Portal Access</p>
+                <p class="text-gray-400 text-sm mt-2">Request Agency Access</p>
             </div>
 
-            <!-- Login Card -->
+            <!-- Signup Card -->
             <div class="glass-card p-8 rounded-3xl border border-white/10 shadow-[0_0_50px_rgba(0,240,255,0.05)]">
                 
-                <form class="space-y-6">
+                <form class="space-y-4">
+                    <div class="space-y-2">
+                        <label class="text-xs text-gray-400 uppercase tracking-wider">Full Name</label>
+                        <div class="relative">
+                            <i class='bx bx-user absolute left-4 top-1/2 -translate-y-1/2 text-gray-500'></i>
+                            <input type="text" class="w-full bg-black/50 border border-white/10 rounded-lg pl-10 pr-4 py-3 text-sm focus:outline-none focus:border-[#00f0ff] transition" placeholder="John Doe">
+                        </div>
+                    </div>
+
                     <div class="space-y-2">
                         <label class="text-xs text-gray-400 uppercase tracking-wider">Email Address</label>
                         <div class="relative">
                             <i class='bx bx-envelope absolute left-4 top-1/2 -translate-y-1/2 text-gray-500'></i>
-                            <input type="email" class="w-full bg-black/50 border border-white/10 rounded-lg pl-10 pr-4 py-3 text-sm focus:outline-none focus:border-[#00f0ff] transition" placeholder="client@agency.com">
+                            <input type="email" class="w-full bg-black/50 border border-white/10 rounded-lg pl-10 pr-4 py-3 text-sm focus:outline-none focus:border-[#00f0ff] transition" placeholder="john@agency.com">
+                        </div>
+                    </div>
+
+                    <div class="space-y-2">
+                        <label class="text-xs text-gray-400 uppercase tracking-wider">Organization</label>
+                        <div class="relative">
+                            <i class='bx bx-buildings absolute left-4 top-1/2 -translate-y-1/2 text-gray-500'></i>
+                            <input type="text" class="w-full bg-black/50 border border-white/10 rounded-lg pl-10 pr-4 py-3 text-sm focus:outline-none focus:border-[#00f0ff] transition" placeholder="Creative Agency Inc.">
                         </div>
                     </div>
                     
                     <div class="space-y-2">
-                        <div class="flex justify-between items-center">
-                            <label class="text-xs text-gray-400 uppercase tracking-wider">Password</label>
-                        </div>
+                        <label class="text-xs text-gray-400 uppercase tracking-wider">Password</label>
                         <div class="relative">
                             <i class='bx bx-lock-alt absolute left-4 top-1/2 -translate-y-1/2 text-gray-500'></i>
-                            <input type="password" class="w-full bg-black/50 border border-white/10 rounded-lg pl-10 pr-4 py-3 text-sm focus:outline-none focus:border-[#00f0ff] transition" placeholder="••••••••">
+                            <input type="password" class="w-full bg-black/50 border border-white/10 rounded-lg pl-10 pr-12 py-3 text-sm focus:outline-none focus:border-[#00f0ff] transition" placeholder="••••••••">
                             <i class='bx bx-hide absolute right-4 top-1/2 -translate-y-1/2 text-gray-500 cursor-pointer hover:text-white transition'></i>
                         </div>
-                        <div class="flex items-center justify-between text-[10px] md:text-xs">
-                            <label class="flex items-center gap-2 cursor-pointer text-gray-400 hover:text-white transition">
-                                <input type="checkbox" class="rounded border-white/10 bg-white/5 text-[#00f0ff] focus:ring-[#00f0ff]">
-                                Remember for 30 days
+                        <div class="flex flex-col gap-3 text-xs">
+                            <label class="flex items-start gap-2 cursor-pointer text-gray-400 hover:text-white transition">
+                                <input type="checkbox" class="mt-0.5 rounded border-white/10 bg-white/5 text-[#00f0ff] focus:ring-[#00f0ff]" required>
+                                <span>I agree to the <a href="#" class="text-[#00f0ff] underline hover:no-underline">Terms of Service</a> and <a href="#" class="text-[#00f0ff] underline hover:no-underline">Privacy Policy</a></span>
                             </label>
-                            <a href="#" class="text-[#00f0ff] hover:underline uppercase font-bold tracking-tighter">Forgot Password?</a>
                         </div>
                     </div>
 
-                    <button type="submit" class="btn-primary w-full py-3" onclick="event.preventDefault(); window.location.href='dashboard.html'">Sign In</button>
+                    <button type="submit" class="btn-primary w-full py-3 mt-4" onclick="event.preventDefault(); window.location.href='dashboard.html'">Create Account</button>
                 </form>
 
                 <div class="mt-8">
@@ -87,10 +99,11 @@
                         </button>
                     </div>
                 </div>
+
             </div>
 
             <p class="text-center text-gray-500 text-sm mt-8">
-                Don't have an account? <a href="signup.html" class="text-[#00f0ff] hover:underline">Request access</a>
+                Already have an account? <a href="auth.html" class="text-[#00f0ff] hover:underline">Sign In</a>
             </p>
 
         </div>

@@ -36,8 +36,10 @@ document.addEventListener('DOMContentLoaded', () => {
             htmlElement.classList.toggle('rtl');
             if (htmlElement.classList.contains('rtl')) {
                 htmlElement.setAttribute('dir', 'rtl');
+                rtlToggleBtn.textContent = 'LTR';
             } else {
                 htmlElement.setAttribute('dir', 'ltr');
+                rtlToggleBtn.textContent = 'RTL';
             }
         });
     }

@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Service Details | AeroLumina</title>
+    <title>Service Details | AeroGlow</title>
+    <link rel="icon" type="image/png" href="assets/images/favicon.png">
     
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
@@ -13,15 +14,58 @@
 <body class="relative text-white antialiased bg-[#020205]">
 
     <header id="header" class="fixed w-full top-0 z-50 transition-all duration-300 glass-panel py-4">
-        <div class="container mx-auto px-6 lg:px-12 flex justify-between items-center">
+        <div class="container mx-auto px-6 xl:px-12 flex justify-between items-center">
             <a href="index.html" class="text-2xl font-bold tracking-wider flex items-center gap-2">
-                <i class='bx bx-hive text-[#8a2be2]'></i> Aero<span class="text-gradient">Lumina</span>
+                <i class='bx bx-hive text-[#8a2be2]'></i> <span>Aero<span class="text-gradient">Glow</span></span>
             </a>
-            <nav class="hidden md:flex gap-8 items-center text-sm uppercase tracking-wide font-medium">
-                <a href="index.html" class="hover:text-[#8a2be2]">Home</a>
+            <nav class="hidden xl:flex gap-8 items-center text-sm uppercase tracking-wide font-medium">
+                <div class="relative group">
+                    <button class="flex items-center gap-1 hover:text-[#8a2be2] transition-colors uppercase">
+                        Home <i class='bx bx-chevron-down text-xs transition-transform group-hover:rotate-180'></i>
+                    </button>
+                    <div class="absolute left-0 top-full pt-4 w-32 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                        <div class="glass-panel py-2 rounded-lg border border-white/5 overflow-hidden text-white/70">
+                            <a href="index.html" class="block px-4 py-2 hover:bg-white/5 hover:text-[#8a2be2] normal-case transition-colors">Home 1</a>
+                            <a href="index-2.html" class="block px-4 py-2 hover:bg-white/5 hover:text-[#8a2be2] normal-case transition-colors">Home 2</a>
+                        </div>
+                    </div>
+                </div>
+                <a href="about.html" class="hover:text-[#8a2be2]">About</a>
                 <a href="services.html" class="text-[#8a2be2]">Services</a>
+                <a href="blog.html" class="hover:text-[#8a2be2]">Blog</a>
                 <a href="contact.html" class="hover:text-[#8a2be2]">Contact</a>
+                <a href="dashboard.html" class="hover:text-[#8a2be2]">Dashboard</a>
             </nav>
+            <!-- Actions -->
+            <div class="flex gap-4 items-center">
+                <button id="theme-toggle" class="p-2 rounded-full hover:bg-white/10 transition" aria-label="Toggle Theme">
+                    <i class='bx bx-moon text-xl'></i>
+                </button>
+                <button id="rtl-toggle" class="hover:text-[#8a2be2] text-sm uppercase font-medium transition">RTL</button>
+                <div class="hidden xl:flex gap-4 items-center">
+                    <a href="auth.html" class="px-5 py-2 rounded-full border border-white/10 hover:border-[#8a2be2] hover:text-[#8a2be2] transition text-sm uppercase font-medium">Login</a>
+                    <a href="contact.html" class="btn-primary text-sm" style="border-color:#8a2be2;">Book</a>
+                </div>
+
+                <!-- Mobile Menu Btn -->
+                <button id="mobile-menu-btn" class="xl:hidden text-3xl">
+                    <i class='bx bx-menu'></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden absolute top-full left-0 w-full glass-panel py-4 flex flex-col items-center gap-4 border-t border-white/10">
+            <a href="index.html">Home 1</a>
+            <a href="index-2.html">Home 2</a>
+            <a href="about.html" class="hover:text-[#8a2be2]">About</a>
+            <a href="services.html" class="hover:text-[#8a2be2]">Services</a>
+            <a href="blog.html" class="hover:text-[#8a2be2]">Blog</a>
+            <a href="dashboard.html" class="hover:text-[#8a2be2]">Dashboard</a>
+            <a href="contact.html" class="hover:text-[#8a2be2]">Contact</a>
+            <hr class="w-2/3 border-white/10 my-2">
+            <a href="auth.html" class="px-8 py-2 rounded-full border border-white/10 text-sm uppercase font-medium">Login</a>
+            <a href="contact.html" class="btn-primary text-sm w-48 text-center" style="border-color:#8a2be2;">Book Now</a>
         </div>
     </header>
 
@@ -169,6 +213,62 @@
             });
         });
     </script>
+    <!-- Footer -->
+    <footer class="bg-[#020205] border-t border-white/5 pt-16 pb-8 relative z-10">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+                <div class="col-span-1 md:col-span-1">
+                    <a href="index.html" class="text-2xl font-bold tracking-wider flex items-center gap-2 mb-4">
+                        <i class='bx bx-hive text-[#00f0ff]'></i> <span>Aero<span class="text-gradient">Glow</span></span>
+                    </a>
+                    <p class="text-gray-500 text-sm mb-6">Pioneering the future of aerial entertainment through precision engineering and artistic choreography.</p>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-10 h-10 rounded-full glass-panel flex items-center justify-center hover:text-[#00f0ff] hover:border-[#00f0ff] hover:scale-110 hover:shadow-[0_0_15px_rgba(0,240,255,0.5)] transition-all duration-300"><i class='bx bxl-twitter text-xl'></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full glass-panel flex items-center justify-center hover:text-[#00f0ff] hover:border-[#00f0ff] hover:scale-110 hover:shadow-[0_0_15px_rgba(0,240,255,0.5)] transition-all duration-300"><i class='bx bxl-instagram text-xl'></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full glass-panel flex items-center justify-center hover:text-[#00f0ff] hover:border-[#00f0ff] hover:scale-110 hover:shadow-[0_0_15px_rgba(0,240,255,0.5)] transition-all duration-300"><i class='bx bxl-youtube text-xl'></i></a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-white font-bold mb-4 uppercase tracking-wider text-sm">Services</h4>
+                    <ul class="space-y-2 text-gray-500 text-sm">
+                        <li><a href="service-details.html" class="hover:text-[#00f0ff] transition">Custom Choreography</a></li>
+                        <li><a href="service-details.html" class="hover:text-[#00f0ff] transition">Mega Swarms</a></li>
+                        <li><a href="service-details.html" class="hover:text-[#00f0ff] transition">Brand Activations</a></li>
+                        <li><a href="services.html" class="hover:text-[#00f0ff] transition">Event Logistics</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-white font-bold mb-4 uppercase tracking-wider text-sm">Company</h4>
+                    <ul class="space-y-2 text-gray-500 text-sm">
+                        <li><a href="index.html" class="hover:text-[#00f0ff] transition">Home</a></li>
+                        <li><a href="about.html" class="hover:text-[#00f0ff] transition">About Us</a></li>
+                        <li><a href="blog.html" class="hover:text-[#00f0ff] transition">Blog</a></li>
+                        <li><a href="contact.html" class="hover:text-[#00f0ff] transition">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-white font-bold mb-4 uppercase tracking-wider text-sm">Newsletter</h4>
+                    <p class="text-gray-500 text-sm mb-4">Subscribe for the latest drone show concepts.</p>
+                    <form class="flex">
+                        <input type="email" placeholder="Email Address" class="bg-white/5 border border-white/10 rounded-l-md px-4 py-2 w-full focus:outline-none focus:border-[#00f0ff] text-sm">
+                        <button type="submit" class="bg-[#00f0ff] text-black px-4 py-2 rounded-r-md font-bold hover:bg-white transition"><i class='bx bx-send'></i></button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-600 gap-4">
+                <p>&copy; 2026 AeroGlow. All rights reserved.</p>
+                <div class="flex gap-4">
+                    <a href="#" class="hover:text-white transition">Privacy Policy</a>
+                    <a href="#" class="hover:text-white transition">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script src="assets/js/main.js"></script>

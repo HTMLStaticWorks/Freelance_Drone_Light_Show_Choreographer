@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard | AeroLumina</title>
+    <title>Admin Dashboard | AeroGlow</title>
+    <link rel="icon" type="image/png" href="assets/images/favicon.png">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
@@ -14,26 +15,27 @@
 <body class="text-white antialiased bg-[#020205] flex h-screen overflow-hidden">
 
     <!-- Sidebar Menu -->
-    <aside class="w-64 glass-panel border-r border-white/5 flex flex-col justify-between h-full relative z-20">
+    <aside id="sidebar" class="fixed lg:relative w-64 glass-panel border-r border-white/5 flex flex-col justify-between h-full z-50 transition-transform duration-300 -translate-x-full lg:translate-x-0">
         <div>
             <div class="h-20 flex items-center px-8 border-b border-white/5">
                 <a href="index.html" class="text-xl font-bold tracking-wider flex items-center gap-2">
-                    <i class='bx bx-hive text-[#00f0ff]'></i> Aero<span class="text-gradient">Lumina</span>
+                    <i class='bx bx-hive text-[#00f0ff]'></i> <span>Aero<span class="text-gradient">Glow</span></span>
                 </a>
             </div>
             <nav class="p-4 space-y-2 mt-4 text-sm font-medium text-gray-400">
-                <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-lg bg-white/5 text-[#00f0ff]"><i class='bx bx-grid-alt text-lg'></i> Overview</a>
-                <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/5 hover:text-white transition"><i class='bx bx-briefcase text-lg'></i> Projects</a>
-                <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/5 hover:text-white transition">
+                <a href="#" data-tab="overview" class="tab-link flex items-center gap-3 px-4 py-3 rounded-lg bg-white/5 text-[#00f0ff]"><i class='bx bx-grid-alt text-lg'></i> Overview</a>
+                <a href="#" data-tab="projects" class="tab-link flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/5 hover:text-white transition"><i class='bx bx-briefcase text-lg'></i> Projects</a>
+                <a href="#" data-tab="messages" class="tab-link flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/5 hover:text-white transition">
                     <i class='bx bx-envelope text-lg'></i> Messages
                     <span class="ml-auto bg-[#8a2be2] text-white text-[10px] px-2 py-0.5 rounded-full">3</span>
                 </a>
-                <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/5 hover:text-white transition"><i class='bx bx-user text-lg'></i> Users</a>
+                <a href="#" data-tab="users" class="tab-link flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/5 hover:text-white transition"><i class='bx bx-user text-lg'></i> Users</a>
+                <a href="contact.html" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/5 hover:text-white transition text-[#00f0ff]"><i class='bx bx-plus-circle text-lg'></i> Book New Show</a>
                 <div class="pt-4 mt-4 border-t border-white/5">
                     <span class="px-4 text-xs font-bold uppercase tracking-wider text-gray-600 mb-2 block">Files & Assets</span>
-                    <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/5 hover:text-white transition"><i class='bx bx-map-alt text-lg'></i> Venue Constraints</a>
-                    <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/5 hover:text-white transition"><i class='bx bx-play-circle text-lg'></i> Sequence Approvals</a>
-                    <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/5 hover:text-white transition"><i class='bx bx-download text-lg'></i> Show Files</a>
+                    <a href="#" data-tab="venue" class="tab-link flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/5 hover:text-white transition"><i class='bx bx-map-alt text-lg'></i> Venue Constraints</a>
+                    <a href="#" data-tab="approvals" class="tab-link flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/5 hover:text-white transition"><i class='bx bx-play-circle text-lg'></i> Sequence Approvals</a>
+                    <a href="#" data-tab="files" class="tab-link flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/5 hover:text-white transition"><i class='bx bx-download text-lg'></i> Show Files</a>
                 </div>
             </nav>
         </div>
@@ -48,12 +50,24 @@
         </div>
     </aside>
 
+    <!-- Sidebar Overlay -->
+    <div id="sidebar-overlay" class="fixed inset-0 bg-black/60 z-40 hidden lg:hidden"></div>
+
     <!-- Main Content -->
     <main class="flex-1 overflow-y-auto relative h-full">
         <!-- Minimal header for main area -->
-        <header class="h-20 flex items-center justify-between px-8 border-b border-white/5 sticky top-0 bg-[#020205]/80 backdrop-blur-md z-10">
-            <h2 class="text-xl font-bold">Dashboard Overview</h2>
+        <header class="h-20 flex items-center justify-between px-4 md:px-8 border-b border-white/5 sticky top-0 bg-[#020205]/80 backdrop-blur-md z-10">
             <div class="flex items-center gap-4">
+                <button id="sidebar-toggle" class="lg:hidden text-2xl p-2 rounded-lg hover:bg-white/5 transition">
+                    <i class='bx bx-menu'></i>
+                </button>
+                <h2 id="page-title" class="text-lg md:text-xl font-bold">Dashboard Overview</h2>
+            </div>
+            <div class="flex items-center gap-4">
+                <button id="theme-toggle" class="p-2 rounded-full hover:bg-white/10 transition" aria-label="Toggle Theme">
+                    <i class='bx bx-moon text-xl'></i>
+                </button>
+                <button id="rtl-toggle" class="hover:text-[#00f0ff] text-sm uppercase font-medium transition">RTL</button>
                 <button class="w-10 h-10 rounded-full glass-panel flex items-center justify-center hover:text-[#00f0ff] transition relative">
                     <i class='bx bx-bell text-xl'></i>
                     <span class="absolute top-2 right-2 w-2 h-2 bg-[#ff00ff] rounded-full"></span>
@@ -61,147 +75,373 @@
             </div>
         </header>
 
-        <div class="p-8">
+        <div class="p-4 md:p-8">
             
-            <!-- Analytics Overview (Top Cards) -->
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
-                <div class="glass-card p-6 rounded-2xl border border-white/5">
-                    <div class="flex justify-between items-start mb-4">
-                        <div class="w-10 h-10 rounded-lg bg-[#00f0ff]/10 flex items-center justify-center text-[#00f0ff]"><i class='bx bx-rocket text-xl'></i></div>
-                        <span class="text-xs font-bold text-green-400 bg-green-400/10 px-2 py-1 rounded">+12%</span>
+            <!-- Overview Tab -->
+            <div id="tab-overview" class="tab-content">
+                <!-- Analytics Overview (Top Cards) -->
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+                    <div class="glass-card p-6 rounded-2xl border border-white/5">
+                        <div class="flex justify-between items-start mb-4">
+                            <div class="w-10 h-10 rounded-lg bg-[#00f0ff]/10 flex items-center justify-center text-[#00f0ff]"><i class='bx bx-rocket text-xl'></i></div>
+                            <span class="text-xs font-bold text-green-400 bg-green-400/10 px-2 py-1 rounded">+12%</span>
+                        </div>
+                        <p class="text-gray-400 text-sm mb-1">Active Projects</p>
+                        <h3 class="text-3xl font-bold">24</h3>
                     </div>
-                    <p class="text-gray-400 text-sm mb-1">Active Projects</p>
-                    <h3 class="text-3xl font-bold">24</h3>
+                    <div class="glass-card p-6 rounded-2xl border border-white/5">
+                        <div class="flex justify-between items-start mb-4">
+                            <div class="w-10 h-10 rounded-lg bg-[#8a2be2]/10 flex items-center justify-center text-[#8a2be2]"><i class='bx bx-hive text-xl'></i></div>
+                            <span class="text-xs font-bold text-gray-400 bg-gray-400/10 px-2 py-1 rounded">Fleet</span>
+                        </div>
+                        <p class="text-gray-400 text-sm mb-1">Drones Available</p>
+                        <h3 class="text-3xl font-bold">4,850</h3>
+                    </div>
+                    <div class="glass-card p-6 rounded-2xl border border-white/5">
+                        <div class="flex justify-between items-start mb-4">
+                            <div class="w-10 h-10 rounded-lg bg-[#ff00ff]/10 flex items-center justify-center text-[#ff00ff]"><i class='bx bx-dollar text-xl'></i></div>
+                            <span class="text-xs font-bold text-green-400 bg-green-400/10 px-2 py-1 rounded">+5%</span>
+                        </div>
+                        <p class="text-gray-400 text-sm mb-1">Monthly Revenue</p>
+                        <h3 class="text-3xl font-bold">$1.2M</h3>
+                    </div>
+                    <div class="glass-card p-6 rounded-2xl border border-white/5">
+                        <div class="flex justify-between items-start mb-4">
+                            <div class="w-10 h-10 rounded-lg bg-yellow-500/10 flex items-center justify-center text-yellow-500"><i class='bx bx-file text-xl'></i></div>
+                            <span class="text-xs font-bold text-red-400 bg-red-400/10 px-2 py-1 rounded">Action Needed</span>
+                        </div>
+                        <p class="text-gray-400 text-sm mb-1">Pending Approvals</p>
+                        <h3 class="text-3xl font-bold">7</h3>
+                    </div>
                 </div>
-                <div class="glass-card p-6 rounded-2xl border border-white/5">
-                    <div class="flex justify-between items-start mb-4">
-                        <div class="w-10 h-10 rounded-lg bg-[#8a2be2]/10 flex items-center justify-center text-[#8a2be2]"><i class='bx bx-hive text-xl'></i></div>
-                        <span class="text-xs font-bold text-gray-400 bg-gray-400/10 px-2 py-1 rounded">Fleet</span>
+
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    <div class="lg:col-span-2 glass-card p-6 rounded-2xl border border-white/5">
+                        <div class="flex justify-between items-center mb-6">
+                            <h3 class="font-bold">Show Requests (YTD)</h3>
+                        </div>
+                        <div class="h-64 w-full">
+                            <canvas id="revenueChart"></canvas>
+                        </div>
                     </div>
-                    <p class="text-gray-400 text-sm mb-1">Drones Available</p>
-                    <h3 class="text-3xl font-bold">4,850</h3>
-                </div>
-                <div class="glass-card p-6 rounded-2xl border border-white/5">
-                    <div class="flex justify-between items-start mb-4">
-                        <div class="w-10 h-10 rounded-lg bg-[#ff00ff]/10 flex items-center justify-center text-[#ff00ff]"><i class='bx bx-dollar text-xl'></i></div>
-                        <span class="text-xs font-bold text-green-400 bg-green-400/10 px-2 py-1 rounded">+5%</span>
+
+                    <div class="glass-card p-6 rounded-2xl border border-white/5">
+                        <h3 class="font-bold mb-6">Recent Activity</h3>
+                        <div class="space-y-4">
+                            <div class="flex gap-3 border-b border-white/5 pb-4">
+                                <div class="w-8 h-8 rounded-full bg-[#00f0ff]/20 flex items-center justify-center text-[#00f0ff]"><i class='bx bx-check'></i></div>
+                                <div>
+                                    <h4 class="text-sm font-bold text-white">System Check Passed</h4>
+                                    <p class="text-xs text-gray-400">Fleet #A4 unit diagnostics complete.</p>
+                                    <span class="text-[10px] text-gray-500">10 mins ago</span>
+                                </div>
+                            </div>
+                            <div class="flex gap-3 border-b border-white/5 pb-4">
+                                <div class="w-8 h-8 rounded-full bg-[#ff00ff]/20 flex items-center justify-center text-[#ff00ff]"><i class='bx bx-up-arrow-alt'></i></div>
+                                <div>
+                                    <h4 class="text-sm font-bold text-white">New Script Uploaded</h4>
+                                    <p class="text-xs text-gray-400">"Starfall_v2.choreography" added.</p>
+                                    <span class="text-[10px] text-gray-500">2 hours ago</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <p class="text-gray-400 text-sm mb-1">Monthly Revenue</p>
-                    <h3 class="text-3xl font-bold">$1.2M</h3>
-                </div>
-                <div class="glass-card p-6 rounded-2xl border border-white/5">
-                    <div class="flex justify-between items-start mb-4">
-                        <div class="w-10 h-10 rounded-lg bg-yellow-500/10 flex items-center justify-center text-yellow-500"><i class='bx bx-file text-xl'></i></div>
-                        <span class="text-xs font-bold text-red-400 bg-red-400/10 px-2 py-1 rounded">Action Needed</span>
-                    </div>
-                    <p class="text-gray-400 text-sm mb-1">Pending Approvals</p>
-                    <h3 class="text-3xl font-bold">7</h3>
                 </div>
             </div>
 
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                
-                <!-- Analytics Chart -->
-                <div class="lg:col-span-2 glass-card p-6 rounded-2xl border border-white/5">
-                    <div class="flex justify-between items-center mb-6">
-                        <h3 class="font-bold">Show Requests (YTD)</h3>
-                        <select class="bg-black/50 border border-white/10 rounded px-2 py-1 text-xs text-gray-400 outline-none">
-                            <option>This Year</option>
-                            <option>Last Year</option>
-                        </select>
-                    </div>
-                    <div class="h-64 w-full">
-                        <canvas id="revenueChart"></canvas>
-                    </div>
-                </div>
-
-                <!-- Recent Messages & Notifications -->
+            <!-- Projects Tab -->
+            <div id="tab-projects" class="tab-content hidden">
                 <div class="glass-card p-6 rounded-2xl border border-white/5">
-                    <h3 class="font-bold mb-6">Recent Messages</h3>
-                    <div class="space-y-4">
-                        <div class="flex gap-3 border-b border-white/5 pb-4">
-                            <div class="w-8 h-8 rounded-full bg-gray-800 shrink-0 mt-1 flex items-center justify-center text-xs text-[#00f0ff]">EL</div>
-                            <div>
-                                <h4 class="text-sm font-bold text-white">Event Logistics Inc.</h4>
-                                <p class="text-xs text-gray-400 line-clamp-1 mb-1">We need to upload the updated CAD files for the stadium...</p>
-                                <span class="text-[10px] text-gray-500">2 mins ago</span>
+                    <div class="flex justify-between items-center mb-6">
+                        <h3 class="font-bold text-xl text-gradient">Active Projects Pipeline</h3>
+                        <button class="btn-primary text-xs py-2">Add New Project</button>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="glass-panel p-4 rounded-xl border border-white/10 hover:border-[#00f0ff]/50 transition">
+                            <div class="flex justify-between mb-4">
+                                <span class="bg-yellow-500/10 text-yellow-500 px-2 py-1 rounded text-[10px] font-bold uppercase">Pre-Production</span>
+                                <i class='bx bx-dots-horizontal-rounded text-gray-500'></i>
+                            </div>
+                            <h4 class="font-bold mb-1">Dubai Marina Light Fest</h4>
+                            <p class="text-xs text-gray-400 mb-4">Client: DTCM Dubai</p>
+                            <div class="flex items-center gap-2 text-xs text-gray-500 mb-4">
+                                <i class='bx bx-calendar'></i> Dec 12, 2026
+                            </div>
+                            <div class="w-full bg-white/5 h-1.5 rounded-full overflow-hidden">
+                                <div class="bg-[#00f0ff] h-full w-[45%] shadow-[0_0_10px_#00f0ff]"></div>
                             </div>
                         </div>
-                        <div class="flex gap-3 border-b border-white/5 pb-4">
-                            <div class="w-8 h-8 rounded-full bg-gray-800 shrink-0 mt-1 flex items-center justify-center text-xs text-[#8a2be2]">NC</div>
-                            <div>
-                                <h4 class="text-sm font-bold text-white">Neon City Festival</h4>
-                                <p class="text-xs text-gray-400 line-clamp-1 mb-1">The sequence approval looks great, ready to sign off.</p>
-                                <span class="text-[10px] text-gray-500">1 hour ago</span>
+                        <div class="glass-panel p-4 rounded-xl border border-white/10 hover:border-[#8a2be2]/50 transition">
+                            <div class="flex justify-between mb-4">
+                                <span class="bg-green-500/10 text-green-500 px-2 py-1 rounded text-[10px] font-bold uppercase">Execution</span>
+                                <i class='bx bx-dots-horizontal-rounded text-gray-500'></i>
+                            </div>
+                            <h4 class="font-bold mb-1">Glastonbury Mainstage</h4>
+                            <p class="text-xs text-gray-400 mb-4">Client: BBC Music</p>
+                            <div class="flex items-center gap-2 text-xs text-gray-500 mb-4">
+                                <i class='bx bx-calendar'></i> Jun 24, 2026
+                            </div>
+                            <div class="w-full bg-white/5 h-1.5 rounded-full overflow-hidden">
+                                <div class="bg-[#8a2be2] h-full w-[90%] shadow-[0_0_10px_#8a2be2]"></div>
                             </div>
                         </div>
-                        <div class="flex gap-3">
-                            <div class="w-8 h-8 rounded-full bg-gray-800 shrink-0 mt-1 flex items-center justify-center text-xs text-gray-400"><i class='bx bx-bell'></i></div>
-                            <div>
-                                <h4 class="text-sm font-bold text-white">System Alert</h4>
-                                <p class="text-xs text-gray-400 line-clamp-1 mb-1">FAA Waiver #8892 approved for Miami Show.</p>
-                                <span class="text-[10px] text-gray-500">Yesterday</span>
+                        <div class="glass-panel p-4 rounded-xl border border-white/10 hover:border-[#ff00ff]/50 transition">
+                            <div class="flex justify-between mb-4">
+                                <span class="bg-[#ff00ff]/10 text-[#ff00ff] px-2 py-1 rounded text-[10px] font-bold uppercase">Planning</span>
+                                <i class='bx bx-dots-horizontal-rounded text-gray-500'></i>
+                            </div>
+                            <h4 class="font-bold mb-1">Tokyo Tech Expo</h4>
+                            <p class="text-xs text-gray-400 mb-4">Client: SoftBank</p>
+                            <div class="flex items-center gap-2 text-xs text-gray-500 mb-4">
+                                <i class='bx bx-calendar'></i> Aug 15, 2026
+                            </div>
+                            <div class="w-full bg-white/5 h-1.5 rounded-full overflow-hidden">
+                                <div class="bg-[#ff00ff] h-full w-[15%] shadow-[0_0_10px_#ff00ff]"></div>
                             </div>
                         </div>
                     </div>
-                    <button class="w-full mt-4 text-xs text-[#00f0ff] font-bold">View All Notifications</button>
                 </div>
+            </div>
 
-                <!-- Orders / Projects Management -->
-                <div class="lg:col-span-3 glass-card p-6 rounded-2xl border border-white/5 mt-4">
+            <!-- Messages Tab -->
+            <div id="tab-messages" class="tab-content hidden">
+                <div class="grid grid-cols-1 lg:grid-cols-4 gap-6">
+                    <div class="lg:col-span-1 glass-card p-4 rounded-2xl border border-white/5 h-[500px] overflow-y-auto">
+                        <div class="space-y-2">
+                            <div class="p-3 bg-white/10 rounded-xl cursor-pointer">
+                                <h4 class="text-sm font-bold">Event Logistics Inc.</h4>
+                                <p class="text-[10px] text-[#00f0ff]">3 new messages</p>
+                            </div>
+                            <div class="p-3 hover:bg-white/5 rounded-xl cursor-pointer transition">
+                                <h4 class="text-sm font-bold">Neon City Festival</h4>
+                                <p class="text-[10px] text-gray-500">Active 2h ago</p>
+                            </div>
+                            <div class="p-3 hover:bg-white/5 rounded-xl cursor-pointer transition">
+                                <h4 class="text-sm font-bold">Sarah Jenkins (Choreographer)</h4>
+                                <p class="text-[10px] text-gray-500">Offline</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="lg:col-span-3 glass-card p-6 rounded-2xl border border-white/5 h-[500px] flex flex-col">
+                        <div class="flex-grow space-y-4 overflow-y-auto pr-2">
+                            <div class="flex justify-start">
+                                <div class="bg-white/5 p-3 rounded-2xl rounded-tl-none max-w-xs text-sm">
+                                    Hello Admin, we just finished the CAD site plan for the Miami venue.
+                                </div>
+                            </div>
+                            <div class="flex justify-end">
+                                <div class="bg-[#00f0ff]/20 p-3 rounded-2xl rounded-tr-none max-w-xs text-sm text-white">
+                                    Received. Please upload it to the Venue Constraints section so the safety team can review.
+                                </div>
+                            </div>
+                            <div class="flex justify-start">
+                                <div class="bg-white/5 p-3 rounded-2xl rounded-tl-none max-w-xs text-sm">
+                                    Doing it now. Should be ready for review in 5 mins.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-4 flex gap-2">
+                            <input type="text" class="flex-1 bg-black/50 border border-white/10 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-[#00f0ff]" placeholder="Type your message...">
+                            <button class="bg-[#00f0ff] text-black w-12 h-12 rounded-lg flex items-center justify-center hover:bg-white transition"><i class='bx bx-send text-xl'></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Users Tab -->
+            <div id="tab-users" class="tab-content hidden">
+                <div class="glass-card p-6 rounded-2xl border border-white/5">
                     <div class="flex justify-between items-center mb-6">
-                        <h3 class="font-bold">Active Projects Pipeline</h3>
-                        <button class="bg-[#00f0ff]/10 text-[#00f0ff] px-3 py-1 rounded text-xs font-bold hover:bg-[#00f0ff]/20 transition"><i class='bx bx-plus'></i> New Project</button>
+                        <h3 class="font-bold">Team & Client Access</h3>
+                        <div class="flex gap-2">
+                            <input type="text" placeholder="Search users..." class="bg-white/5 border border-white/10 rounded-lg px-3 py-1.5 text-xs outline-none focus:border-[#00f0ff]">
+                            <button class="bg-[#8a2be2] text-white px-3 py-1.5 rounded-lg text-xs font-bold hover:opacity-80 transition">Invite User</button>
+                        </div>
                     </div>
                     <div class="overflow-x-auto">
                         <table class="w-full text-left text-sm">
                             <thead>
                                 <tr class="text-gray-500 border-b border-white/5">
-                                    <th class="pb-3 font-medium">Project Name</th>
-                                    <th class="pb-3 font-medium">Client</th>
-                                    <th class="pb-3 font-medium">Drones</th>
-                                    <th class="pb-3 font-medium">Event Date</th>
-                                    <th class="pb-3 font-medium">Status</th>
-                                    <th class="pb-3 font-medium text-right">Action</th>
+                                    <th class="pb-3 px-2 font-medium">User</th>
+                                    <th class="pb-3 px-2 font-medium">Role</th>
+                                    <th class="pb-3 px-2 font-medium">Last Login</th>
+                                    <th class="pb-3 px-2 font-medium text-right">Actions</th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <tr class="border-b border-white/5 hover:bg-white/[0.02] transition">
-                                    <td class="py-4 font-bold text-white">Miami NYE Spectacular</td>
-                                    <td class="py-4 text-gray-400">City of Miami</td>
-                                    <td class="py-4 text-gray-300">1,000</td>
-                                    <td class="py-4 text-gray-400">Dec 31, 2026</td>
-                                    <td class="py-4"><span class="bg-yellow-500/20 text-yellow-500 px-2 py-1 rounded-full text-xs font-bold">Sequence Review</span></td>
-                                    <td class="py-4 text-right"><button class="text-gray-400 hover:text-white"><i class='bx bx-dots-vertical-rounded'></i></button></td>
+                            <tbody class="text-gray-300">
+                                <tr class="border-b border-white/5 hover:bg-white/[0.02]">
+                                    <td class="py-3 px-2">
+                                        <div class="flex items-center gap-2">
+                                            <div class="w-7 h-7 rounded-full bg-[#00f0ff]/10 text-[#00f0ff] flex items-center justify-center text-[10px]">SJ</div>
+                                            <span>Sarah Jenkins</span>
+                                        </div>
+                                    </td>
+                                    <td class="py-3 px-2"><span class="text-[#00f0ff]">Choreographer</span></td>
+                                    <td class="py-3 px-2">Today, 09:12 AM</td>
+                                    <td class="py-3 px-2 text-right"><i class='bx bx-edit-alt cursor-pointer hover:text-white transition'></i></td>
                                 </tr>
-                                <tr class="border-b border-white/5 hover:bg-white/[0.02] transition">
-                                    <td class="py-4 font-bold text-white">TechCorp Annual Gala</td>
-                                    <td class="py-4 text-gray-400">TechCorp Inc.</td>
-                                    <td class="py-4 text-gray-300">500</td>
-                                    <td class="py-4 text-gray-400">Nov 15, 2026</td>
-                                    <td class="py-4"><span class="bg-blue-500/20 text-blue-400 px-2 py-1 rounded-full text-xs font-bold">FAA Processing</span></td>
-                                    <td class="py-4 text-right"><button class="text-gray-400 hover:text-white"><i class='bx bx-dots-vertical-rounded'></i></button></td>
-                                </tr>
-                                <tr class="border-b border-white/5 hover:bg-white/[0.02] transition">
-                                    <td class="py-4 font-bold text-white">NeonFest Mainstage</td>
-                                    <td class="py-4 text-gray-400">Event Logistics</td>
-                                    <td class="py-4 text-gray-300">2,500</td>
-                                    <td class="py-4 text-gray-400">Oct 28, 2026</td>
-                                    <td class="py-4"><span class="bg-green-500/20 text-green-400 px-2 py-1 rounded-full text-xs font-bold">Ready to Fly</span></td>
-                                    <td class="py-4 text-right"><button class="text-gray-400 hover:text-white"><i class='bx bx-dots-vertical-rounded'></i></button></td>
+                                <tr class="border-b border-white/5 hover:bg-white/[0.02]">
+                                    <td class="py-3 px-2">
+                                        <div class="flex items-center gap-2">
+                                            <div class="w-7 h-7 rounded-full bg-[#ff00ff]/10 text-[#ff00ff] flex items-center justify-center text-[10px]">MK</div>
+                                            <span>Mark Kaplan</span>
+                                        </div>
+                                    </td>
+                                    <td class="py-3 px-2"><span class="text-[#ff00ff]">Field Operator</span></td>
+                                    <td class="py-3 px-2">Yesterday, 11:45 PM</td>
+                                    <td class="py-3 px-2 text-right"><i class='bx bx-edit-alt cursor-pointer hover:text-white transition'></i></td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
                 </div>
-
             </div>
+
+            <!-- Venue Tab -->
+            <div id="tab-venue" class="tab-content hidden">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="glass-card p-6 rounded-2xl border border-white/5">
+                        <h3 class="font-bold mb-4">Active Venue Layouts</h3>
+                        <div class="space-y-4">
+                            <div class="glass-panel p-4 rounded-xl border border-white/5 flex justify-between items-center">
+                                <div>
+                                    <h4 class="text-sm font-bold">Hard Rock Stadium, Miami</h4>
+                                    <p class="text-[10px] text-gray-500">CAD Version: 4.2 | 12.5MB</p>
+                                </div>
+                                <span class="bg-green-500/10 text-green-500 px-2 py-1 rounded text-[10px] font-bold">VERIFIED</span>
+                            </div>
+                            <div class="glass-panel p-4 rounded-xl border border-white/5 flex justify-between items-center">
+                                <div>
+                                    <h4 class="text-sm font-bold">Central Park, NY</h4>
+                                    <p class="text-[10px] text-gray-500">Tree canopy survey required</p>
+                                </div>
+                                <span class="bg-yellow-500/10 text-yellow-500 px-2 py-1 rounded text-[10px] font-bold">PENDING SURVEY</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="glass-card p-6 rounded-2xl border border-white/10 border-dashed flex flex-col items-center justify-center text-center py-12">
+                        <i class='bx bx-cloud-upload text-5xl text-[#00f0ff] mb-4'></i>
+                        <h4 class="font-bold mb-2">Upload New Site Plan</h4>
+                        <p class="text-xs text-gray-500 mb-6 max-w-xs">Drag and drop your .DWG or .PDF site plans here for analysis by the engineering team.</p>
+                        <button class="btn-primary text-xs py-2 px-6">Select Files</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Approvals Tab -->
+            <div id="tab-approvals" class="tab-content hidden">
+                <div class="glass-card p-6 rounded-2xl border border-white/5">
+                    <h3 class="font-bold mb-6">Sequence Quality Control</h3>
+                    <div class="space-y-6">
+                        <div class="flex items-center gap-6 p-4 glass-panel rounded-2xl border border-white/10">
+                            <div class="w-32 h-20 bg-black/50 rounded-lg flex items-center justify-center relative overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1579820010410-c10411aaaa88?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" class="w-full h-full object-cover opacity-50">
+                                <i class='bx bx-play-circle text-3xl text-white absolute cursor-pointer hover:scale-110 transition'></i>
+                            </div>
+                            <div class="flex-grow">
+                                <h4 class="font-bold">Helix Formation - v2</h4>
+                                <p class="text-xs text-gray-400 mb-2">1,200 Drones | Duration: 4:35 | Designer: SJ</p>
+                                <div class="flex gap-2">
+                                    <button class="bg-green-500 text-white px-3 py-1 rounded text-[10px] font-bold hover:opacity-80">APPROVE</button>
+                                    <button class="bg-red-500/20 text-red-400 px-3 py-1 rounded text-[10px] font-bold hover:bg-red-500/30">REJECT</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Files Tab -->
+            <div id="tab-files" class="tab-content hidden">
+                <div class="glass-card p-6 rounded-2xl border border-white/5">
+                    <div class="flex justify-between items-center mb-6">
+                        <h3 class="font-bold">Project Deliverables</h3>
+                        <button class="text-[#00f0ff] text-xs font-bold hover:underline">Download All (ZIP)</button>
+                    </div>
+                    <div class="space-y-2">
+                        <div class="flex items-center justify-between p-3 hover:bg-white/5 rounded-xl transition">
+                            <div class="flex items-center gap-3">
+                                <i class='bx bx-file-blank text-2xl text-[#8a2be2]'></i>
+                                <div>
+                                    <h4 class="text-sm font-bold text-white">Final_Safety_Waiver.pdf</h4>
+                                    <p class="text-[10px] text-gray-500">Aug 12, 2026 | 2.4 MB</p>
+                                </div>
+                            </div>
+                            <button class="text-gray-500 hover:text-[#00f0ff]"><i class='bx bx-download text-xl'></i></button>
+                        </div>
+                        <div class="flex items-center justify-between p-3 hover:bg-white/5 rounded-xl transition">
+                            <div class="flex items-center gap-3">
+                                <i class='bx bx-file-json text-2xl text-[#ff00ff]'></i>
+                                <div>
+                                    <h4 class="text-sm font-bold text-white">Flight_Manifest_Export.json</h4>
+                                    <p class="text-[10px] text-gray-500">Aug 10, 2026 | 1.1 MB</p>
+                                </div>
+                            </div>
+                            <button class="text-gray-500 hover:text-[#00f0ff]"><i class='bx bx-download text-xl'></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </main>
 
     <script>
-        // Simple Chart Initialization
         document.addEventListener('DOMContentLoaded', function() {
+            // Sidebar Toggle Logic
+            const sidebar = document.getElementById('sidebar');
+            const sidebarOverlay = document.getElementById('sidebar-overlay');
+            const sidebarToggle = document.getElementById('sidebar-toggle');
+
+            function toggleSidebar() {
+                sidebar.classList.toggle('-translate-x-full');
+                sidebarOverlay.classList.toggle('hidden');
+                document.body.classList.toggle('overflow-hidden');
+            }
+
+            if (sidebarToggle) sidebarToggle.addEventListener('click', toggleSidebar);
+            if (sidebarOverlay) sidebarOverlay.addEventListener('click', toggleSidebar);
+
+            // Close sidebar on link click (mobile)
+            const sidebarLinks = sidebar.querySelectorAll('.tab-link');
+            sidebarLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (window.innerWidth < 1024) {
+                        toggleSidebar();
+                    }
+                });
+            });
+
+            // Tab Switching Logic
+            const tabLinks = document.querySelectorAll('.tab-link');
+            const tabContents = document.querySelectorAll('.tab-content');
+            const pageTitle = document.getElementById('page-title');
+
+            tabLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    if (this.getAttribute('href') !== '#') return;
+                    e.preventDefault();
+
+                    // Update UI links
+                    tabLinks.forEach(l => l.classList.remove('bg-white/5', 'text-[#00f0ff]'));
+                    this.classList.add('bg-white/5', 'text-[#00f0ff]');
+
+                    // Update Content
+                    const tabId = this.getAttribute('data-tab');
+                    tabContents.forEach(content => {
+                        if (content.id === `tab-${tabId}`) {
+                            content.classList.remove('hidden');
+                        } else {
+                            content.classList.add('hidden');
+                        }
+                    });
+
+                    // Update Title
+                    pageTitle.innerText = this.innerText.trim();
+                });
+            });
+
+            // Chart Initialization (Remains same)
             const ctx = document.getElementById('revenueChart').getContext('2d');
             const gradient = ctx.createLinearGradient(0, 0, 0, 300);
             gradient.addColorStop(0, 'rgba(0, 240, 255, 0.5)');
@@ -228,9 +468,7 @@
                 options: {
                     responsive: true,
                     maintainAspectRatio: false,
-                    plugins: {
-                        legend: { display: false }
-                    },
+                    plugins: { legend: { display: false } },
                     scales: {
                         y: {
                             beginAtZero: true,

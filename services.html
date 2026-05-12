@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Services | AeroLumina</title>
+    <title>Services | AeroGlow</title>
+    <link rel="icon" type="image/png" href="assets/images/favicon.png">
     
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
@@ -17,18 +18,58 @@
 
     <header id="header" class="fixed w-full top-0 z-50 transition-all duration-300 bg-transparent py-4">
         <!-- Header content similar to others -->
-        <div class="container mx-auto px-6 lg:px-12 flex justify-between items-center">
+        <div class="container mx-auto px-6 xl:px-12 flex justify-between items-center">
             <a href="index.html" class="text-2xl font-bold tracking-wider flex items-center gap-2">
-                <i class='bx bx-hive text-[#00f0ff]'></i> Aero<span class="text-gradient">Lumina</span>
+                <i class='bx bx-hive text-[#00f0ff]'></i> <span>Aero<span class="text-gradient">Glow</span></span>
             </a>
-            <nav class="hidden md:flex gap-8 items-center text-sm uppercase tracking-wide font-medium">
-                <a href="index.html" class="hover:text-[#00f0ff]">Home</a>
+            <nav class="hidden xl:flex gap-8 items-center text-sm uppercase tracking-wide font-medium">
+                <div class="relative group">
+                    <button class="flex items-center gap-1 hover:text-[#00f0ff] transition-colors uppercase">
+                        Home <i class='bx bx-chevron-down text-xs transition-transform group-hover:rotate-180'></i>
+                    </button>
+                    <div class="absolute left-0 top-full pt-4 w-32 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                        <div class="glass-panel py-2 rounded-lg border border-white/5 overflow-hidden text-white/70">
+                            <a href="index.html" class="block px-4 py-2 hover:bg-white/5 hover:text-[#00f0ff] normal-case transition-colors">Home 1</a>
+                            <a href="index-2.html" class="block px-4 py-2 hover:bg-white/5 hover:text-[#00f0ff] normal-case transition-colors">Home 2</a>
+                        </div>
+                    </div>
+                </div>
                 <a href="about.html" class="hover:text-[#00f0ff]">About</a>
                 <a href="services.html" class="text-[#00f0ff]">Services</a>
-                <a href="pricing.html" class="hover:text-[#00f0ff]">Pricing</a>
+                <a href="blog.html" class="hover:text-[#00f0ff]">Blog</a>
                 <a href="contact.html" class="hover:text-[#00f0ff]">Contact</a>
+                <a href="dashboard.html" class="hover:text-[#00f0ff]">Dashboard</a>
             </nav>
-            <button id="mobile-menu-btn" class="md:hidden text-3xl"><i class='bx bx-menu'></i></button>
+            <!-- Actions -->
+            <div class="flex gap-4 items-center">
+                <button id="theme-toggle" class="p-2 rounded-full hover:bg-white/10 transition" aria-label="Toggle Theme">
+                    <i class='bx bx-moon text-xl'></i>
+                </button>
+                <button id="rtl-toggle" class="hover:text-[#00f0ff] text-sm uppercase font-medium transition">RTL</button>
+                <div class="hidden xl:flex gap-4 items-center">
+                    <a href="auth.html" class="px-5 py-2 rounded-full border border-white/10 hover:border-[#00f0ff] hover:text-[#00f0ff] transition text-sm uppercase font-medium">Login</a>
+                    <a href="contact.html" class="btn-primary text-sm">Book</a>
+                </div>
+
+                <!-- Mobile Menu Btn -->
+                <button id="mobile-menu-btn" class="xl:hidden text-3xl">
+                    <i class='bx bx-menu'></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden absolute top-full left-0 w-full glass-panel py-4 flex flex-col items-center gap-4 border-t border-white/10">
+            <a href="index.html">Home 1</a>
+            <a href="index-2.html">Home 2</a>
+            <a href="about.html" class="hover:text-[#00f0ff]">About</a>
+            <a href="services.html" class="text-[#00f0ff]">Services</a>
+            <a href="blog.html" class="hover:text-[#00f0ff]">Blog</a>
+            <a href="dashboard.html" class="hover:text-[#00f0ff]">Dashboard</a>
+            <a href="contact.html" class="hover:text-[#00f0ff]">Contact</a>
+            <hr class="w-2/3 border-white/10 my-2">
+            <a href="auth.html" class="px-8 py-2 rounded-full border border-white/10 text-sm uppercase font-medium">Login</a>
+            <a href="contact.html" class="btn-primary text-sm w-48 text-center">Book Now</a>
         </div>
     </header>
 
@@ -52,8 +93,8 @@
                 </div>
                 <div class="order-1 lg:order-2 glass-card aspect-video rounded-3xl overflow-hidden reveal p-2">
                     <div class="w-full h-full bg-gray-900 rounded-2xl flex items-center justify-center border border-white/10 relative overflow-hidden">
-                        <i class='bx bx-map-alt text-8xl text-white/10'></i>
-                        <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1524661135-423995f22d0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')] opacity-40 object-cover bg-center"></div>
+                        <img src="assets/images/stadium-show.png" alt="Strategic Show Planning" class="w-full h-full object-cover opacity-60 group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
                     </div>
                 </div>
             </div>
@@ -64,8 +105,8 @@
             <div class="container mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 <div class="glass-card aspect-video rounded-3xl overflow-hidden reveal p-2">
                     <div class="w-full h-full bg-gray-900 rounded-2xl flex items-center justify-center border border-white/10 relative overflow-hidden">
-                        <div class="absolute inset-0 bg-gradient-to-br from-[#8a2be2]/20 to-transparent z-10"></div>
-                        <i class='bx bx-hive text-8xl text-[#8a2be2]/30'></i>
+                        <img src="assets/images/card-choreography.png" alt="Custom Swarm Choreography" class="w-full h-full object-cover opacity-60 group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-br from-[#8a2be2]/40 via-transparent to-transparent"></div>
                     </div>
                 </div>
                 <div class="reveal">
@@ -94,8 +135,9 @@
                     </ul>
                 </div>
                 <div class="order-1 lg:order-2 glass-card aspect-video rounded-3xl overflow-hidden reveal p-2">
-                    <div class="w-full h-full bg-gray-900 rounded-2xl flex items-center justify-center border border-white/10 relative">
-                         <i class='bx bx-shield-quarter text-8xl text-[#ff00ff]/30'></i>
+                    <div class="w-full h-full bg-gray-900 rounded-2xl flex items-center justify-center border border-white/10 relative overflow-hidden group">
+                         <img src="assets/images/drone-safety.png" alt="FAA Compliance & Waivers" class="w-full h-full object-cover opacity-60 group-hover:scale-110 transition-transform duration-700">
+                         <div class="absolute inset-0 bg-gradient-to-tr from-[#ff00ff]/40 via-transparent to-transparent"></div>
                     </div>
                 </div>
             </div>
@@ -108,25 +150,182 @@
                 <p class="text-gray-400 max-w-2xl mx-auto mb-12">On the day of the event, our specialized flight crew handles the logistics, setup, and launch, ensuring absolute safety and precision timing.</p>
                 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <div class="glass-panel p-8 rounded-2xl border border-white/10">
-                        <i class='bx bx-network-chart text-4xl text-[#00f0ff] mb-4'></i>
-                        <h4 class="font-bold text-xl mb-2">Mesh Network Setup</h4>
-                        <p class="text-sm text-gray-500">Establishing localized, interference-free comms.</p>
+                    <div class="glass-card p-8 rounded-2xl border border-white/10 relative overflow-hidden group min-h-[280px] flex flex-col justify-center">
+                        <div class="absolute inset-0 z-0">
+                            <img src="assets/images/gallery-logo.png" alt="Mesh Network Setup" class="w-full h-full object-cover opacity-20 group-hover:opacity-40 transition-opacity duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent"></div>
+                        </div>
+                        <div class="relative z-10">
+                            <h4 class="font-bold text-2xl mb-2 text-white">Mesh Network Setup</h4>
+                            <p class="text-sm text-gray-400">Establishing localized, interference-free communications for zero-latency swarm control.</p>
+                        </div>
                     </div>
-                    <div class="glass-panel p-8 rounded-2xl border border-white/10">
-                        <i class='bx bx-grid text-4xl text-[#8a2be2] mb-4'></i>
-                        <h4 class="font-bold text-xl mb-2">Grid Deployment</h4>
-                        <p class="text-sm text-gray-500">Rapid physical positioning of the drone fleet.</p>
+                    <div class="glass-card p-8 rounded-2xl border border-white/10 relative overflow-hidden group min-h-[280px] flex flex-col justify-center">
+                        <div class="absolute inset-0 z-0">
+                            <img src="assets/images/card-swarm.png" alt="Grid Deployment" class="w-full h-full object-cover opacity-20 group-hover:opacity-40 transition-opacity duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent"></div>
+                        </div>
+                        <div class="relative z-10">
+                            <h4 class="font-bold text-2xl mb-2 text-white">Grid Deployment</h4>
+                            <p class="text-sm text-gray-400">Rapid physical positioning and orientation of the drone fleet for surgical precision.</p>
+                        </div>
                     </div>
-                    <div class="glass-panel p-8 rounded-2xl border border-white/10">
-                        <i class='bx bx-power-off text-4xl text-[#ff00ff] mb-4'></i>
-                        <h4 class="font-bold text-xl mb-2">Launch Protocol</h4>
-                        <p class="text-sm text-gray-500">Triple-check safety diagnostics before liftoff.</p>
+                    <div class="glass-card p-8 rounded-2xl border border-white/10 relative overflow-hidden group min-h-[280px] flex flex-col justify-center">
+                        <div class="absolute inset-0 z-0">
+                            <img src="assets/images/gallery-countdown.png" alt="Launch Protocol" class="w-full h-full object-cover opacity-20 group-hover:opacity-40 transition-opacity duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent"></div>
+                        </div>
+                        <div class="relative z-10">
+                            <h4 class="font-bold text-2xl mb-2 text-white">Launch Protocol</h4>
+                            <p class="text-sm text-gray-400">Triple-check safety diagnostics and multi-layered pre-flight checks before liftoff.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Investment Packages (Moved from Pricing) -->
+        <section class="py-24 relative overflow-hidden">
+            <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-[#8a2be2]/10 blur-[100px] rounded-full -z-10 pointer-events-none"></div>
+            <div class="container mx-auto px-6 text-center reveal mb-16">
+                <h2 class="text-4xl md:text-6xl font-bold mb-6">Transparent <span class="text-gradient">Investment</span></h2>
+                <p class="text-gray-400 max-w-2xl mx-auto text-lg">World-class aerial entertainment scaled to fit your event. All packages include FAA clearance, custom animation design, and full on-site logistics.</p>
+            </div>
+
+            <div class="container mx-auto px-6 reveal mb-24">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch max-w-6xl mx-auto">
+                    <!-- Package 1: Essential -->
+                    <div class="glass-card p-8 rounded-3xl border border-white/5 relative group hover:border-[#00f0ff]/50 transition-colors text-center h-full flex flex-col">
+                        <div class="flex-grow">
+                            <h3 class="text-2xl font-bold mb-2">Essential</h3>
+                            <p class="text-gray-400 text-sm mb-6">Perfect for private events, weddings, and local brand activations.</p>
+                            <div class="mb-8">
+                                <span class="text-4xl font-bold">$15,000</span>
+                                <span class="text-gray-500 text-sm">/ starting</span>
+                            </div>
+                            <ul class="space-y-4 text-sm text-gray-300 mb-8">
+                                <li class="flex items-center justify-center gap-3"><i class='bx bx-check text-[#00f0ff]'></i> 200 Drone Fleet</li>
+                                <li class="flex items-center justify-center gap-3"><i class='bx bx-check text-[#00f0ff]'></i> 10 Minute Duration</li>
+                                <li class="flex items-center justify-center gap-3"><i class='bx bx-check text-[#00f0ff]'></i> 3 Custom Formations</li>
+                                <li class="flex items-center justify-center gap-3"><i class='bx bx-check text-[#00f0ff]'></i> FAA Airspace Clearance</li>
+                            </ul>
+                        </div>
+                        <a href="contact.html" class="block text-center w-full py-3 rounded-full border border-white/20 hover:bg-white/10 transition font-bold mt-auto">Select Essential</a>
+                    </div>
+
+                    <!-- Package 2: Spectacle -->
+                    <div class="glass-card p-8 rounded-3xl border border-[#8a2be2]/50 relative group shadow-[0_0_30px_rgba(138,43,226,0.15)] overflow-hidden text-center h-full flex flex-col">
+                        <div class="absolute top-0 left-1/2 -translate-x-1/2 bg-gradient-to-r from-[#8a2be2] to-[#00f0ff] text-white text-[10px] uppercase tracking-widest font-bold px-6 py-1.5 rounded-b-xl shadow-lg z-20 whitespace-nowrap">Most Popular</div>
+                        <div class="flex-grow pt-4">
+                            <h3 class="text-2xl font-bold mb-2 text-[#8a2be2]">Spectacle</h3>
+                            <p class="text-gray-400 text-sm mb-6">Ideal for city festivals, medium concerts, and corporate galas.</p>
+                            <div class="mb-8">
+                                <span class="text-4xl font-bold text-white">$35,000</span>
+                                <span class="text-gray-500 text-sm">/ starting</span>
+                            </div>
+                            <ul class="space-y-4 text-sm text-gray-300 mb-8">
+                                <li class="flex items-center justify-center gap-3"><i class='bx bx-check text-[#8a2be2]'></i> 500 Drone Fleet</li>
+                                <li class="flex items-center justify-center gap-3"><i class='bx bx-check text-[#8a2be2]'></i> 12 Minute Duration</li>
+                                <li class="flex items-center justify-center gap-3"><i class='bx bx-check text-[#8a2be2]'></i> 5 Custom Formations</li>
+                                <li class="flex items-center justify-center gap-3"><i class='bx bx-check text-[#8a2be2]'></i> Audio/Timecode Sync</li>
+                            </ul>
+                        </div>
+                        <a href="contact.html" class="btn-primary block text-center w-full mt-auto" style="border-color:#8a2be2;">Select Spectacle</a>
+                    </div>
+
+                    <!-- Package 3: Mega Swarm -->
+                    <div class="glass-card p-8 rounded-3xl border border-white/5 relative group hover:border-[#ff00ff]/50 transition-colors text-center h-full flex flex-col">
+                        <div class="flex-grow">
+                            <h3 class="text-2xl font-bold mb-2">Mega Swarm</h3>
+                            <p class="text-gray-400 text-sm mb-6">Massive scale for stadiums, global broadcasts, and national holidays.</p>
+                            <div class="mb-8">
+                                <span class="text-4xl font-bold">$75,000+</span>
+                            </div>
+                            <ul class="space-y-4 text-sm text-gray-300 mb-8">
+                                <li class="flex items-center justify-center gap-3"><i class='bx bx-check text-[#ff00ff]'></i> 1000+ Drone Fleet</li>
+                                <li class="flex items-center justify-center gap-3"><i class='bx bx-check text-[#ff00ff]'></i> Unlimited Formations</li>
+                                <li class="flex items-center justify-center gap-3"><i class='bx bx-check text-[#ff00ff]'></i> Pyrotechnic Integration</li>
+                            </ul>
+                        </div>
+                        <a href="contact.html" class="block text-center w-full py-3 rounded-full border border-white/20 hover:bg-white/10 transition font-bold mt-auto">Contact Sales</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ -->
+            <div class="container mx-auto px-6 max-w-4xl reveal mt-24">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold mb-4">Service <span class="text-gradient">FAQ</span></h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="glass-panel p-6 rounded-2xl border border-white/5 text-center">
+                        <h4 class="font-bold mb-2">What if weather cancels the show?</h4>
+                        <p class="text-sm text-gray-400">If weather grounds the fleet, we will attempt to fly on the pre-agreed weather contingency date at no additional cost.</p>
+                    </div>
+                    <div class="glass-panel p-6 rounded-2xl border border-white/5 text-center">
+                        <h4 class="font-bold mb-2">What is the payment schedule?</h4>
+                        <p class="text-sm text-gray-400">We typically require a 50% deposit to lock in the dates and begin the design process. The remaining 50% is due 7 days prior.</p>
                     </div>
                 </div>
             </div>
         </section>
     </main>
+
+    <!-- Footer -->
+    <footer class="bg-[#020205] border-t border-white/5 pt-16 pb-8 relative z-10">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+                <div class="col-span-1 md:col-span-1">
+                    <a href="index.html" class="text-2xl font-bold tracking-wider flex items-center gap-2 mb-4">
+                        <i class='bx bx-hive text-[#00f0ff]'></i> <span>Aero<span class="text-gradient">Glow</span></span>
+                    </a>
+                    <p class="text-gray-500 text-sm mb-6">Pioneering the future of aerial entertainment through precision engineering and artistic choreography.</p>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-10 h-10 rounded-full glass-panel flex items-center justify-center hover:text-[#00f0ff] hover:border-[#00f0ff] hover:scale-110 hover:shadow-[0_0_15px_rgba(0,240,255,0.5)] transition-all duration-300"><i class='bx bxl-twitter text-xl'></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full glass-panel flex items-center justify-center hover:text-[#00f0ff] hover:border-[#00f0ff] hover:scale-110 hover:shadow-[0_0_15px_rgba(0,240,255,0.5)] transition-all duration-300"><i class='bx bxl-instagram text-xl'></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full glass-panel flex items-center justify-center hover:text-[#00f0ff] hover:border-[#00f0ff] hover:scale-110 hover:shadow-[0_0_15px_rgba(0,240,255,0.5)] transition-all duration-300"><i class='bx bxl-youtube text-xl'></i></a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-white font-bold mb-4 uppercase tracking-wider text-sm">Services</h4>
+                    <ul class="space-y-2 text-gray-500 text-sm">
+                        <li><a href="service-details.html" class="hover:text-[#00f0ff] transition">Custom Choreography</a></li>
+                        <li><a href="service-details.html" class="hover:text-[#00f0ff] transition">Mega Swarms</a></li>
+                        <li><a href="service-details.html" class="hover:text-[#00f0ff] transition">Brand Activations</a></li>
+                        <li><a href="services.html" class="hover:text-[#00f0ff] transition">Event Logistics</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-white font-bold mb-4 uppercase tracking-wider text-sm">Company</h4>
+                    <ul class="space-y-2 text-gray-500 text-sm">
+                        <li><a href="index.html" class="hover:text-[#00f0ff] transition">Home</a></li>
+                        <li><a href="about.html" class="hover:text-[#00f0ff] transition">About Us</a></li>
+                        <li><a href="blog.html" class="hover:text-[#00f0ff] transition">Blog</a></li>
+                        <li><a href="contact.html" class="hover:text-[#00f0ff] transition">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-white font-bold mb-4 uppercase tracking-wider text-sm">Newsletter</h4>
+                    <p class="text-gray-500 text-sm mb-4">Subscribe for the latest drone show concepts.</p>
+                    <form class="flex">
+                        <input type="email" placeholder="Email Address" class="bg-white/5 border border-white/10 rounded-l-md px-4 py-2 w-full focus:outline-none focus:border-[#00f0ff] text-sm">
+                        <button type="submit" class="bg-[#00f0ff] text-black px-4 py-2 rounded-r-md font-bold hover:bg-white transition"><i class='bx bx-send'></i></button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-600 gap-4">
+                <p>&copy; 2026 AeroGlow. All rights reserved.</p>
+                <div class="flex gap-4">
+                    <a href="#" class="hover:text-white transition">Privacy Policy</a>
+                    <a href="#" class="hover:text-white transition">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>

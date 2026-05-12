@@ -101,6 +101,27 @@ body {
     color: #fff;
 }
 
+.btn-secondary {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border-radius: 9999px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: var(--text-color);
+    font-weight: 500;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(8px);
+    text-align: center;
+}
+
+.btn-secondary:hover {
+    border-color: var(--accent-color);
+    color: var(--accent-color);
+    background: rgba(0, 240, 255, 0.05);
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(0, 240, 255, 0.2);
+}
+
+
 /* Canvas Container */
 #canvas-container {
     position: fixed;
@@ -206,7 +227,124 @@ html.light-mode textarea::placeholder {
     color: #888 !important;
 }
 
-html.light-mode .text-white\/50,
-html.light-mode .text-white\/20 {
+html.light-mode .text-white/50,
+html.light-mode .text-white/20 {
     color: rgba(0, 0, 0, 0.5) !important;
+}
+
+/* Full Width Layout Overrides */
+.container {
+    max-width: 1280px !important;
+    padding-left: 1.5rem !important;
+    padding-right: 1.5rem !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+/* Tablet & Mobile Alignment Fixes */
+@media (max-width: 1024px) {
+    h1 {
+        font-size: 2.5rem !important;
+        line-height: 1.2 !important;
+    }
+
+    h2 {
+        font-size: 2rem !important;
+    }
+
+    .container {
+        text-align: center !important;
+        padding-left: 1.25rem !important;
+        padding-right: 1.25rem !important;
+    }
+
+    .container .flex, 
+    .container .grid {
+        justify-items: center !important;
+        text-align: center !important;
+    }
+
+    /* Refined Footer Mobile Alignment */
+    footer .container {
+        text-align: center !important;
+    }
+
+    footer .grid {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 2.5rem !important;
+    }
+
+    footer .grid > div {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        width: 100% !important;
+    }
+
+    footer ul {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        padding: 0 !important;
+    }
+
+    footer form {
+        display: flex !important;
+        flex-direction: row !important;
+        width: 100% !important;
+        max-width: 300px !important;
+        margin-top: 1rem !important;
+    }
+
+    footer .flex {
+        display: flex !important;
+        flex-direction: row !important;
+        justify-content: center !important;
+        gap: 1rem !important;
+    }
+
+
+    .btn-primary, .btn-secondary, a.btn-primary, a.btn-secondary {
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        width: 100% !important;
+        max-width: 280px !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+
+
+
+    main section .grid > div,
+    main section .flex > div {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+    }
+
+    /* Proper list centering */
+    ul.space-y-4, ul.space-y-3 {
+        display: inline-block !important;
+        text-align: left !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+
+    /* Fix hero section height and padding */
+    section.min-h-screen {
+        min-height: calc(100vh - 60px) !important;
+        padding-top: 6rem !important;
+    }
+}
+
+
+@media (min-width: 1024px) {
+    .container {
+        padding-left: 3rem !important;
+        padding-right: 3rem !important;
+    }
 }

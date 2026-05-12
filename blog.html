@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Journal | AeroLumina</title>
+    <title>Journal | AeroGlow</title>
+    <link rel="icon" type="image/png" href="assets/images/favicon.png">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
@@ -12,21 +13,63 @@
 <body class="relative text-white antialiased bg-[#050508]">
 
     <header id="header" class="fixed w-full top-0 z-50 transition-all duration-300 glass-panel py-4">
-        <div class="container mx-auto px-6 lg:px-12 flex justify-between items-center">
+        <div class="container mx-auto px-6 xl:px-12 flex justify-between items-center">
             <a href="index.html" class="text-2xl font-bold tracking-wider flex items-center gap-2">
-                <i class='bx bx-hive text-[#00f0ff]'></i> Aero<span class="text-gradient">Lumina</span>
+                <i class='bx bx-hive text-[#00f0ff]'></i> <span>Aero<span class="text-gradient">Glow</span></span>
             </a>
-            <nav class="hidden md:flex gap-8 items-center text-sm uppercase tracking-wide font-medium">
-                <a href="index.html" class="hover:text-[#00f0ff]">Home</a>
+            <nav class="hidden xl:flex gap-8 items-center text-sm uppercase tracking-wide font-medium">
+                <div class="relative group">
+                    <button class="flex items-center gap-1 hover:text-[#00f0ff] transition-colors uppercase">
+                        Home <i class='bx bx-chevron-down text-xs transition-transform group-hover:rotate-180'></i>
+                    </button>
+                    <div class="absolute left-0 top-full pt-4 w-32 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                        <div class="glass-panel py-2 rounded-lg border border-white/5 overflow-hidden text-white/70">
+                            <a href="index.html" class="block px-4 py-2 hover:bg-white/5 hover:text-[#00f0ff] normal-case transition-colors">Home 1</a>
+                            <a href="index-2.html" class="block px-4 py-2 hover:bg-white/5 hover:text-[#00f0ff] normal-case transition-colors">Home 2</a>
+                        </div>
+                    </div>
+                </div>
                 <a href="about.html" class="hover:text-[#00f0ff]">About</a>
-                <a href="blog.html" class="text-[#00f0ff]">Journal</a>
+                <a href="services.html" class="hover:text-[#00f0ff]">Services</a>
+                <a href="blog.html" class="text-[#00f0ff]">Blog</a>
                 <a href="contact.html" class="hover:text-[#00f0ff]">Contact</a>
+                <a href="dashboard.html" class="hover:text-[#00f0ff]">Dashboard</a>
             </nav>
+            <!-- Actions -->
+            <div class="flex gap-4 items-center">
+                <button id="theme-toggle" class="p-2 rounded-full hover:bg-white/10 transition" aria-label="Toggle Theme">
+                    <i class='bx bx-moon text-xl'></i>
+                </button>
+                <button id="rtl-toggle" class="hover:text-[#00f0ff] text-sm uppercase font-medium transition">RTL</button>
+                <div class="hidden xl:flex gap-4 items-center">
+                    <a href="auth.html" class="px-5 py-2 rounded-full border border-white/10 hover:border-[#00f0ff] hover:text-[#00f0ff] transition text-sm uppercase font-medium">Login</a>
+                    <a href="contact.html" class="btn-primary text-sm">Book</a>
+                </div>
+
+                <!-- Mobile Menu Btn -->
+                <button id="mobile-menu-btn" class="xl:hidden text-3xl">
+                    <i class='bx bx-menu'></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden absolute top-full left-0 w-full glass-panel py-4 flex flex-col items-center gap-4 border-t border-white/10">
+            <a href="index.html">Home 1</a>
+            <a href="index-2.html">Home 2</a>
+            <a href="about.html" class="hover:text-[#00f0ff]">About</a>
+            <a href="services.html" class="hover:text-[#00f0ff]">Services</a>
+            <a href="blog.html" class="text-[#00f0ff]">Blog</a>
+            <a href="dashboard.html" class="hover:text-[#00f0ff]">Dashboard</a>
+            <a href="contact.html" class="hover:text-[#00f0ff]">Contact</a>
+            <hr class="w-2/3 border-white/10 my-2">
+            <a href="auth.html" class="px-8 py-2 rounded-full border border-white/10 text-sm uppercase font-medium">Login</a>
+            <a href="contact.html" class="btn-primary text-sm w-48 text-center">Book Now</a>
         </div>
     </header>
 
     <main class="pt-32 pb-24">
-        <div class="container mx-auto px-6 mb-12 reveal">
+        <div class="container mx-auto px-6 mb-12 reveal text-center">
             <h1 class="text-4xl md:text-6xl font-bold mb-4">Flight <span class="text-gradient">Journal</span></h1>
             <p class="text-gray-400">Insights, technology updates, and behind-the-scenes of our biggest shows.</p>
         </div>
@@ -36,66 +79,126 @@
             <!-- Main Content Area -->
             <div class="lg:col-span-3 space-y-12">
                 
+                <!-- 0. Featured Post Hero -->
+                <div class="relative rounded-3xl overflow-hidden group h-[400px] reveal">
+                    <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Featured Post" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
+                    <div class="absolute inset-0 flex flex-col items-center justify-center p-8 md:p-12 text-center bg-black/20">
+                        <div class="flex items-center justify-center gap-4 mb-4">
+                            <span class="bg-[#00f0ff] text-black px-3 py-1 rounded text-xs font-bold uppercase tracking-widest">Editor's Choice</span>
+                            <span class="text-xs text-white/70">12 min read</span>
+                        </div>
+                        <h2 class="text-3xl md:text-5xl font-bold mb-4 leading-tight max-w-4xl">Mastering the Hive: Advanced Choreography for 2,000+ Drones</h2>
+                        <p class="text-white/80 text-sm md:text-xl mb-8 max-w-2xl mx-auto">Exploring the limits of swarm intelligence and high-speed data transmission in the world's most complex aerial displays.</p>
+                        <a href="blog-details.html" class="btn-primary inline-block">Read Full Story</a>
+                    </div>
+                </div>
+
                 <!-- 1. Featured Articles (Displaying as a grid of cards) -->
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 reveal">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 reveal items-stretch">
                     <!-- Article 1 -->
-                    <article class="glass-card rounded-2xl overflow-hidden group border border-white/5">
+                    <article class="glass-card rounded-2xl overflow-hidden group border border-white/5 text-center h-full flex flex-col">
                         <div class="aspect-video relative overflow-hidden">
                             <img src="https://images.unsplash.com/photo-1579820010410-c10411aaaa88?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Blog post" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
                             <div class="absolute top-4 left-4 glass-panel px-3 py-1 rounded text-xs font-bold text-[#00f0ff]">Technology</div>
                         </div>
-                        <div class="p-6">
-                            <div class="flex gap-4 text-xs text-gray-500 mb-3">
+                        <div class="p-6 flex flex-col flex-grow">
+                            <div class="flex justify-center gap-4 text-xs text-gray-500 mb-3">
                                 <span><i class='bx bx-calendar'></i> Oct 12, 2026</span>
                                 <span><i class='bx bx-time'></i> 5 min read</span>
                             </div>
                             <h3 class="text-2xl font-bold mb-3 hover:text-[#00f0ff] transition"><a href="blog-details.html">The Evolution of RTK GPS in Swarm Robotics</a></h3>
-                            <p class="text-gray-400 text-sm mb-4">How centimeter-level positioning has allowed us to create denser, more complex 3D animations in the sky without collision risks.</p>
-                            <a href="blog-details.html" class="text-[#00f0ff] text-sm font-bold flex items-center gap-1 group-hover:gap-2 transition-all">Read More <i class='bx bx-right-arrow-alt'></i></a>
+                            <p class="text-gray-400 text-sm mb-6 flex-grow">How centimeter-level positioning has allowed us to create denser, more complex 3D animations in the sky without collision risks.</p>
+                            <a href="blog-details.html" class="text-[#00f0ff] text-sm font-bold flex items-center justify-center gap-1 group-hover:gap-2 transition-all mt-auto">Read More <i class='bx bx-right-arrow-alt'></i></a>
                         </div>
                     </article>
 
                     <!-- Article 2 -->
-                    <article class="glass-card rounded-2xl overflow-hidden group border border-white/5">
+                    <article class="glass-card rounded-2xl overflow-hidden group border border-white/5 text-center h-full flex flex-col">
                         <div class="aspect-video relative overflow-hidden">
                             <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Blog post" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
                             <div class="absolute top-4 left-4 glass-panel px-3 py-1 rounded text-xs font-bold text-[#8a2be2]">Case Study</div>
                         </div>
-                        <div class="p-6">
-                            <div class="flex gap-4 text-xs text-gray-500 mb-3">
+                        <div class="p-6 flex flex-col flex-grow">
+                            <div class="flex justify-center gap-4 text-xs text-gray-500 mb-3">
                                 <span><i class='bx bx-calendar'></i> Sep 28, 2026</span>
                                 <span><i class='bx bx-time'></i> 8 min read</span>
                             </div>
                             <h3 class="text-2xl font-bold mb-3 hover:text-[#8a2be2] transition"><a href="blog-details.html">Behind the Scenes: The SuperBowl Halftime Show</a></h3>
-                            <p class="text-gray-400 text-sm mb-4">Logistical challenges of flying 2,000 drones in a high-RF environment and how our engineering team overcame them.</p>
-                            <a href="blog-details.html" class="text-[#8a2be2] text-sm font-bold flex items-center gap-1 group-hover:gap-2 transition-all">Read More <i class='bx bx-right-arrow-alt'></i></a>
+                            <p class="text-gray-400 text-sm mb-6 flex-grow">Logistical challenges of flying 2,000 drones in a high-RF environment and how our engineering team overcame them.</p>
+                            <a href="blog-details.html" class="text-[#8a2be2] text-sm font-bold flex items-center justify-center gap-1 group-hover:gap-2 transition-all mt-auto">Read More <i class='bx bx-right-arrow-alt'></i></a>
                         </div>
                     </article>
                     
                     <!-- Article 3 -->
-                    <article class="glass-card rounded-2xl overflow-hidden group border border-white/5">
+                    <article class="glass-card rounded-2xl overflow-hidden group border border-white/5 text-center h-full flex flex-col">
                         <div class="aspect-video relative overflow-hidden">
                             <img src="https://images.unsplash.com/photo-1508614589041-895b88991e3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Blog post" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
                             <div class="absolute top-4 left-4 glass-panel px-3 py-1 rounded text-xs font-bold text-[#ff00ff]">Design</div>
                         </div>
-                        <div class="p-6">
-                            <div class="flex gap-4 text-xs text-gray-500 mb-3">
+                        <div class="p-6 flex flex-col flex-grow">
+                            <div class="flex justify-center gap-4 text-xs text-gray-500 mb-3">
                                 <span><i class='bx bx-calendar'></i> Sep 15, 2026</span>
                                 <span><i class='bx bx-time'></i> 4 min read</span>
                             </div>
                             <h3 class="text-2xl font-bold mb-3 hover:text-[#ff00ff] transition"><a href="blog-details.html">Color Theory in the Night Sky</a></h3>
-                            <p class="text-gray-400 text-sm mb-4">Why certain wavelengths of light read better from a distance and how we optimize our LED payloads for maximum vibrancy.</p>
-                            <a href="blog-details.html" class="text-[#ff00ff] text-sm font-bold flex items-center gap-1 group-hover:gap-2 transition-all">Read More <i class='bx bx-right-arrow-alt'></i></a>
+                            <p class="text-gray-400 text-sm mb-6 flex-grow">Why certain wavelengths of light read better from a distance and how we optimize our LED payloads for maximum vibrancy.</p>
+                            <a href="blog-details.html" class="text-[#ff00ff] text-sm font-bold flex items-center justify-center gap-1 group-hover:gap-2 transition-all mt-auto">Read More <i class='bx bx-right-arrow-alt'></i></a>
+                        </div>
+                    </article>
+
+                    <!-- Article 4 -->
+                    <article class="glass-card rounded-2xl overflow-hidden group border border-white/5 text-center h-full flex flex-col">
+                        <div class="aspect-video relative overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Blog post" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                            <div class="absolute top-4 left-4 glass-panel px-3 py-1 rounded text-xs font-bold text-[#00f0ff]">AI & Robotics</div>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <div class="flex justify-center gap-4 text-xs text-gray-500 mb-3">
+                                <span><i class='bx bx-calendar'></i> Aug 30, 2026</span>
+                                <span><i class='bx bx-time'></i> 6 min read</span>
+                            </div>
+                            <h3 class="text-2xl font-bold mb-3 hover:text-[#00f0ff] transition"><a href="blog-details.html">AI-Driven Swarm Optimization</a></h3>
+                            <p class="text-gray-400 text-sm mb-6 flex-grow">How machine learning is reducing flight setup times and improving wind resistance for outdoor spectacles.</p>
+                            <a href="blog-details.html" class="text-[#00f0ff] text-sm font-bold flex items-center justify-center gap-1 group-hover:gap-2 transition-all mt-auto">Read More <i class='bx bx-right-arrow-alt'></i></a>
+                        </div>
+                    </article>
+
+                    <!-- Article 5 -->
+                    <article class="glass-card rounded-2xl overflow-hidden group border border-white/5 text-center h-full flex flex-col">
+                        <div class="aspect-video relative overflow-hidden">
+                            <img src="assets/images/drone-safety.png" alt="Safety Systems" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                            <div class="absolute top-4 left-4 glass-panel px-3 py-1 rounded text-xs font-bold text-[#8a2be2]">Safety</div>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <div class="flex justify-center gap-4 text-xs text-gray-500 mb-3">
+                                <span><i class='bx bx-calendar'></i> Aug 12, 2026</span>
+                                <span><i class='bx bx-time'></i> 10 min read</span>
+                            </div>
+                            <h3 class="text-2xl font-bold mb-3 hover:text-[#8a2be2] transition"><a href="blog-details.html">Safety Protocols in Dense Airspace</a></h3>
+                            <p class="text-gray-400 text-sm mb-6 flex-grow">A deep dive into our redundant communication systems and the emergency "land-now" procedures that keep our shows 100% safe.</p>
+                            <a href="blog-details.html" class="text-[#8a2be2] text-sm font-bold flex items-center justify-center gap-1 group-hover:gap-2 transition-all mt-auto">Read More <i class='bx bx-right-arrow-alt'></i></a>
+                        </div>
+                    </article>
+
+                    <!-- Article 6 -->
+                    <article class="glass-card rounded-2xl overflow-hidden group border border-white/5 text-center h-full flex flex-col">
+                        <div class="aspect-video relative overflow-hidden">
+                            <img src="assets/images/drone-show-featured.png" alt="Drone Light Show" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                            <div class="absolute top-4 left-4 glass-panel px-3 py-1 rounded text-xs font-bold text-[#ff00ff]">Creative</div>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <div class="flex justify-center gap-4 text-xs text-gray-500 mb-3">
+                                <span><i class='bx bx-calendar'></i> Jul 25, 2026</span>
+                                <span><i class='bx bx-time'></i> 4 min read</span>
+                            </div>
+                            <h3 class="text-2xl font-bold mb-3 hover:text-[#ff00ff] transition"><a href="blog-details.html">The Art of Light Trails</a></h3>
+                            <p class="text-gray-400 text-sm mb-6 flex-grow">Capturing the motion of 1,000 drones through long-exposure photography for cinematic marketing assets.</p>
+                            <a href="blog-details.html" class="text-[#ff00ff] text-sm font-bold flex items-center justify-center gap-1 group-hover:gap-2 transition-all mt-auto">Read More <i class='bx bx-right-arrow-alt'></i></a>
                         </div>
                     </article>
                 </div>
                 
-                <!-- Pagination placeholder -->
-                <div class="flex justify-center gap-2 reveal">
-                    <button class="w-10 h-10 rounded glass-panel flex items-center justify-center hover:bg-[#00f0ff] hover:text-black transition">1</button>
-                    <button class="w-10 h-10 rounded glass-panel flex items-center justify-center hover:bg-[#00f0ff] hover:text-black transition">2</button>
-                    <button class="w-10 h-10 rounded glass-panel flex items-center justify-center hover:bg-[#00f0ff] hover:text-black transition"><i class='bx bx-chevron-right'></i></button>
-                </div>
             </div>
 
             <!-- Sidebar -->
@@ -111,14 +214,52 @@
                 </div>
 
                 <!-- 3. Category Tabs -->
-                <div class="glass-panel p-6 rounded-2xl border border-white/5">
+                <div class="glass-panel p-6 rounded-2xl border border-white/5 text-center">
                     <h4 class="font-bold mb-4 text-lg">Categories</h4>
                     <ul class="space-y-2 text-sm text-gray-400">
-                        <li><a href="#" class="flex justify-between hover:text-[#00f0ff] transition py-1"><span>Technology</span> <span class="bg-white/10 px-2 rounded-full text-xs">12</span></a></li>
-                        <li><a href="#" class="flex justify-between hover:text-[#8a2be2] transition py-1"><span>Case Studies</span> <span class="bg-white/10 px-2 rounded-full text-xs">8</span></a></li>
-                        <li><a href="#" class="flex justify-between hover:text-[#ff00ff] transition py-1"><span>Design</span> <span class="bg-white/10 px-2 rounded-full text-xs">5</span></a></li>
-                        <li><a href="#" class="flex justify-between hover:text-[#00f0ff] transition py-1"><span>FAA News</span> <span class="bg-white/10 px-2 rounded-full text-xs">3</span></a></li>
+                        <li><a href="#" class="flex justify-center gap-3 hover:text-[#00f0ff] transition py-1"><span>Technology</span> <span class="bg-white/10 px-2 rounded-full text-xs">12</span></a></li>
+                        <li><a href="#" class="flex justify-center gap-3 hover:text-[#8a2be2] transition py-1"><span>Case Studies</span> <span class="bg-white/10 px-2 rounded-full text-xs">8</span></a></li>
+                        <li><a href="#" class="flex justify-center gap-3 hover:text-[#ff00ff] transition py-1"><span>Design</span> <span class="bg-white/10 px-2 rounded-full text-xs">5</span></a></li>
+                        <li><a href="#" class="flex justify-center gap-3 hover:text-[#00f0ff] transition py-1"><span>FAA News</span> <span class="bg-white/10 px-2 rounded-full text-xs">3</span></a></li>
                     </ul>
+                </div>
+
+                <!-- Recent Posts -->
+                <div class="glass-panel p-6 rounded-2xl border border-white/5 text-center">
+                    <h4 class="font-bold mb-4 text-lg">Recent Posts</h4>
+                    <div class="space-y-4">
+                        <a href="blog-details.html" class="flex flex-col items-center gap-3 group">
+                            <div class="w-16 h-16 rounded-lg overflow-hidden flex-shrink-0 mx-auto">
+                                <img src="https://images.unsplash.com/photo-1579820010410-c10411aaaa88?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" class="w-full h-full object-cover group-hover:scale-110 transition">
+                            </div>
+                            <div>
+                                <h5 class="text-xs font-bold leading-tight group-hover:text-[#00f0ff] transition">Evolution of RTK GPS...</h5>
+                                <span class="text-[10px] text-gray-500">Oct 12, 2026</span>
+                            </div>
+                        </a>
+                        <a href="blog-details.html" class="flex flex-col items-center gap-3 group">
+                            <div class="w-16 h-16 rounded-lg overflow-hidden flex-shrink-0 mx-auto">
+                                <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" class="w-full h-full object-cover group-hover:scale-110 transition">
+                            </div>
+                            <div>
+                                <h5 class="text-xs font-bold leading-tight group-hover:text-[#8a2be2] transition">SuperBowl Halftime...</h5>
+                                <span class="text-[10px] text-gray-500">Sep 28, 2026</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Tags Cloud -->
+                <div class="glass-panel p-6 rounded-2xl border border-white/5 text-center">
+                    <h4 class="font-bold mb-4 text-lg">Tags</h4>
+                    <div class="flex flex-wrap justify-center gap-2">
+                        <a href="#" class="px-3 py-1 bg-white/5 rounded-full text-xs hover:bg-[#00f0ff] hover:text-black transition">Swarm</a>
+                        <a href="#" class="px-3 py-1 bg-white/5 rounded-full text-xs hover:bg-[#8a2be2] hover:text-white transition">RTK</a>
+                        <a href="#" class="px-3 py-1 bg-white/5 rounded-full text-xs hover:bg-[#ff00ff] hover:text-white transition">Showreel</a>
+                        <a href="#" class="px-3 py-1 bg-white/5 rounded-full text-xs hover:bg-white/10 transition">Safety</a>
+                        <a href="#" class="px-3 py-1 bg-white/5 rounded-full text-xs hover:bg-white/10 transition">Logistics</a>
+                        <a href="#" class="px-3 py-1 bg-white/5 rounded-full text-xs hover:bg-white/10 transition">3D Design</a>
+                    </div>
                 </div>
 
                 <!-- 4. Newsletter Subscription -->
@@ -138,6 +279,62 @@
             </div>
         </div>
     </main>
+
+    <!-- Footer -->
+    <footer class="bg-[#020205] border-t border-white/5 pt-16 pb-8 relative z-10">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+                <div class="col-span-1 md:col-span-1">
+                    <a href="index.html" class="text-2xl font-bold tracking-wider flex items-center gap-2 mb-4">
+                        <i class='bx bx-hive text-[#00f0ff]'></i> <span>Aero<span class="text-gradient">Glow</span></span>
+                    </a>
+                    <p class="text-gray-500 text-sm mb-6">Pioneering the future of aerial entertainment through precision engineering and artistic choreography.</p>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-10 h-10 rounded-full glass-panel flex items-center justify-center hover:text-[#00f0ff] hover:border-[#00f0ff] hover:scale-110 hover:shadow-[0_0_15px_rgba(0,240,255,0.5)] transition-all duration-300"><i class='bx bxl-twitter text-xl'></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full glass-panel flex items-center justify-center hover:text-[#00f0ff] hover:border-[#00f0ff] hover:scale-110 hover:shadow-[0_0_15px_rgba(0,240,255,0.5)] transition-all duration-300"><i class='bx bxl-instagram text-xl'></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full glass-panel flex items-center justify-center hover:text-[#00f0ff] hover:border-[#00f0ff] hover:scale-110 hover:shadow-[0_0_15px_rgba(0,240,255,0.5)] transition-all duration-300"><i class='bx bxl-youtube text-xl'></i></a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-white font-bold mb-4 uppercase tracking-wider text-sm">Services</h4>
+                    <ul class="space-y-2 text-gray-500 text-sm">
+                        <li><a href="service-details.html" class="hover:text-[#00f0ff] transition">Custom Choreography</a></li>
+                        <li><a href="service-details.html" class="hover:text-[#00f0ff] transition">Mega Swarms</a></li>
+                        <li><a href="service-details.html" class="hover:text-[#00f0ff] transition">Brand Activations</a></li>
+                        <li><a href="services.html" class="hover:text-[#00f0ff] transition">Event Logistics</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-white font-bold mb-4 uppercase tracking-wider text-sm">Company</h4>
+                    <ul class="space-y-2 text-gray-500 text-sm">
+                        <li><a href="index.html" class="hover:text-[#00f0ff] transition">Home</a></li>
+                        <li><a href="about.html" class="hover:text-[#00f0ff] transition">About Us</a></li>
+                        <li><a href="blog.html" class="hover:text-[#00f0ff] transition">Blog</a></li>
+                        <li><a href="contact.html" class="hover:text-[#00f0ff] transition">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-white font-bold mb-4 uppercase tracking-wider text-sm">Newsletter</h4>
+                    <p class="text-gray-500 text-sm mb-4">Subscribe for the latest drone show concepts.</p>
+                    <form class="flex">
+                        <input type="email" placeholder="Email Address" class="bg-white/5 border border-white/10 rounded-l-md px-4 py-2 w-full focus:outline-none focus:border-[#00f0ff] text-sm">
+                        <button type="submit" class="bg-[#00f0ff] text-black px-4 py-2 rounded-r-md font-bold hover:bg-white transition"><i class='bx bx-send'></i></button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-600 gap-4">
+                <p>&copy; 2026 AeroGlow. All rights reserved.</p>
+                <div class="flex gap-4">
+                    <a href="#" class="hover:text-white transition">Privacy Policy</a>
+                    <a href="#" class="hover:text-white transition">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
