@@ -99,4 +99,48 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
+
+    // Active Link Highlighting
+    const highlightActiveLink = () => {
+        const path = window.location.pathname.split('/').pop() || 'index.html';
+        const navLinks = document.querySelectorAll('nav a, #mobile-menu a');
+        const navBtns = document.querySelectorAll('nav button');
+        
+        // Determine theme color based on page or default
+        const isHome2 = path === 'index-2.html' || document.querySelector('.text-\\[\\#8a2be2\\]');
+        const activeColorClass = isHome2 ? 'text-[#8a2be2]' : 'text-[#00f0ff]';
+
+        // Clear all first
+        navLinks.forEach(l => l.classList.remove('text-[#00f0ff]', 'text-[#8a2be2]', 'active'));
+        navBtns.forEach(b => b.classList.remove('text-[#00f0ff]', 'text-[#8a2be2]'));
+
+        let matchFound = false;
+        navLinks.forEach(link => {
+            const href = link.getAttribute('href');
+            if (href === path) {
+                link.classList.add(activeColorClass);
+                link.classList.add('active');
+                matchFound = true;
+                
+                // Dropdown parent highlighting
+                const group = link.closest('.group');
+                if (group) {
+                    const btn = group.querySelector('button');
+                    if (btn) {
+                        btn.classList.add(activeColorClass);
+                        btn.classList.add('active');
+                    }
+                }
+            }
+        });
+
+        // Fallback for details/subpages
+        if (!matchFound) {
+            if (path.includes('blog-details')) {
+                const blogLink = document.querySelector('nav a[href="blog.html"]');
+                if (blogLink) blogLink.classList.add(activeColorClass);
+            }
+        }
+    };
+    highlightActiveLink();
 });
