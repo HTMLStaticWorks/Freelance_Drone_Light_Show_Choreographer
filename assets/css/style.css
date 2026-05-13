@@ -103,7 +103,7 @@ body {
 .btn-primary:hover {
     box-shadow: 0 0 15px var(--accent-glow);
     border-color: transparent;
-    color: #fff;
+    color: #fff !important;
 }
 
 .btn-secondary {
@@ -210,7 +210,7 @@ html.light-mode .from-\[\#07070a\],
 html.light-mode .from-\[\#020205\],
 html.light-mode .from-black,
 html.light-mode .from-black\/80 {
-    --tw-gradient-from: #ffffff !important;
+    --tw-gradient-from: rgba(255, 255, 255, 0.6) !important;
     --tw-gradient-to: rgba(255, 255, 255, 0) !important;
     --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to) !important;
 }
@@ -221,14 +221,27 @@ html.light-mode .via-transparent {
 }
 
 html.light-mode .bg-white\/5,
+html.light-mode .bg-white\/10 {
+    background-color: rgba(0, 0, 0, 0.05) !important;
+}
+
+html.light-mode .bg-black\/20 {
+    background-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+html.light-mode .bg-black\/40 {
+    background-color: rgba(255, 255, 255, 0.4) !important;
+}
+
+html.light-mode .bg-black\/60 {
+    background-color: rgba(255, 255, 255, 0.6) !important;
+}
+
+html.light-mode .bg-black\/80,
 html.light-mode .bg-\[\#020205\]\/80,
 html.light-mode .bg-\[\#050508\]\/80,
-html.light-mode .bg-black\/80,
-html.light-mode .bg-black\/60,
-html.light-mode .bg-black\/40,
-html.light-mode .bg-black\/20,
 html.light-mode header.sticky {
-    background-color: rgba(255, 255, 255, 0.8) !important;
+    background-color: rgba(255, 255, 255, 0.9) !important;
     color: #111 !important;
 }
 
@@ -247,7 +260,7 @@ html.light-mode .bg-gray-700 {
 
 html.light-mode .aspect-video img,
 html.light-mode .aspect-square img {
-    opacity: 0.3 !important;
+    opacity: 0.85 !important;
 }
 
 html.light-mode .border-white\/5,
@@ -280,9 +293,11 @@ html.light-mode textarea::placeholder {
     color: #888 !important;
 }
 
+html.light-mode .text-white/80,
+html.light-mode .text-white/70,
 html.light-mode .text-white/50,
 html.light-mode .text-white/20 {
-    color: rgba(0, 0, 0, 0.5) !important;
+    color: rgba(0, 0, 0, 0.7) !important;
 }
 
 /* Fix Card Visibility in Light Mode */
@@ -291,7 +306,7 @@ html.light-mode .glass-card .bg-gradient-to-t.from-black {
 }
 
 html.light-mode .glass-card img {
-    opacity: 0.5 !important;
+    opacity: 0.9 !important;
 }
 
 html.light-mode .glass-card:hover img {
@@ -323,30 +338,56 @@ html.light-mode .text-\[\#ff00ff\] {
     color: #b000b0 !important;
 }
 
-/* Ensure Gallery & Dark Overlay Text stay white in Light Mode */
-.swiper-slide .z-20 h3,
-.swiper-slide .z-20 span,
-.bg-gradient-to-t.from-black h2,
-.bg-gradient-to-t.from-black p,
-.bg-gradient-to-t.from-black span,
-.bg-gradient-to-t.from-black a,
-.bg-black\/20 h2,
-.bg-black\/20 p,
-.bg-black\/20 span,
-.bg-black\/20 a,
-.bg-black\/40 h2,
-.bg-black\/40 p,
-.bg-black\/40 span,
-.bg-black\/40 a,
-.bg-black\/60 h2,
-.bg-black\/60 p,
-.bg-black\/60 span,
-.bg-black\/60 a,
-.absolute.inset-0.flex.flex-col h2,
-.absolute.inset-0.flex.flex-col p,
-.absolute.inset-0.flex.flex-col span,
-.absolute.inset-0.flex.flex-col a {
+/* Ensure Nav & Button Hover states are visible in Light Mode */
+html.light-mode nav a:hover,
+html.light-mode #mobile-menu a:hover,
+html.light-mode .glass-panel a:hover {
+    color: var(--accent-color) !important;
+}
+
+html.light-mode .btn-primary:hover {
+    color: #fff !important;
+}
+
+/* Ensure Gallery & Dark Overlay Text stay white in Dark Mode, but adapt in Light Mode */
+html:not(.light-mode) .swiper-slide .z-20 h3,
+html:not(.light-mode) .swiper-slide .z-20 span,
+html:not(.light-mode) .bg-gradient-to-t.from-black h2,
+html:not(.light-mode) .bg-gradient-to-t.from-black p,
+html:not(.light-mode) .bg-gradient-to-t.from-black span,
+html:not(.light-mode) .bg-gradient-to-t.from-black a,
+html:not(.light-mode) .bg-black\/20 h2,
+html:not(.light-mode) .bg-black\/20 p,
+html:not(.light-mode) .bg-black\/20 span,
+html:not(.light-mode) .bg-black\/20 a,
+html:not(.light-mode) .bg-black\/40 h2,
+html:not(.light-mode) .bg-black\/40 p,
+html:not(.light-mode) .bg-black\/40 span,
+html:not(.light-mode) .bg-black\/40 a,
+html:not(.light-mode) .bg-black\/60 h2,
+html:not(.light-mode) .bg-black\/60 p,
+html:not(.light-mode) .bg-black\/60 span,
+html:not(.light-mode) .bg-black\/60 a,
+html:not(.light-mode) .absolute.inset-0.flex.flex-col h2,
+html:not(.light-mode) .absolute.inset-0.flex.flex-col p,
+html:not(.light-mode) .absolute.inset-0.flex.flex-col span,
+html:not(.light-mode) .absolute.inset-0.flex.flex-col a {
     color: #ffffff !important;
+}
+
+html.light-mode .bg-black\/20 h2,
+html.light-mode .bg-black\/20 p,
+html.light-mode .bg-black\/20 span,
+html.light-mode .bg-black\/20 a,
+html.light-mode .bg-gradient-to-t.from-black h2,
+html.light-mode .bg-gradient-to-t.from-black p,
+html.light-mode .bg-gradient-to-t.from-black span,
+html.light-mode .bg-gradient-to-t.from-black a,
+html.light-mode .absolute.inset-0.flex.flex-col h2,
+html.light-mode .absolute.inset-0.flex.flex-col p,
+html.light-mode .absolute.inset-0.flex.flex-col span,
+html.light-mode .absolute.inset-0.flex.flex-col a {
+    color: #111 !important;
 }
 
 html.light-mode .text-white/20 {
@@ -368,6 +409,17 @@ html.light-mode .glass-panel input {
 
 html.light-mode .glass-panel input::placeholder {
     color: #666 !important;
+}
+
+html.light-mode .prose-invert,
+html.light-mode .prose-invert p,
+html.light-mode .prose-invert h1,
+html.light-mode .prose-invert h2,
+html.light-mode .prose-invert h3,
+html.light-mode .prose-invert h4,
+html.light-mode .prose-invert li,
+html.light-mode .prose-invert blockquote {
+    color: #333 !important;
 }
 
 html.light-mode .glass-panel a {
