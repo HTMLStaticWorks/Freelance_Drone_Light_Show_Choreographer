@@ -274,10 +274,10 @@ html.light-mode textarea::placeholder {
     color: #888 !important;
 }
 
-html.light-mode .text-white/80,
-html.light-mode .text-white/70,
-html.light-mode .text-white/50,
-html.light-mode .text-white/20 {
+html.light-mode .text-white\/80,
+html.light-mode .text-white\/70,
+html.light-mode .text-white\/50,
+html.light-mode .text-white\/20 {
     color: rgba(0, 0, 0, 0.7) !important;
 }
 
@@ -373,7 +373,7 @@ html:not(.light-mode) .absolute.inset-0.flex.flex-col a {
 
 /* Text remains white on dark backgrounds */
 
-html.light-mode .text-white/20 {
+html.light-mode .text-white\/20 {
     color: rgba(0, 0, 0, 0.5) !important;
 }
 
