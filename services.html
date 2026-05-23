@@ -16,13 +16,13 @@
     <div class="fixed inset-0 bg-[#020205] -z-20"></div>
     <div class="fixed inset-0 bg-gradient-to-br from-[#00f0ff]/5 via-transparent to-[#8a2be2]/10 -z-10"></div>
 
-    <header id="header" class="fixed w-full top-0 z-50 transition-all duration-300 bg-transparent py-4">
+    <header id="header" class="fixed w-full top-0 z-50 transition-all duration-300 glass-panel py-4">
         <!-- Header content similar to others -->
-        <div class="container mx-auto px-6 xl:px-12 flex justify-between items-center">
+        <div class="container mx-auto px-4 lg:px-8 xl:px-12 flex justify-between items-center">
             <a href="index.html" class="text-2xl font-bold tracking-wider flex items-center gap-2">
                 <i class='bx bx-hive text-[#00f0ff]'></i> <span>Aero<span class="text-gradient">Glow</span></span>
             </a>
-            <nav class="hidden xl:flex gap-8 items-center text-sm uppercase tracking-wide font-medium">
+            <nav class="hidden xl:flex xl:gap-5 2xl:gap-8 items-center text-sm uppercase tracking-wide font-medium">
                 <div class="relative group">
                     <button class="flex items-center gap-1 hover:text-[#00f0ff] transition-colors uppercase">
                         Home <i class='bx bx-chevron-down text-xs transition-transform group-hover:rotate-180'></i>
@@ -36,7 +36,7 @@
                 </div>
                 <a href="about.html" class="hover:text-[#00f0ff]">About</a>
                 <a href="services.html" class="text-[#00f0ff]">Services</a>
-                <a href="blog.html" class="hover:text-[#00f0ff]">Blog</a>
+                <a href="events.html" class="hover:text-[#00f0ff]">Events</a>
                 <a href="contact.html" class="hover:text-[#00f0ff]">Contact</a>
                 <a href="dashboard.html" class="hover:text-[#00f0ff]">Dashboard</a>
             </nav>
@@ -46,9 +46,9 @@
                     <i class='bx bx-moon text-xl'></i>
                 </button>
                 <button id="rtl-toggle" class="hover:text-[#00f0ff] text-sm uppercase font-medium transition">RTL</button>
-                <div class="hidden xl:flex gap-4 items-center">
-                    <a href="auth.html" class="px-5 py-2 rounded-full border border-white/10 hover:border-[#00f0ff] hover:text-[#00f0ff] transition text-sm uppercase font-medium">Login</a>
-                    <a href="contact.html" class="btn-primary text-sm">Book</a>
+                <div class="hidden xl:flex xl:gap-2 2xl:gap-4 items-center">
+                    <a href="auth.html" class="btn-primary text-sm uppercase font-medium !py-2 !px-5">Login</a>
+                    <a href="contact.html" class="px-5 py-2 rounded-full border border-white/10 hover:border-[#00f0ff] hover:text-[#00f0ff] transition text-sm uppercase font-medium">Book</a>
                 </div>
 
                 <!-- Mobile Menu Btn -->
@@ -59,25 +59,40 @@
         </div>
         
         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden absolute top-full left-0 w-full glass-panel py-4 flex flex-col items-center gap-4 border-t border-white/10">
+        <div id="mobile-menu" class="hidden absolute top-full left-0 w-full glass-panel py-4 flex-col items-center gap-4 border-t border-white/10">
             <a href="index.html">Home 1</a>
             <a href="index-2.html">Home 2</a>
             <a href="about.html" class="hover:text-[#00f0ff]">About</a>
             <a href="services.html" class="text-[#00f0ff]">Services</a>
-            <a href="blog.html" class="hover:text-[#00f0ff]">Blog</a>
+            <a href="events.html" class="hover:text-[#00f0ff]">Events</a>
             <a href="dashboard.html" class="hover:text-[#00f0ff]">Dashboard</a>
             <a href="contact.html" class="hover:text-[#00f0ff]">Contact</a>
             <hr class="w-2/3 border-white/10 my-2">
-            <a href="auth.html" class="px-8 py-2 rounded-full border border-white/10 text-sm uppercase font-medium">Login</a>
-            <a href="contact.html" class="btn-primary text-sm w-48 text-center">Book Now</a>
+            <a href="auth.html" class="btn-primary text-sm w-48 text-center !py-2">Login</a>
+            <a href="contact.html" class="px-8 py-2 rounded-full border border-white/10 hover:border-[#00f0ff] hover:text-[#00f0ff] transition text-sm uppercase font-medium w-48 text-center">Book</a>
         </div>
     </header>
 
-    <main class="pt-32">
-        <div class="container mx-auto px-6 text-center reveal mb-16">
-            <h1 class="text-5xl md:text-7xl font-bold mb-6">Our <span class="text-gradient">Expertise</span></h1>
-            <p class="text-gray-400 text-lg max-w-2xl mx-auto">Comprehensive drone light show services tailored for maximum impact and absolute safety.</p>
-        </div>
+    <main>
+        <!-- Inner Page Hero -->
+        <section class="pt-32 pb-20 md:pt-40 md:pb-28 relative border-b border-white/5 overflow-hidden">
+            <!-- Distinct Background Layer -->
+            <div class="absolute inset-0 z-0">
+                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[#00f0ff]/10 rounded-full blur-[120px] pointer-events-none"></div>
+                <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTYwIDBMMCAwTDAgNjAiIGZpbGw9Im5vbmUiIHN0cm9rZT0icmdiYSgyNTUsMjU1LDI1NSwwLjAyKSIgc3Ryb2tlLXdpZHRoPSIxIi8+PC9zdmc+')] z-0 opacity-50"></div>
+                <div class="absolute inset-0 bg-gradient-to-b from-transparent to-[var(--bg-color)] -z-10"></div>
+            </div>
+            
+            <div class="container mx-auto px-6 text-center z-10 relative">
+                <div class="inline-block mb-4 px-4 py-1.5 rounded-full border border-white/10 glass-panel reveal">
+                    <span class="text-xs font-bold uppercase tracking-widest text-[#00f0ff]">Services</span>
+                </div>
+                <h1 class="text-5xl md:text-7xl font-bold mb-6 reveal tracking-tight">Our <span class="text-gradient">Expertise</span></h1>
+                <p class="text-gray-400 text-lg max-w-2xl mx-auto reveal" style="transition-delay: 100ms;">
+                    Comprehensive drone light show services tailored for maximum impact and absolute safety.
+                </p>
+            </div>
+        </section>
 
         <!-- 1. Drone Show Planning -->
         <section class="py-16 relative z-10">
@@ -177,6 +192,101 @@
                         <div class="relative z-10">
                             <h4 class="font-bold text-2xl mb-2 text-white">Launch Protocol</h4>
                             <p class="text-sm text-gray-400">Triple-check safety diagnostics and multi-layered pre-flight checks before liftoff.</p>
+            </div>
+        </section>
+
+        <!-- New: Swarm Choreography Process Section -->
+        <section id="process" class="py-24 relative z-10 bg-gradient-to-b from-[#0a0a0d] to-transparent border-t border-white/5">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16 reveal">
+                    <span class="text-xs font-bold text-[#00f0ff] uppercase tracking-widest bg-[#00f0ff]/10 px-4 py-1.5 rounded-full border border-[#00f0ff]/20">Behind The Magic</span>
+                    <h2 class="text-3xl md:text-5xl font-bold mt-4 mb-4">Choreography & <span class="text-gradient">Orchestration Process</span></h2>
+                    <p class="text-gray-400 max-w-xl mx-auto">Explore how we transition a creative storyboard from hand-drawn vectors to a breathing digital canvas in the sky.</p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-5 gap-8 items-stretch max-w-7xl mx-auto">
+                    <!-- Step 1 -->
+                    <div class="glass-card light-bg-card p-8 rounded-3xl reveal flex flex-col justify-between group relative overflow-hidden text-center border border-white/5 hover:border-[#00f0ff]/40">
+                        <div>
+                            <div class="w-12 h-12 rounded-2xl bg-[#00f0ff]/10 border border-[#00f0ff]/20 flex items-center justify-center mb-6 mx-auto">
+                                <i class='bx bx-bulb text-2xl text-[#00f0ff]'></i>
+                            </div>
+                            <span class="text-[#00f0ff] font-mono text-sm font-bold block mb-2">STAGE 01</span>
+                            <h4 class="text-xl font-bold text-white mb-3">Cinematic Storyboarding</h4>
+                            <p class="text-gray-400 text-xs leading-relaxed">
+                                We collaborate with your team to sketch storyboards, mapping key vector shapes, transitions, and text displays to define the emotional flow of the performance.
+                            </p>
+                        </div>
+                        <div class="mt-8 border-t border-white/5 pt-4 text-[10px] text-gray-500 font-mono h-[72px]">
+                            <i class='bx bx-check-double text-[#00f0ff] mr-1'></i>Audio Timecode Mapping
+                        </div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="glass-card light-bg-card p-8 rounded-3xl reveal flex flex-col justify-between group relative overflow-hidden text-center border border-white/5 hover:border-[#8a2be2]/40" style="transition-delay: 100ms;">
+                        <div>
+                            <div class="w-12 h-12 rounded-2xl bg-[#8a2be2]/10 border border-[#8a2be2]/20 flex items-center justify-center mb-6 mx-auto">
+                                <i class='bx bx-cube-alt text-2xl text-[#8a2be2]'></i>
+                            </div>
+                            <span class="text-[#8a2be2] font-mono text-sm font-bold block mb-2">STAGE 02</span>
+                            <h4 class="text-xl font-bold text-white mb-3">3D Trajectory Design</h4>
+                            <p class="text-gray-400 text-xs leading-relaxed">
+                                Our animation crew builds 3D coordinates for each drone in tools like Blender/Maya, setting customized light signals and velocity curves for every single "pixel."
+                            </p>
+                        </div>
+                        <div class="mt-8 border-t border-white/5 pt-4 text-[10px] text-gray-500 font-mono h-[72px]">
+                            <i class='bx bx-check-double text-[#8a2be2] mr-1'></i>Centimeter-Scale Tolerances
+                        </div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="glass-card light-bg-card p-8 rounded-3xl reveal flex flex-col justify-between group relative overflow-hidden text-center border border-white/5 hover:border-[#ff00ff]/40" style="transition-delay: 200ms;">
+                        <div>
+                            <div class="w-12 h-12 rounded-2xl bg-[#ff00ff]/10 border border-[#ff00ff]/20 flex items-center justify-center mb-6 mx-auto">
+                                <i class='bx bx-shield-quarter text-2xl text-[#ff00ff]'></i>
+                            </div>
+                            <span class="text-[#ff00ff] font-mono text-sm font-bold block mb-2">STAGE 03</span>
+                            <h4 class="text-xl font-bold text-white mb-3">Safety & Geofencing</h4>
+                            <p class="text-gray-400 text-xs leading-relaxed">
+                                Legal specialists register Part 107 FAA notifications (NOTAMs) and construct multi-layered virtual 3D geofences to strictly isolate flight zones from spectators.
+                            </p>
+                        </div>
+                        <div class="mt-8 border-t border-white/5 pt-4 text-[10px] text-gray-500 font-mono h-[72px]">
+                            <i class='bx bx-check-double text-[#ff00ff] mr-1'></i>FAA Part 107 Night Waiver
+                        </div>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="glass-card light-bg-card p-8 rounded-3xl reveal flex flex-col justify-between group relative overflow-hidden text-center border border-white/5 hover:border-[#00f0ff]/40" style="transition-delay: 300ms;">
+                        <div>
+                            <div class="w-12 h-12 rounded-2xl bg-[#00f0ff]/10 border border-[#00f0ff]/20 flex items-center justify-center mb-6 mx-auto">
+                                <i class='bx bx-wind text-2xl text-[#00f0ff]'></i>
+                            </div>
+                            <span class="text-[#00f0ff] font-mono text-sm font-bold block mb-2">STAGE 04</span>
+                            <h4 class="text-xl font-bold text-white mb-3">Physics Simulations</h4>
+                            <p class="text-gray-400 text-xs leading-relaxed">
+                                We run hundreds of virtual swarm simulations auditing battery temperatures, telemetry reception, wind-gust responses, and physical collision-avoidance buffers.
+                            </p>
+                        </div>
+                        <div class="mt-8 border-t border-white/5 pt-4 text-[10px] text-gray-500 font-mono h-[72px]">
+                            <i class='bx bx-check-double text-[#00f0ff] mr-1'></i>AeroLink™ Swarm Audit
+                        </div>
+                    </div>
+
+                    <!-- Step 5 -->
+                    <div class="glass-card light-bg-card p-8 rounded-3xl reveal flex flex-col justify-between group relative overflow-hidden text-center border border-white/5 hover:border-[#8a2be2]/40" style="transition-delay: 400ms;">
+                        <div>
+                            <div class="w-12 h-12 rounded-2xl bg-[#8a2be2]/10 border border-[#8a2be2]/20 flex items-center justify-center mb-6 mx-auto">
+                                <i class='bx bx-rocket text-2xl text-[#8a2be2]'></i>
+                            </div>
+                            <span class="text-[#8a2be2] font-mono text-sm font-bold block mb-2">STAGE 05</span>
+                            <h4 class="text-xl font-bold text-white mb-3">On-Site Flight Telemetry</h4>
+                            <p class="text-gray-400 text-xs leading-relaxed">
+                                We align physical grids, initialize dual-band RTK base stations, perform comprehensive diagnostic pre-checks, and launch thousands of synchronized nodes.
+                            </p>
+                        </div>
+                        <div class="mt-8 border-t border-white/5 pt-4 text-[10px] text-gray-500 font-mono h-[72px]">
+                            <i class='bx bx-check-double text-[#8a2be2] mr-1'></i>100% Safety Guarantee
                         </div>
                     </div>
                 </div>
@@ -194,7 +304,7 @@
             <div class="container mx-auto px-6 reveal mb-24">
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch max-w-6xl mx-auto">
                     <!-- Package 1: Essential -->
-                    <div class="glass-card p-8 rounded-3xl border border-white/5 relative group hover:border-[#00f0ff]/50 transition-colors text-center h-full flex flex-col">
+                    <div class="glass-card light-bg-card p-8 rounded-3xl border border-white/5 relative group hover:border-[#00f0ff]/50 transition-colors text-center h-full flex flex-col">
                         <div class="flex-grow">
                             <h3 class="text-2xl font-bold mb-2">Essential</h3>
                             <p class="text-gray-400 text-sm mb-6">Perfect for private events, weddings, and local brand activations.</p>
@@ -213,7 +323,7 @@
                     </div>
 
                     <!-- Package 2: Spectacle -->
-                    <div class="glass-card p-8 rounded-3xl border border-[#8a2be2]/50 relative group shadow-[0_0_30px_rgba(138,43,226,0.15)] overflow-hidden text-center h-full flex flex-col">
+                    <div class="glass-card light-bg-card p-8 rounded-3xl border border-[#8a2be2]/50 relative group shadow-[0_0_30px_rgba(138,43,226,0.15)] overflow-hidden text-center h-full flex flex-col">
                         <div class="absolute top-0 left-1/2 -translate-x-1/2 bg-gradient-to-r from-[#8a2be2] to-[#00f0ff] text-white text-[10px] uppercase tracking-widest font-bold px-6 py-1.5 rounded-b-xl shadow-lg z-20 whitespace-nowrap">Most Popular</div>
                         <div class="flex-grow pt-4">
                             <h3 class="text-2xl font-bold mb-2 text-[#8a2be2]">Spectacle</h3>
@@ -229,12 +339,12 @@
                                 <li class="flex items-center justify-center gap-3"><i class='bx bx-check text-[#8a2be2]'></i> Audio/Timecode Sync</li>
                             </ul>
                         </div>
-                        <a href="contact.html" class="btn-primary block text-center w-full mt-auto" style="border-color:#8a2be2;">Select Spectacle</a>
+                        <a href="contact.html" class="btn-primary block text-center w-full mt-auto">Select Spectacle</a>
                     </div>
 
                     <!-- Package 3: Mega Swarm -->
                     <div class="md:col-span-2 lg:col-span-1 flex justify-center">
-                        <div class="glass-card p-8 rounded-3xl border border-white/5 relative group hover:border-[#ff00ff]/50 transition-colors text-center h-full flex flex-col w-full md:max-w-md lg:max-w-none">
+                        <div class="glass-card light-bg-card p-8 rounded-3xl border border-white/5 relative group hover:border-[#ff00ff]/50 transition-colors text-center h-full flex flex-col w-full md:max-w-md lg:max-w-none">
                             <div class="flex-grow">
                                 <h3 class="text-2xl font-bold mb-2">Mega Swarm</h3>
                                 <p class="text-gray-400 text-sm mb-6">Massive scale for stadiums, global broadcasts, and national holidays.</p>
@@ -303,7 +413,7 @@
                     <ul class="space-y-2 text-gray-500 text-sm">
                         <li><a href="index.html" class="hover:text-[#00f0ff] transition">Home</a></li>
                         <li><a href="about.html" class="hover:text-[#00f0ff] transition">About Us</a></li>
-                        <li><a href="blog.html" class="hover:text-[#00f0ff] transition">Blog</a></li>
+                        <li><a href="events.html" class="hover:text-[#00f0ff] transition">Events</a></li>
                         <li><a href="contact.html" class="hover:text-[#00f0ff] transition">Contact</a></li>
                     </ul>
                 </div>

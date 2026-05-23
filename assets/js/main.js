@@ -5,7 +5,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (mobileMenuBtn && mobileMenu) {
         mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
+            const isHidden = mobileMenu.classList.contains('hidden');
+            if (isHidden) {
+                mobileMenu.classList.remove('hidden');
+                mobileMenu.classList.add('flex', 'flex-col');
+            } else {
+                mobileMenu.classList.add('hidden');
+                mobileMenu.classList.remove('flex', 'flex-col');
+            }
         });
     }
 
@@ -44,19 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Sticky Header
-    const header = document.getElementById('header');
-    if (header) {
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                header.classList.add('glass-panel');
-                header.classList.remove('bg-transparent');
-            } else {
-                header.classList.remove('glass-panel');
-                header.classList.add('bg-transparent');
-            }
-        });
-    }
+    // Sticky Header logic removed as header should not be transparent
 
     // Initialize Swiper (if present)
     if (typeof Swiper !== 'undefined') {
@@ -137,7 +132,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Fallback for details/subpages
         if (!matchFound) {
             if (path.includes('blog-details')) {
-                const blogLink = document.querySelector('nav a[href="blog.html"]');
+                const blogLink = document.querySelector('nav a[href="events.html"]');
                 if (blogLink) blogLink.classList.add(activeColorClass);
             }
         }

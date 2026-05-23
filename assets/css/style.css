@@ -74,36 +74,25 @@ body {
 .btn-primary {
     position: relative;
     overflow: hidden;
-    background: transparent;
-    color: var(--text-color);
-    border: 1px solid var(--accent-color);
+    background: linear-gradient(90deg, var(--accent-color), var(--secondary-color));
+    color: #fff !important;
+    border: 1px solid transparent;
     padding: 0.75rem 1.5rem;
     border-radius: 9999px;
     font-weight: 500;
     transition: all 0.3s ease;
     z-index: 1;
-}
-
-.btn-primary::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 0;
-    height: 100%;
-    background: linear-gradient(90deg, var(--accent-color), var(--secondary-color));
-    transition: width 0.4s ease;
-    z-index: -1;
-}
-
-.btn-primary:hover::before {
-    width: 100%;
+    display: inline-block;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 240, 255, 0.15);
 }
 
 .btn-primary:hover {
-    box-shadow: 0 0 15px var(--accent-glow);
+    box-shadow: 0 0 20px var(--accent-glow);
     border-color: transparent;
     color: #fff !important;
+    transform: translateY(-2px);
+    filter: brightness(1.15);
 }
 
 .btn-secondary {
@@ -122,8 +111,8 @@ body {
     border-color: var(--accent-color);
     color: var(--accent-color);
     background: rgba(0, 240, 255, 0.05);
-    transform: scale(1.05);
-    box-shadow: 0 0 15px rgba(0, 240, 255, 0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 240, 255, 0.2);
 }
 
 
@@ -171,6 +160,23 @@ body {
     z-index: 0;
 }
 
+html.light-mode .hero-overlay {
+    background: radial-gradient(circle at center, transparent 0%, rgba(0, 0, 0, 0.7) 100%);
+}
+
+/* Ensure text remains white on dark hero overlays */
+html.light-mode .hero-overlay ~ div h1,
+html.light-mode .hero-overlay ~ div h2,
+html.light-mode .hero-overlay ~ div p,
+html.light-mode .hero-overlay ~ div span:not([class*="text-gradient"]):not([class*="bg-clip-text"]) {
+    color: #ffffff !important;
+}
+
+html.light-mode .hero-overlay ~ div .text-gray-300,
+html.light-mode .hero-overlay ~ div .text-gray-400 {
+    color: #d1d5db !important;
+}
+
 /* Light Mode Tailwind Overrides */
 html.light-mode body {
     background-color: var(--bg-color);
@@ -199,43 +205,21 @@ html.light-mode .bg-\[\#020205\],
 html.light-mode .bg-\[\#050508\],
 html.light-mode .bg-\[\#07070a\],
 html.light-mode .bg-\[\#0d0d12\],
-html.light-mode .bg-black {
-    background-color: #ffffff !important;
+html.light-mode .bg-black,
+html.light-mode section.bg-gradient-to-b.from-\[\#0a0a0d\],
+html.light-mode section.bg-gradient-to-b.from-\[\#050508\],
+html.light-mode section.bg-gradient-to-b.from-transparent.to-\[\#0a0a0d\] {
+    background: #ffffff !important;
 }
 
-/* Gradient Overrides for Light Mode */
-html.light-mode .from-\[\#0a0a0d\],
-html.light-mode .from-\[\#050508\],
-html.light-mode .from-\[\#07070a\],
-html.light-mode .from-\[\#020205\],
-html.light-mode .from-black,
-html.light-mode .from-black\/80 {
-    --tw-gradient-from: rgba(255, 255, 255, 0.6) !important;
-    --tw-gradient-to: rgba(255, 255, 255, 0) !important;
-    --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to) !important;
-}
-
-html.light-mode .via-transparent {
-    --tw-gradient-to: rgba(255, 255, 255, 0) !important;
-    --tw-gradient-stops: var(--tw-gradient-from), rgba(255, 255, 255, 0.5), var(--tw-gradient-to) !important;
-}
+/* Gradient Overrides for Light Mode Removed */
 
 html.light-mode .bg-white\/5,
 html.light-mode .bg-white\/10 {
     background-color: rgba(0, 0, 0, 0.05) !important;
 }
 
-html.light-mode .bg-black\/20 {
-    background-color: rgba(255, 255, 255, 0.2) !important;
-}
-
-html.light-mode .bg-black\/40 {
-    background-color: rgba(255, 255, 255, 0.4) !important;
-}
-
-html.light-mode .bg-black\/60 {
-    background-color: rgba(255, 255, 255, 0.6) !important;
-}
+/* Black overlays remain black in light mode */
 
 html.light-mode .bg-black\/80,
 html.light-mode .bg-\[\#020205\]\/80,
@@ -258,10 +242,7 @@ html.light-mode .bg-gray-700 {
     background-color: #f0f0f5 !important;
 }
 
-html.light-mode .aspect-video img,
-html.light-mode .aspect-square img {
-    opacity: 0.85 !important;
-}
+/* Removed opacity shade on images */
 
 html.light-mode .border-white\/5,
 html.light-mode .border-white\/10,
@@ -300,28 +281,43 @@ html.light-mode .text-white/20 {
     color: rgba(0, 0, 0, 0.7) !important;
 }
 
-/* Fix Card Visibility in Light Mode */
-html.light-mode .glass-card .bg-gradient-to-t.from-black {
-    background-image: linear-gradient(to top, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.2), transparent) !important;
+/* Card Visibility in Light Mode - Kept original dark gradients */
+
+html.light-mode .glass-card img,
+html.light-mode .aspect-video img,
+html.light-mode .aspect-square img,
+html.light-mode .swiper-slide img {
+    opacity: 0.95 !important;
+    mix-blend-mode: normal !important;
+    filter: none !important;
 }
 
-html.light-mode .glass-card img {
-    opacity: 0.9 !important;
+html.light-mode .glass-card:hover img,
+html.light-mode .aspect-video:hover img,
+html.light-mode .aspect-square:hover img,
+html.light-mode .swiper-slide:hover img {
+    opacity: 0.8 !important;
 }
 
-html.light-mode .glass-card:hover img {
-    opacity: 0.7 !important;
+/* Text remains white on dark overlays */
+html.light-mode .swiper-slide h1,
+html.light-mode .swiper-slide h2,
+html.light-mode .swiper-slide h3,
+html.light-mode .swiper-slide h4,
+html.light-mode .swiper-slide h5,
+html.light-mode .swiper-slide h6,
+html.light-mode .swiper-slide p,
+html.light-mode .swiper-slide span:not([class*="text-gradient"]):not([class*="bg-clip-text"]),
+html.light-mode .swiper-slide a:not(.btn-primary):not(.btn-secondary) {
+    color: #ffffff !important;
 }
 
-html.light-mode .glass-card:not(.dark-locked) .text-white {
-    color: #111 !important;
+html.light-mode .swiper-slide .text-gray-500,
+html.light-mode .swiper-slide .text-gray-400 {
+    color: #d1d5db !important;
 }
 
-html.light-mode .glass-card .text-gray-500,
-html.light-mode .glass-card .text-gray-400 {
-    color: #333 !important;
-}
-
+/* Global gray text adjustments in light mode outside of dark overlays */
 html.light-mode .text-gray-500,
 html.light-mode .text-gray-400 {
     color: #333 !important;
@@ -375,20 +371,7 @@ html:not(.light-mode) .absolute.inset-0.flex.flex-col a {
     color: #ffffff !important;
 }
 
-html.light-mode .bg-black\/20 h2,
-html.light-mode .bg-black\/20 p,
-html.light-mode .bg-black\/20 span,
-html.light-mode .bg-black\/20 a,
-html.light-mode .bg-gradient-to-t.from-black h2,
-html.light-mode .bg-gradient-to-t.from-black p,
-html.light-mode .bg-gradient-to-t.from-black span,
-html.light-mode .bg-gradient-to-t.from-black a,
-html.light-mode .absolute.inset-0.flex.flex-col h2,
-html.light-mode .absolute.inset-0.flex.flex-col p,
-html.light-mode .absolute.inset-0.flex.flex-col span,
-html.light-mode .absolute.inset-0.flex.flex-col a {
-    color: #111 !important;
-}
+/* Text remains white on dark backgrounds */
 
 html.light-mode .text-white/20 {
     color: rgba(0, 0, 0, 0.5) !important;
@@ -459,7 +442,7 @@ html.light-mode .glass-panel a.active[href*="index-2.html"] {
 }
 
 /* Tablet & Mobile Alignment Fixes */
-@media (max-width: 1024px) {
+@media (max-width: 1023px) {
     h1 {
         font-size: 2.2rem !important;
         line-height: 1.2 !important;
@@ -568,8 +551,8 @@ html.light-mode .glass-panel a.active[href*="index-2.html"] {
 
 @media (min-width: 1024px) {
     .container {
-        padding-left: 3rem !important;
-        padding-right: 3rem !important;
+        padding-left: 1.5rem !important;
+        padding-right: 1.5rem !important;
     }
 }
 
@@ -621,4 +604,68 @@ html.light-mode #scroll-top {
 
 html.light-mode #scroll-top:hover {
     background: var(--accent-color);
+}
+
+/* Global Typography & Readability Overrides */
+h1, h2, h3, h4, h5, h6, 
+.font-bold, .font-semibold, .font-extrabold, .font-black, strong, b {
+    font-weight: 500 !important; /* Headings kept below 600 */
+}
+
+p, .font-normal, .font-light, .font-thin {
+    font-weight: 400 !important; /* Paragraphs and standard text kept between 400-550 */
+}
+
+/* Global Link Colors using Primary (Accent) and Secondary */
+a:not(.btn-primary):not(.btn-secondary) {
+    color: var(--accent-color);
+    transition: color 0.3s ease;
+}
+
+a:not(.btn-primary):not(.btn-secondary):hover {
+    color: var(--secondary-color);
+}
+
+/* CTA Button Colors using Primary and Secondary */
+.btn-primary, button.btn-primary, a.btn-primary, type[submit] {
+    background: linear-gradient(90deg, var(--accent-color), var(--secondary-color)) !important;
+    color: #ffffff !important;
+    border: none !important;
+}
+
+.btn-secondary, button.btn-secondary, a.btn-secondary {
+    border: 1px solid var(--accent-color) !important;
+    color: var(--accent-color) !important;
+}
+
+.btn-secondary:hover, button.btn-secondary:hover, a.btn-secondary:hover {
+    background: linear-gradient(90deg, var(--accent-color), var(--secondary-color)) !important;
+    border-color: transparent !important;
+    color: #ffffff !important;
+}
+
+/* Light Mode: Force white text inside all card types */
+html.light-mode .glass-card,
+html.light-mode .glass-card *,
+html.light-mode .glass-panel,
+html.light-mode .glass-panel * {
+    color: #ffffff !important;
+}
+
+/* Preserve accent/brand colors on icons and highlights inside cards in light mode */
+html.light-mode .glass-card .text-gradient,
+html.light-mode .glass-panel .text-gradient {
+    color: transparent !important;
+    background-clip: text !important;
+    -webkit-background-clip: text !important;
+}
+
+html.light-mode .glass-card a:not(.btn-primary):not(.btn-secondary),
+html.light-mode .glass-panel a:not(.btn-primary):not(.btn-secondary) {
+    color: var(--accent-color) !important;
+}
+
+html.light-mode .glass-card a:not(.btn-primary):not(.btn-secondary):hover,
+html.light-mode .glass-panel a:not(.btn-primary):not(.btn-secondary):hover {
+    color: var(--secondary-color) !important;
 }

@@ -21,13 +21,13 @@
     <div id="canvas-container"></div>
 
     <!-- Header Navigation -->
-    <header id="header" class="fixed w-full top-0 z-50 transition-all duration-300 bg-transparent py-4">
-        <div class="container mx-auto px-6 xl:px-12 flex justify-between items-center">
+    <header id="header" class="fixed w-full top-0 z-50 transition-all duration-300 glass-panel py-4">
+        <div class="container mx-auto px-4 lg:px-8 xl:px-12 flex justify-between items-center">
             <a href="index.html" class="text-2xl font-bold tracking-wider flex items-center gap-2">
                 <i class='bx bx-hive text-[#8a2be2]'></i> <span>Aero<span class="text-gradient">Glow</span></span>
             </a>
             
-            <nav class="hidden xl:flex gap-8 items-center text-sm uppercase tracking-wide font-medium">
+            <nav class="hidden xl:flex xl:gap-5 2xl:gap-8 items-center text-sm uppercase tracking-wide font-medium">
                 <div class="relative group">
                     <button class="flex items-center gap-1 text-[#8a2be2] transition-colors uppercase">
                         Home <i class='bx bx-chevron-down text-xs transition-transform group-hover:rotate-180'></i>
@@ -41,7 +41,7 @@
                 </div>
                 <a href="about.html" class="hover:text-[#8a2be2] transition-colors">About</a>
                 <a href="services.html" class="hover:text-[#8a2be2] transition-colors">Services</a>
-                <a href="blog.html" class="hover:text-[#8a2be2] transition-colors">Blog</a>
+                <a href="events.html" class="hover:text-[#8a2be2] transition-colors">Events</a>
                 <a href="contact.html" class="hover:text-[#8a2be2] transition-colors">Contact</a>
                 <a href="dashboard.html" class="hover:text-[#8a2be2] transition-colors">Dashboard</a>
             </nav>
@@ -52,9 +52,9 @@
                     <i class='bx bx-moon text-xl'></i>
                 </button>
                 <button id="rtl-toggle" class="hover:text-[#8a2be2] text-sm uppercase font-medium transition">RTL</button>
-                <div class="hidden xl:flex gap-4 items-center">
-                    <a href="auth.html" class="px-5 py-2 rounded-full border border-white/10 hover:border-[#8a2be2] hover:text-[#8a2be2] transition text-sm uppercase font-medium">Login</a>
-                    <a href="contact.html" class="btn-primary text-sm" style="border-color:#8a2be2;">Book</a>
+                <div class="hidden xl:flex xl:gap-2 2xl:gap-4 items-center">
+                    <a href="auth.html" class="btn-primary text-sm uppercase font-medium !py-2 !px-5">Login</a>
+                    <a href="contact.html" class="px-5 py-2 rounded-full border border-white/10 hover:border-[#8a2be2] hover:text-[#8a2be2] transition text-sm uppercase font-medium">Book</a>
                 </div>
 
                 <!-- Mobile Menu Btn -->
@@ -64,24 +64,23 @@
             </div>
         </div>
         
-        <div id="mobile-menu" class="hidden absolute top-full left-0 w-full glass-panel py-4 flex flex-col items-center gap-4 border-t border-white/10">
+        <div id="mobile-menu" class="hidden absolute top-full left-0 w-full glass-panel py-4 flex-col items-center gap-4 border-t border-white/10">
             <a href="index.html" class="hover:text-[#8a2be2]">Home 1</a>
             <a href="index-2.html" class="text-[#8a2be2]">Home 2</a>
             <a href="about.html" class="hover:text-[#8a2be2]">About</a>
             <a href="services.html" class="hover:text-[#8a2be2]">Services</a>
-            <a href="blog.html" class="hover:text-[#8a2be2]">Blog</a>
+            <a href="events.html" class="hover:text-[#8a2be2]">Events</a>
             <a href="contact.html" class="hover:text-[#8a2be2]">Contact</a>
             <a href="dashboard.html" class="hover:text-[#8a2be2]">Dashboard</a>
             <hr class="w-2/3 border-white/10 my-2">
-            <a href="auth.html" class="px-8 py-2 rounded-full border border-white/10 text-sm uppercase font-medium">Login</a>
-            <a href="contact.html" class="btn-primary text-sm w-48 text-center" style="border-color:#8a2be2;">Book Now</a>
+            <a href="auth.html" class="btn-primary text-sm w-48 text-center !py-2">Login</a>
+            <a href="contact.html" class="px-8 py-2 rounded-full border border-white/10 hover:border-[#8a2be2] hover:text-[#8a2be2] transition text-sm uppercase font-medium w-48 text-center">Book</a>
         </div>
     </header>
 
     <main>
         <!-- 1. Cinematic Fullscreen Hero -->
         <section class="relative h-screen flex flex-col items-center justify-center overflow-hidden border-b border-white/5">
-            <div class="hero-overlay"></div>
             <div class="absolute inset-0 z-0">
                 <!-- Using CSS radial gradient to simulate a massive glow behind the drones -->
                 <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[#8a2be2]/20 rounded-full blur-[120px] animate-pulse"></div>
@@ -258,6 +257,131 @@
             </div>
         </section>
 
+        <!-- New: Past & Upcoming Shows Section (Purple Theme) -->
+        <section id="missions" class="py-24 relative z-10 bg-gradient-to-b from-[#050508] to-[#07070a] border-t border-white/5">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16 reveal">
+                    <span class="text-xs font-bold text-[#8a2be2] uppercase tracking-widest bg-[#8a2be2]/10 px-4 py-1.5 rounded-full border border-[#8a2be2]/20">Missions Log & Global Schedule</span>
+                    <h2 class="text-3xl md:text-5xl font-bold mt-4 mb-4">Flight <span class="text-gradient">Chronicles</span></h2>
+                    <p class="text-gray-400 max-w-xl mx-auto">A cinematic history of our aerial milestones and a timeline of highly anticipated future launches.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+                    <!-- Past Mission 1 -->
+                    <div class="glass-card p-8 rounded-3xl reveal flex flex-col justify-between group overflow-hidden relative border border-white/5 hover:border-[#8a2be2]/50 transition-colors">
+                        <div class="absolute inset-0 z-0">
+                            <img src="assets/images/stadium-show.png" alt="Symphony of the Dragon" class="w-full h-full object-cover opacity-10 group-hover:opacity-20 group-hover:scale-105 transition-all duration-700">
+                            <div class="absolute inset-0 bg-gradient-to-tr from-black via-black/90 to-transparent"></div>
+                        </div>
+                        <div class="relative z-10 flex-grow">
+                            <div class="flex justify-between items-start mb-6 gap-4">
+                                <span class="text-[10px] font-bold text-[#8a2be2] uppercase tracking-widest bg-[#8a2be2]/10 px-3 py-1 rounded-full border border-[#8a2be2]/20">Past Mission</span>
+                                <span class="text-xs text-gray-500 font-mono"><i class='bx bx-calendar-event mr-1'></i>May 2025</span>
+                            </div>
+                            <h3 class="text-2xl font-bold mb-3 text-white">Symphony of the Dragon</h3>
+                            <p class="text-gray-400 text-sm mb-6 leading-relaxed">
+                                A monumental cultural celebration bringing a massive 3D golden dragon to life over the foothills of Mt. Fuji. The dragon gracefully coiled and breathed simulated fire, perfectly synced with traditional Taiko drumming and a live orchestral score.
+                            </p>
+                            <div class="grid grid-cols-2 gap-4 border-t border-white/5 pt-6 text-sm">
+                                <div>
+                                    <span class="text-gray-500 uppercase tracking-widest text-[9px] font-bold block mb-1">Location</span>
+                                    <span class="text-white font-medium flex items-center gap-1"><i class='bx bx-map text-[#8a2be2]'></i> Tokyo, Japan</span>
+                                </div>
+                                <div>
+                                    <span class="text-gray-500 uppercase tracking-widest text-[9px] font-bold block mb-1">Event Scale</span>
+                                    <span class="text-[#8a2be2] font-bold">1,500 Drones</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Past Mission 2 -->
+                    <div class="glass-card p-8 rounded-3xl reveal flex flex-col justify-between group overflow-hidden relative border border-white/5 hover:border-[#8a2be2]/50 transition-colors" style="transition-delay: 100ms;">
+                        <div class="absolute inset-0 z-0">
+                            <img src="assets/images/drone-show-featured.png" alt="Apex Swarm Debut" class="w-full h-full object-cover opacity-10 group-hover:opacity-20 group-hover:scale-105 transition-all duration-700">
+                            <div class="absolute inset-0 bg-gradient-to-tr from-black via-black/90 to-transparent"></div>
+                        </div>
+                        <div class="relative z-10 flex-grow">
+                            <div class="flex justify-between items-start mb-6 gap-4">
+                                <span class="text-[10px] font-bold text-[#8a2be2] uppercase tracking-widest bg-[#8a2be2]/10 px-3 py-1 rounded-full border border-[#8a2be2]/20">Past Mission</span>
+                                <span class="text-xs text-gray-500 font-mono"><i class='bx bx-calendar-event mr-1'></i>Jan 2026</span>
+                            </div>
+                            <h3 class="text-2xl font-bold mb-3 text-white">Apex Automotive Swarm</h3>
+                            <p class="text-gray-400 text-sm mb-6 leading-relaxed">
+                                Transformed the Dubai Marina skyline into a cinematic showroom for a luxury EV debut. Programmed a 300-meter-wide floating 3D hypercar that dynamically drove through holographic light rings, ending in an interactive sky QR code.
+                            </p>
+                            <div class="grid grid-cols-2 gap-4 border-t border-white/5 pt-6 text-sm">
+                                <div>
+                                    <span class="text-gray-500 uppercase tracking-widest text-[9px] font-bold block mb-1">Location</span>
+                                    <span class="text-white font-medium flex items-center gap-1"><i class='bx bx-map text-[#8a2be2]'></i> Dubai, UAE</span>
+                                </div>
+                                <div>
+                                    <span class="text-gray-500 uppercase tracking-widest text-[9px] font-bold block mb-1">Event Scale</span>
+                                    <span class="text-[#8a2be2] font-bold">3,000 Drones</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Upcoming Mission 1 -->
+                    <div class="glass-card p-8 rounded-3xl reveal flex flex-col justify-between group overflow-hidden relative border border-[#8a2be2]/40 shadow-[0_0_20px_rgba(138,43,226,0.1)] hover:border-[#8a2be2] transition-colors" style="transition-delay: 200ms;">
+                        <div class="absolute inset-0 z-0">
+                            <img src="assets/images/simulation-ui.png" alt="Nebula Dreamscape" class="w-full h-full object-cover opacity-10 group-hover:opacity-20 group-hover:scale-105 transition-all duration-700">
+                            <div class="absolute inset-0 bg-gradient-to-tr from-black via-black/90 to-transparent"></div>
+                        </div>
+                        <div class="relative z-10 flex-grow">
+                            <div class="flex justify-between items-start mb-6 gap-4">
+                                <span class="text-[10px] font-bold text-white uppercase tracking-widest bg-gradient-to-r from-[#8a2be2] to-[#00f0ff] px-3 py-1 rounded-full">Upcoming Show</span>
+                                <span class="text-xs text-[#8a2be2] font-mono font-bold"><i class='bx bx-time mr-1'></i>July 2026</span>
+                            </div>
+                            <h3 class="text-2xl font-bold mb-3 text-white">Nebula Dreamscape</h3>
+                            <p class="text-gray-400 text-sm mb-6 leading-relaxed">
+                                A high-octane visual spectacle opening the Las Vegas Grand Prix. The swarm will morph into deep-space wormholes, hyper-speed exhaust flares, and a giant racing helmet wrapping over the spectator stands.
+                            </p>
+                            <div class="grid grid-cols-2 gap-4 border-t border-[#8a2be2]/20 pt-6 text-sm">
+                                <div>
+                                    <span class="text-gray-500 uppercase tracking-widest text-[9px] font-bold block mb-1">Location</span>
+                                    <span class="text-white font-medium flex items-center gap-1"><i class='bx bx-map text-[#8a2be2]'></i> Las Vegas, NV</span>
+                                </div>
+                                <div>
+                                    <span class="text-gray-500 uppercase tracking-widest text-[9px] font-bold block mb-1">Event Scale</span>
+                                    <span class="text-[#8a2be2] font-bold">2,500 Drones</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Upcoming Mission 2 -->
+                    <div class="glass-card p-8 rounded-3xl reveal flex flex-col justify-between group overflow-hidden relative border border-[#ff00ff]/40 shadow-[0_0_20px_rgba(255,0,255,0.1)] hover:border-[#ff00ff] transition-colors" style="transition-delay: 300ms;">
+                        <div class="absolute inset-0 z-0">
+                            <img src="assets/images/global-map.png" alt="Thames Odyssey" class="w-full h-full object-cover opacity-10 group-hover:opacity-20 group-hover:scale-105 transition-all duration-700">
+                            <div class="absolute inset-0 bg-gradient-to-tr from-black via-black/90 to-transparent"></div>
+                        </div>
+                        <div class="relative z-10 flex-grow">
+                            <div class="flex justify-between items-start mb-6 gap-4">
+                                <span class="text-[10px] font-bold text-white uppercase tracking-widest bg-gradient-to-r from-[#ff00ff] to-[#8a2be2] px-3 py-1 rounded-full text-white">Upcoming Show</span>
+                                <span class="text-xs text-[#ff00ff] font-mono font-bold"><i class='bx bx-time mr-1'></i>Sept 2026</span>
+                            </div>
+                            <h3 class="text-2xl font-bold mb-3 text-white">The Thames Odyssey</h3>
+                            <p class="text-gray-400 text-sm mb-6 leading-relaxed">
+                                A multi-era timeline of human curiosity, spanning from ancient wooden galleons to starships navigating interstellar nebulae. Perfectly mirrored over the River Thames with 3D projection mapping on the London Tower Bridge.
+                            </p>
+                            <div class="grid grid-cols-2 gap-4 border-t border-[#ff00ff]/20 pt-6 text-sm">
+                                <div>
+                                    <span class="text-gray-500 uppercase tracking-widest text-[9px] font-bold block mb-1">Location</span>
+                                    <span class="text-white font-medium flex items-center gap-1"><i class='bx bx-map text-[#8a2be2]'></i> London, UK</span>
+                                </div>
+                                <div>
+                                    <span class="text-gray-500 uppercase tracking-widest text-[9px] font-bold block mb-1">Event Scale</span>
+                                    <span class="text-[#8a2be2] font-bold">4,000 Drones</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- New: Pure Text Content Section -->
         <section class="py-24 relative z-10 bg-[#07070a]">
             <div class="container mx-auto px-6 max-w-4xl text-center">
@@ -366,8 +490,8 @@
         <!-- New: Global Reach / Map Section -->
         <section class="py-24 relative z-10 overflow-hidden">
             <div class="container mx-auto px-6">
-                <div class="flex flex-col lg:flex-row items-center gap-16">
-                    <div class="w-full lg:w-1/2 reveal text-center lg:text-left">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                    <div class="reveal text-center lg:text-left">
                         <h2 class="text-3xl md:text-5xl font-bold mb-6">Global <span class="text-gradient">Presence</span></h2>
                         <p class="text-gray-400 text-lg mb-8 leading-relaxed mx-auto lg:mx-0">
                             From the skyscrapers of Dubai to the historic landmarks of London, our team operates on a global scale. We handle all international logistics, local airspace permits, and cultural customizations for every show.
@@ -391,14 +515,14 @@
                             </div>
                         </div>
                     </div>
-                    <div class="w-full lg:w-1/2 reveal">
+                    <div class="reveal">
                         <div class="relative rounded-3xl overflow-hidden glass-card p-2">
                              <div class="aspect-video bg-gray-900 rounded-2xl flex items-center justify-center relative overflow-hidden">
                                 <img src="assets/images/global-map.png" alt="Global Operations" class="w-full h-full object-cover opacity-50">
                                 <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0d] to-transparent"></div>
                                 <div class="absolute inset-0 flex items-center justify-center">
                                     <div class="text-center">
-                                        <div class="text-5xl font-bold text-white mb-2">50+</div>
+                                        <h3 class="text-5xl font-bold text-white mb-2">50+</h3>
                                         <div class="text-[#00f0ff] uppercase tracking-widest text-xs font-semibold">Countries Reached</div>
                                     </div>
                                 </div>
@@ -444,7 +568,7 @@
         <!-- 7. Pricing Teaser + CTA -->
         <section class="py-32 relative z-10">
             <div class="container mx-auto px-6 text-center reveal">
-                <div class="glass-card rounded-3xl p-12 md:p-20 relative overflow-hidden">
+                <div class="glass-card light-bg-card rounded-3xl p-12 md:p-20 relative overflow-hidden">
                     <div class="absolute -right-20 -bottom-20 w-64 h-64 bg-[#8a2be2]/30 blur-[100px] rounded-full"></div>
                     <div class="absolute -left-20 -top-20 w-64 h-64 bg-[#00f0ff]/30 blur-[100px] rounded-full"></div>
                     
@@ -452,7 +576,7 @@
                     <p class="text-gray-400 mb-10 max-w-xl mx-auto relative z-10">From intimate private gatherings to city-wide spectacles, our scalable fleets accommodate any vision.</p>
                     
                     <div class="flex flex-col sm:flex-row gap-4 justify-center relative z-10">
-                        <a href="services.html" class="btn-primary" style="border-color:#8a2be2;">View All Packages</a>
+                        <a href="services.html" class="btn-primary">View All Packages</a>
                         <a href="contact.html" class="px-6 py-3 rounded-full border border-white/20 hover:border-[#8a2be2] hover:text-[#8a2be2] hover:bg-[#8a2be2]/5 hover:scale-105 hover:shadow-[0_0_20px_rgba(138,43,226,0.3)] transition-all duration-300">Contact Sales</a>
                     </div>
                 </div>
@@ -490,7 +614,7 @@
                     <ul class="space-y-2 text-gray-500 text-sm">
                         <li><a href="index.html" class="hover:text-[#00f0ff] transition">Home</a></li>
                         <li><a href="about.html" class="hover:text-[#00f0ff] transition">About Us</a></li>
-                        <li><a href="blog.html" class="hover:text-[#00f0ff] transition">Blog</a></li>
+                        <li><a href="events.html" class="hover:text-[#00f0ff] transition">Events</a></li>
                         <li><a href="contact.html" class="hover:text-[#00f0ff] transition">Contact</a></li>
                     </ul>
                 </div>
