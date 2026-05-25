@@ -478,65 +478,76 @@
                     <h2 class="text-3xl md:text-5xl font-bold mb-4">Client <span class="text-gradient">Experiences</span></h2>
                 </div>
                 
-                <div class="swiper testimonial-swiper reveal">
-                    <div class="swiper-wrapper">
-                        <!-- Testimonial 1 -->
-                        <div class="swiper-slide h-auto">
-                            <div class="glass-card light-bg-card p-8 rounded-2xl h-full flex flex-col items-center text-center justify-between">
-                                <div>
-                                    <i class='bx bxs-quote-left text-4xl text-[#00f0ff]/40 mb-4 inline-block'></i>
-                                    <p class="text-gray-300 italic mb-6">"AeroGlow completely redefined the climax of our music festival. The precision of the 1000-drone swarm syncing with the mainstage audio was breathtaking."</p>
-                                </div>
-                                <div class="flex flex-col items-center gap-2 border-t border-white/10 pt-4 w-full">
-                                    <div class="w-12 h-12 rounded-full overflow-hidden mx-auto border-2 border-[#00f0ff]">
-                                        <img src="assets/images/sarah.png" alt="Sarah Jenkins" class="w-full h-full object-cover">
-                                    </div>
+                <!-- Testimonial Slider Wrapper with Arrows -->
+                <div class="relative testimonial-swiper-outer">
+                    <!-- Prev Arrow (tablet & mobile only) -->
+                    <button class="testimonial-prev lg:hidden absolute left-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full glass-panel border border-white/10 flex items-center justify-center text-white hover:text-[#00f0ff] hover:border-[#00f0ff] hover:shadow-[0_0_15px_rgba(0,240,255,0.4)] transition-all duration-300">
+                        <i class='bx bx-chevron-left text-xl'></i>
+                    </button>
+
+                    <div class="swiper testimonial-swiper reveal">
+                        <div class="swiper-wrapper">
+                            <!-- Testimonial 1 -->
+                            <div class="swiper-slide h-auto">
+                                <div class="glass-card light-bg-card p-8 rounded-2xl h-full flex flex-col items-center text-center justify-between">
                                     <div>
-                                        <h4 class="font-bold text-sm">Sarah Jenkins</h4>
-                                        <p class="text-xs text-[#00f0ff]">Director, NeonFest</p>
+                                        <i class='bx bxs-quote-left text-4xl text-[#00f0ff]/40 mb-4 inline-block'></i>
+                                        <p class="text-gray-300 italic mb-6">"AeroGlow completely redefined the climax of our music festival. The precision of the 1000-drone swarm syncing with the mainstage audio was breathtaking."</p>
+                                    </div>
+                                    <div class="flex flex-col items-center gap-2 border-t border-white/10 pt-4 w-full">
+                                        <div class="w-12 h-12 rounded-full overflow-hidden mx-auto border-2 border-[#00f0ff]">
+                                            <img src="assets/images/sarah.png" alt="Sarah Jenkins" class="w-full h-full object-cover">
+                                        </div>
+                                        <div>
+                                            <h4 class="font-bold text-sm">Sarah Jenkins</h4>
+                                            <p class="text-xs text-[#00f0ff]">Director, NeonFest</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <!-- Testimonial 2 -->
-                        <div class="swiper-slide h-auto">
-                            <div class="glass-card light-bg-card p-8 rounded-2xl h-full flex flex-col items-center text-center justify-between">
-                                <div>
-                                    <i class='bx bxs-quote-left text-4xl text-[#8a2be2]/40 mb-4 inline-block'></i>
-                                    <p class="text-gray-300 italic mb-6">"Their team handled all the complex FAA logistics for our corporate stadium event. The custom logo reveal in the sky was flawless."</p>
-                                </div>
-                                <div class="flex flex-col items-center gap-2 border-t border-white/10 pt-4 w-full">
-                                    <div class="w-12 h-12 rounded-full overflow-hidden mx-auto border-2 border-[#8a2be2]">
-                                        <img src="assets/images/michael.png" alt="Michael Chang" class="w-full h-full object-cover">
-                                    </div>
+                            <!-- Testimonial 2 -->
+                            <div class="swiper-slide h-auto">
+                                <div class="glass-card light-bg-card p-8 rounded-2xl h-full flex flex-col items-center text-center justify-between">
                                     <div>
-                                        <h4 class="font-bold text-sm">Michael Chang</h4>
-                                        <p class="text-xs text-[#8a2be2]">VP Marketing, TechCorp</p>
+                                        <i class='bx bxs-quote-left text-4xl text-[#8a2be2]/40 mb-4 inline-block'></i>
+                                        <p class="text-gray-300 italic mb-6">"Their team handled all the complex FAA logistics for our corporate stadium event. The custom logo reveal in the sky was flawless."</p>
+                                    </div>
+                                    <div class="flex flex-col items-center gap-2 border-t border-white/10 pt-4 w-full">
+                                        <div class="w-12 h-12 rounded-full overflow-hidden mx-auto border-2 border-[#8a2be2]">
+                                            <img src="assets/images/michael.png" alt="Michael Chang" class="w-full h-full object-cover">
+                                        </div>
+                                        <div>
+                                            <h4 class="font-bold text-sm">Michael Chang</h4>
+                                            <p class="text-xs text-[#8a2be2]">VP Marketing, TechCorp</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <!-- Testimonial 3 -->
-                        <div class="swiper-slide h-auto">
-                            <div class="glass-card light-bg-card p-8 rounded-2xl h-full flex flex-col items-center text-center justify-between">
-                                <div>
-                                    <i class='bx bxs-quote-left text-4xl text-[#ff00ff]/40 mb-4 inline-block'></i>
-                                    <p class="text-gray-300 italic mb-6">"The 3D choreography preview they provided allowed us to perfectly align our camera crews before the actual night. True professionals."</p>
-                                </div>
-                                <div class="flex flex-col items-center gap-2 border-t border-white/10 pt-4 w-full">
-                                    <div class="w-12 h-12 rounded-full overflow-hidden mx-auto border-2 border-[#ff00ff]">
-                                        <img src="assets/images/elena.png" alt="Elena Rostova" class="w-full h-full object-cover">
-                                    </div>
+                            <!-- Testimonial 3 -->
+                            <div class="swiper-slide h-auto">
+                                <div class="glass-card light-bg-card p-8 rounded-2xl h-full flex flex-col items-center text-center justify-between">
                                     <div>
-                                        <h4 class="font-bold text-sm">Elena Rostova</h4>
-                                        <p class="text-xs text-[#ff00ff]">Executive Producer</p>
+                                        <i class='bx bxs-quote-left text-4xl text-[#ff00ff]/40 mb-4 inline-block'></i>
+                                        <p class="text-gray-300 italic mb-6">"The 3D choreography preview they provided allowed us to perfectly align our camera crews before the actual night. True professionals."</p>
+                                    </div>
+                                    <div class="flex flex-col items-center gap-2 border-t border-white/10 pt-4 w-full">
+                                        <div class="w-12 h-12 rounded-full overflow-hidden mx-auto border-2 border-[#ff00ff]">
+                                            <img src="assets/images/elena.png" alt="Elena Rostova" class="w-full h-full object-cover">
+                                        </div>
+                                        <div>
+                                            <h4 class="font-bold text-sm">Elena Rostova</h4>
+                                            <p class="text-xs text-[#ff00ff]">Executive Producer</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <!-- Pagination -->
-                    <div class="swiper-pagination mt-10 relative bottom-0"></div>
+
+                    <!-- Next Arrow (tablet & mobile only) -->
+                    <button class="testimonial-next lg:hidden absolute right-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full glass-panel border border-white/10 flex items-center justify-center text-white hover:text-[#00f0ff] hover:border-[#00f0ff] hover:shadow-[0_0_15px_rgba(0,240,255,0.4)] transition-all duration-300">
+                        <i class='bx bx-chevron-right text-xl'></i>
+                    </button>
                 </div>
             </div>
         </section>

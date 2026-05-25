@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (typeof Swiper !== 'undefined') {
         const swipers = document.querySelectorAll('.swiper');
         swipers.forEach(swiperEl => {
-            new Swiper(swiperEl, {
+            const swiperInstance = new Swiper(swiperEl, {
                 loop: true,
                 pagination: {
                     el: swiperEl.querySelector('.swiper-pagination'),
@@ -73,6 +73,17 @@ document.addEventListener('DOMContentLoaded', () => {
                     1024: { slidesPerView: 3, spaceBetween: 30 },
                 }
             });
+
+            // Wire custom testimonial arrow buttons (tablet/mobile)
+            if (swiperEl.classList.contains('testimonial-swiper')) {
+                const outer = swiperEl.closest('.testimonial-swiper-outer');
+                if (outer) {
+                    const prevBtn = outer.querySelector('.testimonial-prev');
+                    const nextBtn = outer.querySelector('.testimonial-next');
+                    if (prevBtn) prevBtn.addEventListener('click', () => swiperInstance.slidePrev());
+                    if (nextBtn) nextBtn.addEventListener('click', () => swiperInstance.slideNext());
+                }
+            }
         });
     }
 

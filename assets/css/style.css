@@ -34,11 +34,14 @@ html {
     scroll-behavior: smooth;
 }
 
+html, body {
+    overflow-x: hidden;
+}
+
 body {
     font-family: 'Outfit', sans-serif;
     background-color: var(--bg-color);
     color: var(--text-color);
-    overflow-x: hidden;
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
@@ -346,8 +349,9 @@ html.light-mode .text-\[\#ff00ff\] {
 
 /* Ensure Nav & Button Hover states are visible in Light Mode */
 html.light-mode nav a,
+html.light-mode nav button:not(#theme-toggle):not(#rtl-toggle):not(#mobile-menu-btn),
 html.light-mode #mobile-menu a {
-    color: #1e293b !important;
+    color: var(--accent-color) !important;
     transition: color 0.2s ease, background-color 0.2s ease !important;
 }
 
@@ -886,4 +890,36 @@ html.light-mode .light-bg-card .glass-panel:hover svg {
     fill: var(--text-primary) !important;
 }
 
+/* Testimonial Swiper - Custom Arrow Buttons (tablet & mobile) */
+.testimonial-swiper-outer {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+@media (max-width: 1023px) {
+    .testimonial-swiper-outer {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+
+    .testimonial-prev,
+    .testimonial-next {
+        display: flex !important;
+    }
+}
+
+html.light-mode .testimonial-prev,
+html.light-mode .testimonial-next {
+    background: rgba(255, 255, 255, 0.9) !important;
+    color: #0088cc !important;
+    border-color: rgba(0, 0, 0, 0.15) !important;
+}
+
+html.light-mode .testimonial-prev:hover,
+html.light-mode .testimonial-next:hover {
+    background: rgba(0, 136, 204, 0.1) !important;
+    border-color: #0088cc !important;
+    color: #0088cc !important;
+    box-shadow: 0 0 15px rgba(0, 136, 204, 0.3) !important;
+}
 
