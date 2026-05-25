@@ -97,45 +97,74 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Active Link Highlighting
     const highlightActiveLink = () => {
-        const path = window.location.pathname.split('/').pop() || 'index.html';
+        const rawPath = window.location.pathname.split('/').pop();
+        let path = rawPath || 'index.html';
+        if (path === '' || path === '/') {
+            path = 'index.html';
+        }
+        
         const navLinks = document.querySelectorAll('nav a, #mobile-menu a');
         const navBtns = document.querySelectorAll('nav button');
         
-        // Determine theme color based on page or default
-        const isHome2 = path === 'index-2.html' || document.querySelector('.text-\\[\\#8a2be2\\]');
+        // Strictly determine branding context: index-2.html is purple theme, all other pages are cyan theme
+        const isHome2 = path === 'index-2.html';
         const activeColorClass = isHome2 ? 'text-[#8a2be2]' : 'text-[#00f0ff]';
+        const activeColor = isHome2 ? '#8a2be2' : '#00f0ff';
+        const activeBg = isHome2 ? 'rgba(138,43,226,0.13)' : 'rgba(0,240,255,0.13)';
+        const activeShadow = isHome2 ? '0 0 10px rgba(138,43,226,0.18)' : '0 0 10px rgba(0,240,255,0.18)';
 
-        // Clear all first
-        navLinks.forEach(l => l.classList.remove('text-[#00f0ff]', 'text-[#8a2be2]', 'active'));
-        navBtns.forEach(b => b.classList.remove('text-[#00f0ff]', 'text-[#8a2be2]'));
+        // Clear all active styles first
+        navLinks.forEach(l => {
+            l.classList.remove('text-[#00f0ff]', 'text-[#8a2be2]', 'active');
+            l.style.removeProperty('background-color');
+            l.style.removeProperty('border-radius');
+            l.style.removeProperty('font-weight');
+            l.style.removeProperty('box-shadow');
+            l.style.removeProperty('padding');
+        });
+        navBtns.forEach(b => {
+            b.classList.remove('text-[#00f0ff]', 'text-[#8a2be2]', 'active');
+            b.style.removeProperty('background-color');
+            b.style.removeProperty('border-radius');
+            b.style.removeProperty('font-weight');
+            b.style.removeProperty('box-shadow');
+            b.style.removeProperty('padding');
+        });
 
-        let matchFound = false;
+        // Fallback checks for subpages / detail pages
+        let searchPath = path;
+        if (path.includes('event-details.html') || path.includes('blog-details')) {
+            searchPath = 'events.html';
+        }
+
         navLinks.forEach(link => {
             const href = link.getAttribute('href');
-            if (href === path) {
+            if (href === searchPath) {
                 link.classList.add(activeColorClass);
                 link.classList.add('active');
-                matchFound = true;
-                
-                // Dropdown parent highlighting
+
+                // Apply highlight styles directly via JS to guarantee visibility
+                link.style.setProperty('background-color', activeBg, 'important');
+                link.style.setProperty('border-radius', '6px', 'important');
+                link.style.setProperty('font-weight', '600', 'important');
+                link.style.setProperty('box-shadow', activeShadow, 'important');
+                link.style.setProperty('padding', '4px 10px', 'important');
+
+                // Highlight parent dropdown group button if applicable
                 const group = link.closest('.group');
                 if (group) {
                     const btn = group.querySelector('button');
                     if (btn) {
                         btn.classList.add(activeColorClass);
                         btn.classList.add('active');
+                        btn.style.setProperty('background-color', activeBg, 'important');
+                        btn.style.setProperty('border-radius', '6px', 'important');
+                        btn.style.setProperty('font-weight', '600', 'important');
+                        btn.style.setProperty('padding', '4px 10px', 'important');
                     }
                 }
             }
         });
-
-        // Fallback for details/subpages
-        if (!matchFound) {
-            if (path.includes('blog-details')) {
-                const blogLink = document.querySelector('nav a[href="events.html"]');
-                if (blogLink) blogLink.classList.add(activeColorClass);
-            }
-        }
     };
     highlightActiveLink();
 });

@@ -17,10 +17,13 @@
     <!-- Sidebar Menu -->
     <aside id="sidebar" class="fixed lg:relative w-64 glass-panel border-r border-white/5 flex flex-col justify-between h-full z-50 transition-transform duration-300 -translate-x-full lg:translate-x-0">
         <div>
-            <div class="h-20 flex items-center px-8 border-b border-white/5">
+            <div class="h-20 flex items-center px-8 border-b border-white/5 justify-between">
                 <a href="index.html" class="text-xl font-bold tracking-wider flex items-center gap-2">
                     <i class='bx bx-hive text-[#00f0ff]'></i> <span>Aero<span class="text-gradient">Glow</span></span>
                 </a>
+                <button id="sidebar-close" class="lg:hidden text-2xl text-white hover:text-[#ff00ff] transition focus:outline-none" aria-label="Close Sidebar">
+                    <i class='bx bx-x'></i>
+                </button>
             </div>
             <nav class="p-4 space-y-2 mt-4 text-sm font-medium text-gray-400">
                 <a href="#" data-tab="overview" class="tab-link flex items-center gap-3 px-4 py-3 rounded-lg bg-white/5 text-[#00f0ff]"><i class='bx bx-grid-alt text-lg'></i> Overview</a>
@@ -86,7 +89,7 @@
             <div id="tab-overview" class="tab-content">
                 <!-- Analytics Overview (Top Cards) -->
                 <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
-                    <div class="glass-card p-6 rounded-2xl border border-white/5">
+                    <div class="glass-card light-bg-card p-6 rounded-2xl border border-white/5">
                         <div class="flex justify-between items-start mb-4">
                             <div class="w-10 h-10 rounded-lg bg-[#00f0ff]/10 flex items-center justify-center text-[#00f0ff]"><i class='bx bx-rocket text-xl'></i></div>
                             <span class="text-xs font-bold text-green-400 bg-green-400/10 px-2 py-1 rounded">+12%</span>
@@ -94,7 +97,7 @@
                         <p class="text-gray-400 text-sm mb-1">Active Projects</p>
                         <h3 class="text-3xl font-bold">24</h3>
                     </div>
-                    <div class="glass-card p-6 rounded-2xl border border-white/5">
+                    <div class="glass-card light-bg-card p-6 rounded-2xl border border-white/5">
                         <div class="flex justify-between items-start mb-4">
                             <div class="w-10 h-10 rounded-lg bg-[#8a2be2]/10 flex items-center justify-center text-[#8a2be2]"><i class='bx bx-hive text-xl'></i></div>
                             <span class="text-xs font-bold text-gray-400 bg-gray-400/10 px-2 py-1 rounded">Fleet</span>
@@ -102,7 +105,7 @@
                         <p class="text-gray-400 text-sm mb-1">Drones Available</p>
                         <h3 class="text-3xl font-bold">4,850</h3>
                     </div>
-                    <div class="glass-card p-6 rounded-2xl border border-white/5">
+                    <div class="glass-card light-bg-card p-6 rounded-2xl border border-white/5">
                         <div class="flex justify-between items-start mb-4">
                             <div class="w-10 h-10 rounded-lg bg-[#ff00ff]/10 flex items-center justify-center text-[#ff00ff]"><i class='bx bx-dollar text-xl'></i></div>
                             <span class="text-xs font-bold text-green-400 bg-green-400/10 px-2 py-1 rounded">+5%</span>
@@ -110,7 +113,7 @@
                         <p class="text-gray-400 text-sm mb-1">Monthly Revenue</p>
                         <h3 class="text-3xl font-bold">$1.2M</h3>
                     </div>
-                    <div class="glass-card p-6 rounded-2xl border border-white/5">
+                    <div class="glass-card light-bg-card p-6 rounded-2xl border border-white/5">
                         <div class="flex justify-between items-start mb-4">
                             <div class="w-10 h-10 rounded-lg bg-yellow-500/10 flex items-center justify-center text-yellow-500"><i class='bx bx-file text-xl'></i></div>
                             <span class="text-xs font-bold text-red-400 bg-red-400/10 px-2 py-1 rounded">Action Needed</span>
@@ -121,7 +124,7 @@
                 </div>
 
                 <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                    <div class="lg:col-span-2 glass-card p-6 rounded-2xl border border-white/5">
+                    <div class="lg:col-span-2 glass-card light-bg-card p-6 rounded-2xl border border-white/5">
                         <div class="flex justify-between items-center mb-6">
                             <h3 class="font-bold">Show Requests (YTD)</h3>
                         </div>
@@ -130,7 +133,7 @@
                         </div>
                     </div>
 
-                    <div class="glass-card p-6 rounded-2xl border border-white/5">
+                    <div class="glass-card light-bg-card p-6 rounded-2xl border border-white/5">
                         <h3 class="font-bold mb-6">Recent Activity</h3>
                         <div class="space-y-4">
                             <div class="flex gap-3 border-b border-white/5 pb-4">
@@ -156,7 +159,7 @@
 
             <!-- Projects Tab -->
             <div id="tab-projects" class="tab-content hidden">
-                <div class="glass-card p-6 rounded-2xl border border-white/5">
+                <div class="glass-card light-bg-card p-6 rounded-2xl border border-white/5">
                     <div class="flex justify-between items-center mb-6">
                         <h3 class="font-bold text-xl text-gradient">Active Projects Pipeline</h3>
                         <button class="btn-primary text-xs py-2">Add New Project</button>
@@ -211,7 +214,7 @@
             <!-- Messages Tab -->
             <div id="tab-messages" class="tab-content hidden">
                 <div class="grid grid-cols-1 lg:grid-cols-4 gap-6">
-                    <div class="lg:col-span-1 glass-card p-4 rounded-2xl border border-white/5 h-[500px] overflow-y-auto">
+                    <div class="lg:col-span-1 glass-card light-bg-card p-4 rounded-2xl border border-white/5 h-[500px] overflow-y-auto">
                         <div class="space-y-2">
                             <div class="p-3 bg-white/10 rounded-xl cursor-pointer">
                                 <h4 class="text-sm font-bold">Event Logistics Inc.</h4>
@@ -227,7 +230,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="lg:col-span-3 glass-card p-6 rounded-2xl border border-white/5 h-[500px] flex flex-col">
+                    <div class="lg:col-span-3 glass-card light-bg-card p-6 rounded-2xl border border-white/5 h-[500px] flex flex-col">
                         <div class="flex-grow space-y-4 overflow-y-auto pr-2">
                             <div class="flex justify-start">
                                 <div class="bg-white/5 p-3 rounded-2xl rounded-tl-none max-w-xs text-sm">
@@ -255,7 +258,7 @@
 
             <!-- Users Tab -->
             <div id="tab-users" class="tab-content hidden">
-                <div class="glass-card p-6 rounded-2xl border border-white/5">
+                <div class="glass-card light-bg-card p-6 rounded-2xl border border-white/5">
                     <div class="flex justify-between items-center mb-6">
                         <h3 class="font-bold">Team & Client Access</h3>
                         <div class="flex gap-2">
@@ -305,7 +308,7 @@
             <!-- Venue Tab -->
             <div id="tab-venue" class="tab-content hidden">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div class="glass-card p-6 rounded-2xl border border-white/5">
+                    <div class="glass-card light-bg-card p-6 rounded-2xl border border-white/5">
                         <h3 class="font-bold mb-4">Active Venue Layouts</h3>
                         <div class="space-y-4">
                             <div class="glass-panel p-4 rounded-xl border border-white/5 flex justify-between items-center">
@@ -324,7 +327,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="glass-card p-6 rounded-2xl border border-white/10 border-dashed flex flex-col items-center justify-center text-center py-12">
+                    <div class="glass-card light-bg-card p-6 rounded-2xl border border-white/10 border-dashed flex flex-col items-center justify-center text-center py-12">
                         <i class='bx bx-cloud-upload text-5xl text-[#00f0ff] mb-4'></i>
                         <h4 class="font-bold mb-2">Upload New Site Plan</h4>
                         <p class="text-xs text-gray-500 mb-6 max-w-xs">Drag and drop your .DWG or .PDF site plans here for analysis by the engineering team.</p>
@@ -335,11 +338,11 @@
 
             <!-- Approvals Tab -->
             <div id="tab-approvals" class="tab-content hidden">
-                <div class="glass-card p-6 rounded-2xl border border-white/5">
+                <div class="glass-card light-bg-card p-6 rounded-2xl border border-white/5">
                     <h3 class="font-bold mb-6">Sequence Quality Control</h3>
                     <div class="space-y-6">
                         <div class="flex items-center gap-6 p-4 glass-panel rounded-2xl border border-white/10">
-                            <div class="w-32 h-20 bg-black/50 rounded-lg flex items-center justify-center relative overflow-hidden">
+                            <div class="w-32 h-20 bg-[#000000]/50 rounded-lg flex items-center justify-center relative overflow-hidden">
                                 <img src="assets/images/simulation-ui.png" class="w-full h-full object-cover opacity-50">
                                 <i class='bx bx-play-circle text-3xl text-white absolute cursor-pointer hover:scale-110 transition'></i>
                             </div>
@@ -358,7 +361,7 @@
 
             <!-- Files Tab -->
             <div id="tab-files" class="tab-content hidden">
-                <div class="glass-card p-6 rounded-2xl border border-white/5">
+                <div class="glass-card light-bg-card p-6 rounded-2xl border border-white/5">
                     <div class="flex justify-between items-center mb-6">
                         <h3 class="font-bold">Project Deliverables</h3>
                         <button class="text-[#00f0ff] text-xs font-bold hover:underline">Download All (ZIP)</button>
@@ -397,6 +400,7 @@
             const sidebar = document.getElementById('sidebar');
             const sidebarOverlay = document.getElementById('sidebar-overlay');
             const sidebarToggle = document.getElementById('sidebar-toggle');
+            const sidebarClose = document.getElementById('sidebar-close');
 
             function toggleSidebar() {
                 sidebar.classList.toggle('-translate-x-full');
@@ -406,6 +410,7 @@
 
             if (sidebarToggle) sidebarToggle.addEventListener('click', toggleSidebar);
             if (sidebarOverlay) sidebarOverlay.addEventListener('click', toggleSidebar);
+            if (sidebarClose) sidebarClose.addEventListener('click', toggleSidebar);
 
             // Close sidebar on link click (mobile)
             const sidebarLinks = sidebar.querySelectorAll('.tab-link');

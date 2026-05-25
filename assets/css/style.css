@@ -8,16 +8,26 @@
     --secondary-color: #8a2be2;
     --glass-bg: rgba(25, 25, 30, 0.6);
     --glass-border: rgba(255, 255, 255, 0.08);
+    
+    /* Theme text tokens - Dark Mode (Default) */
+    --text-primary: #f8fafc;
+    --text-secondary: #cbd5e1;
+    --text-muted: #94a3b8;
 }
 
 .light-mode {
     --bg-color: #f8f9fa;
-    --text-color: #111;
+    --text-color: #0f172a;
     --accent-color: #0088cc;
     --accent-glow: rgba(0, 136, 204, 0.3);
     --secondary-color: #6a1b9a;
     --glass-bg: rgba(255, 255, 255, 0.7);
     --glass-border: rgba(0, 0, 0, 0.1);
+    
+    /* Theme text tokens - Light Mode */
+    --text-primary: #0f172a;
+    --text-secondary: #475569;
+    --text-muted: #64748b;
 }
 
 html {
@@ -177,27 +187,27 @@ html.light-mode .hero-overlay ~ div .text-gray-400 {
     color: #d1d5db !important;
 }
 
-/* Light Mode Tailwind Overrides */
-html.light-mode body {
-    background-color: var(--bg-color);
-    color: var(--text-color);
+/* Global Theme Text Mappings (Dark & Light) */
+body {
+    color: var(--text-primary);
 }
 
-html.light-mode .text-white {
-    color: #111 !important;
+.text-white {
+    color: var(--text-primary) !important;
 }
 
-html.light-mode .text-gray-300,
-html.light-mode .text-gray-400 {
-    color: #444 !important;
+.text-gray-300,
+.text-gray-400,
+.text-slate-300,
+.text-slate-400 {
+    color: var(--text-secondary) !important;
 }
 
-html.light-mode .text-gray-500 {
-    color: #666 !important;
-}
-
-html.light-mode .text-gray-600 {
-    color: #888 !important;
+.text-gray-500,
+.text-gray-600,
+.text-slate-500,
+.text-slate-600 {
+    color: var(--text-muted) !important;
 }
 
 html.light-mode .bg-\[\#0a0a0d\],
@@ -335,14 +345,62 @@ html.light-mode .text-\[\#ff00ff\] {
 }
 
 /* Ensure Nav & Button Hover states are visible in Light Mode */
+html.light-mode nav a,
+html.light-mode #mobile-menu a {
+    color: #1e293b !important;
+    transition: color 0.2s ease, background-color 0.2s ease !important;
+}
+
 html.light-mode nav a:hover,
-html.light-mode #mobile-menu a:hover,
-html.light-mode .glass-panel a:hover {
+html.light-mode #mobile-menu a:hover {
     color: var(--accent-color) !important;
+    background-color: rgba(0, 136, 204, 0.08) !important;
+    border-radius: 6px !important;
+}
+
+html.light-mode nav a.text-\[#00f0ff\],
+html.light-mode nav a.active,
+html.light-mode #mobile-menu a.text-\[#00f0ff\],
+html.light-mode #mobile-menu a.active,
+html.light-mode nav a.text-\[#8a2be2\],
+html.light-mode #mobile-menu a.text-\[#8a2be2\] {
+    color: var(--accent-color) !important;
+    background-color: rgba(0, 136, 204, 0.12) !important;
+    border-radius: 6px !important;
+    font-weight: 600 !important;
+    padding: 4px 10px !important;
+    box-shadow: 0 0 10px rgba(0, 136, 204, 0.15) !important;
 }
 
 html.light-mode .btn-primary:hover {
     color: #fff !important;
+}
+
+/* Nav hover & highlight states in Dark Mode */
+html:not(.light-mode) nav a,
+html:not(.light-mode) #mobile-menu a {
+    transition: color 0.2s ease, background-color 0.2s ease !important;
+}
+
+html:not(.light-mode) nav a:hover,
+html:not(.light-mode) #mobile-menu a:hover {
+    color: var(--accent-color) !important;
+    background-color: rgba(0, 240, 255, 0.08) !important;
+    border-radius: 6px !important;
+}
+
+html:not(.light-mode) nav a.text-\[#00f0ff\],
+html:not(.light-mode) nav a.active,
+html:not(.light-mode) #mobile-menu a.text-\[#00f0ff\],
+html:not(.light-mode) #mobile-menu a.active,
+html:not(.light-mode) nav a.text-\[#8a2be2\],
+html:not(.light-mode) #mobile-menu a.text-\[#8a2be2\] {
+    color: var(--accent-color) !important;
+    background-color: rgba(0, 240, 255, 0.12) !important;
+    border-radius: 6px !important;
+    font-weight: 600 !important;
+    padding: 4px 10px !important;
+    box-shadow: 0 0 10px rgba(0, 240, 255, 0.15) !important;
 }
 
 /* Ensure Gallery & Dark Overlay Text stay white in Dark Mode, but adapt in Light Mode */
@@ -405,12 +463,12 @@ html.light-mode .prose-invert blockquote {
     color: #333 !important;
 }
 
-html.light-mode .glass-panel a {
+html.light-mode .glass-panel a:not(.btn-primary) {
     color: #444 !important;
 }
 
-html.light-mode .glass-panel a.active,
-html.light-mode .glass-panel a:hover {
+html.light-mode .glass-panel a.active:not(.btn-primary),
+html.light-mode .glass-panel a:hover:not(.btn-primary) {
     color: #006699 !important;
 }
 
@@ -617,7 +675,7 @@ p, .font-normal, .font-light, .font-thin {
 }
 
 /* Global Link Colors using Primary (Accent) and Secondary */
-a:not(.btn-primary):not(.btn-secondary) {
+a:not(.btn-primary):not(.btn-secondary):not(header a):not(footer a):not(#mobile-menu a) {
     color: var(--accent-color);
     transition: color 0.3s ease;
 }
@@ -644,12 +702,99 @@ a:not(.btn-primary):not(.btn-secondary):hover {
     color: #ffffff !important;
 }
 
-/* Light Mode: Force white text inside all card types */
-html.light-mode .glass-card,
-html.light-mode .glass-card *,
+/* Light Mode: Ensure high contrast text inside panels */
 html.light-mode .glass-panel,
-html.light-mode .glass-panel * {
+html.light-mode .glass-panel p,
+html.light-mode .glass-panel h1,
+html.light-mode .glass-panel h2,
+html.light-mode .glass-panel h3,
+html.light-mode .glass-panel h4,
+html.light-mode .glass-panel h5,
+html.light-mode .glass-panel h6,
+html.light-mode .glass-panel span:not([class*="text-gradient"]):not([class*="bg-clip-text"]):not(.bg-gradient-to-r),
+html.light-mode .glass-panel i,
+html.light-mode .glass-panel th,
+html.light-mode .glass-panel td,
+html.light-mode .glass-panel label {
+    color: var(--text-primary) !important;
+}
+
+/* Light Mode: Make text white inside cards generally (for image backgrounds) */
+html.light-mode .glass-card,
+html.light-mode .glass-card p,
+html.light-mode .glass-card h1,
+html.light-mode .glass-card h2,
+html.light-mode .glass-card h3,
+html.light-mode .glass-card h4,
+html.light-mode .glass-card h5,
+html.light-mode .glass-card h6,
+html.light-mode .glass-card span:not([class*="text-gradient"]):not([class*="bg-clip-text"]):not(.bg-gradient-to-r),
+html.light-mode .glass-card i,
+html.light-mode .glass-card th,
+html.light-mode .glass-card td,
+html.light-mode .glass-card label {
     color: #ffffff !important;
+}
+
+/* Light Mode: Make text dark inside light-bg-card for readability */
+html.light-mode .light-bg-card,
+html.light-mode .light-bg-card p,
+html.light-mode .light-bg-card h1,
+html.light-mode .light-bg-card h2,
+html.light-mode .light-bg-card h3,
+html.light-mode .light-bg-card h4,
+html.light-mode .light-bg-card h5,
+html.light-mode .light-bg-card h6,
+html.light-mode .light-bg-card span:not([class*="text-gradient"]):not([class*="bg-clip-text"]):not(.bg-gradient-to-r),
+html.light-mode .light-bg-card i,
+html.light-mode .light-bg-card th,
+html.light-mode .light-bg-card td,
+html.light-mode .light-bg-card label {
+    color: var(--text-primary) !important;
+}
+
+/* Secondary & Muted typography overrides inside light mode panels */
+html.light-mode .glass-panel .text-gray-300,
+html.light-mode .glass-panel .text-gray-400,
+html.light-mode .glass-panel .text-slate-300,
+html.light-mode .glass-panel .text-slate-400 {
+    color: var(--text-secondary) !important;
+}
+
+html.light-mode .glass-panel .text-gray-500,
+html.light-mode .glass-panel .text-gray-600,
+html.light-mode .glass-panel .text-slate-500,
+html.light-mode .glass-panel .text-slate-600 {
+    color: var(--text-muted) !important;
+}
+
+/* Secondary & Muted typography overrides inside light mode cards */
+html.light-mode .glass-card .text-gray-300,
+html.light-mode .glass-card .text-gray-400,
+html.light-mode .glass-card .text-slate-300,
+html.light-mode .glass-card .text-slate-400 {
+    color: #ffffff !important;
+}
+
+html.light-mode .light-bg-card .text-gray-300,
+html.light-mode .light-bg-card .text-gray-400,
+html.light-mode .light-bg-card .text-slate-300,
+html.light-mode .light-bg-card .text-slate-400 {
+    color: var(--text-secondary) !important;
+}
+
+html.light-mode .glass-card .text-gray-500,
+html.light-mode .glass-card .text-gray-600,
+html.light-mode .glass-card .text-slate-500,
+html.light-mode .glass-card .text-slate-600 {
+    color: #ffffff !important;
+}
+
+html.light-mode .light-bg-card .text-gray-500,
+html.light-mode .light-bg-card .text-gray-600,
+html.light-mode .light-bg-card .text-slate-500,
+html.light-mode .light-bg-card .text-slate-600 {
+    color: var(--text-muted) !important;
 }
 
 /* Preserve accent/brand colors on icons and highlights inside cards in light mode */
@@ -669,3 +814,76 @@ html.light-mode .glass-card a:not(.btn-primary):not(.btn-secondary):hover,
 html.light-mode .glass-panel a:not(.btn-primary):not(.btn-secondary):hover {
     color: var(--secondary-color) !important;
 }
+
+/* Active header link styles for light mode */
+html.light-mode header a.active,
+html.light-mode header button.active {
+    color: var(--accent-color) !important;
+}
+
+/* Header standard border and link colors in light mode */
+html.light-mode header a.border {
+    border-color: rgba(0, 0, 0, 0.15) !important;
+    color: var(--text-primary) !important;
+}
+html.light-mode header a.border:hover {
+    border-color: var(--accent-color) !important;
+    color: var(--accent-color) !important;
+}
+
+/* Remove black shades in background images for cards in both modes */
+html:not(.light-mode) .glass-card img,
+html:not(.light-mode) .swiper-slide img,
+html.light-mode .glass-card img,
+html.light-mode .swiper-slide img {
+    opacity: 0.8 !important;
+    mix-blend-mode: normal !important;
+}
+
+html:not(.light-mode) .glass-card:hover img,
+html:not(.light-mode) .swiper-slide:hover img,
+html.light-mode .glass-card:hover img,
+html.light-mode .swiper-slide:hover img {
+    opacity: 1 !important;
+}
+
+/* Hide black gradient overlays on card images in both modes */
+html:not(.light-mode) .glass-card div.absolute[class*="from-black"],
+html:not(.light-mode) .glass-card div.absolute[class*="bg-black"],
+html.light-mode .glass-card div.absolute[class*="from-black"],
+html.light-mode .glass-card div.absolute[class*="bg-black"] {
+    background: transparent !important;
+    opacity: 0 !important;
+}
+
+/* Ensure social icon links correctly render black/white text/icons on hover */
+.glass-panel.hover\:text-black:hover,
+.glass-panel.hover\:text-black:hover i,
+.glass-panel.hover\:text-black:hover svg {
+    color: #000000 !important;
+    fill: #000000 !important;
+}
+
+.glass-panel.hover\:text-white:hover,
+.glass-panel.hover\:text-white:hover i,
+.glass-panel.hover\:text-white:hover svg {
+    color: #ffffff !important;
+    fill: #ffffff !important;
+}
+
+/* Disable brand hover effects on glass-panel buttons inside light-bg-cards in Light Mode */
+html.light-mode .light-bg-card .glass-panel:hover {
+    background: rgba(255, 255, 255, 0.95) !important;
+    border-color: rgba(0, 0, 0, 0.1) !important;
+    color: var(--text-primary) !important;
+    box-shadow: none !important;
+    transform: none !important;
+}
+
+html.light-mode .light-bg-card .glass-panel:hover i,
+html.light-mode .light-bg-card .glass-panel:hover svg {
+    color: var(--text-primary) !important;
+    fill: var(--text-primary) !important;
+}
+
+
